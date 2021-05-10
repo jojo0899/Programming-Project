@@ -159,6 +159,11 @@ public class CreateEvent extends JFrame {
 		
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
+		Ort.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("W\u00E4hle die Stadt aus:");
+		lblNewLabel.setBounds(6, 6, 126, 16);
+		Ort.add(lblNewLabel);
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);
