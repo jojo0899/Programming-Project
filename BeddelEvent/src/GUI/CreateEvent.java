@@ -27,10 +27,18 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JInternalFrame;
 import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.ButtonGroup;
 
 public class CreateEvent extends JFrame {
 
+
 	private JPanel contentPane;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -119,7 +127,7 @@ public class CreateEvent extends JFrame {
 				tabbedPane.setSelectedIndex(2);
 			}
 		});
-		btnNext2.setBounds(457, 248, 97, 26);
+		btnNext2.setBounds(451, 248, 97, 26);
 		Datum.add(btnNext2);
 		
 		JButton btnBack2 = new JButton("Zur\u00FCck");
@@ -128,7 +136,7 @@ public class CreateEvent extends JFrame {
 				tabbedPane.setSelectedIndex(0);
 			}
 		});
-		btnBack2.setBounds(0, 248, 97, 26);
+		btnBack2.setBounds(6, 248, 97, 26);
 		Datum.add(btnBack2);
 		
 		 JInternalFrame internalFrame = new JInternalFrame() {
@@ -161,12 +169,108 @@ public class CreateEvent extends JFrame {
 		tabbedPane.addTab("Ort", null, Ort, null);
 		Ort.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("W\u00E4hle die Stadt aus:");
-		lblNewLabel.setBounds(6, 6, 126, 16);
-		Ort.add(lblNewLabel);
+		JLabel lblSelectCity = new JLabel("W\u00E4hle die Stadt aus:");
+		lblSelectCity.setBounds(6, 6, 126, 16);
+		Ort.add(lblSelectCity);
+		
+		JButton btnBack3 = new JButton("Zur\u00FCck");
+		btnBack3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(1);
+			}
+		});
+		btnBack3.setBounds(6, 245, 97, 26);
+		Ort.add(btnBack3);
+		
+		JButton btnNext3 = new JButton("Weiter");
+		btnNext3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(3);
+			}
+		});
+		btnNext3.setBounds(451, 245, 97, 26);
+		Ort.add(btnNext3);
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);
+		Kosten.setLayout(null);
+		
+		JLabel lblKosten = new JLabel("Fallen f\u00FCr das Event kosten an?");
+		lblKosten.setHorizontalAlignment(SwingConstants.LEFT);
+		lblKosten.setBounds(6, 6, 172, 16);
+		Kosten.add(lblKosten);
+		
+		
+		
+		
+
+		JLabel ShowSliderValue = new JLabel("50");
+		ShowSliderValue.setHorizontalAlignment(SwingConstants.RIGHT);
+		ShowSliderValue.setBounds(242, 99, 52, 16);
+		Kosten.add(ShowSliderValue);
+		
+		JSlider slider = new JSlider();
+
+		slider.setEnabled(false);
+		slider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+			int val = ((JSlider)e.getSource()).getValue();
+			String val2 = Integer.toString(val);
+			ShowSliderValue.setText(val2);
+			
+			}
+		});
+		slider.setBounds(188, 67, 200, 20);
+		Kosten.add(slider);
+		
+		
+		JRadioButton rdbtnNein = new JRadioButton("nein");
+		rdbtnNein.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				slider.setEnabled(false);
+				
+			}
+		});
+		rdbtnNein.setSelected(true);
+		buttonGroup.add(rdbtnNein);
+		rdbtnNein.setBounds(6, 34, 116, 20);
+		Kosten.add(rdbtnNein);
+		
+		JRadioButton rdbtnJa = new JRadioButton("ja");
+		rdbtnJa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				slider.setEnabled(true);
+			}
+		});
+	
+		
+		buttonGroup.add(rdbtnJa);
+		rdbtnJa.setBounds(6, 66, 116, 20);
+		Kosten.add(rdbtnJa);
+		
+
+		
+		JLabel lblEuro = new JLabel("\u20AC");
+		lblEuro.setBounds(306, 99, 52, 16);
+		Kosten.add(lblEuro);
+		
+		JButton btnBack4 = new JButton("Zur\u00FCck");
+		btnBack4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(2);
+			}
+		});
+		btnBack4.setBounds(6, 245, 97, 26);
+		Kosten.add(btnBack4);
+		
+		JButton btnNext4 = new JButton("Weiter");
+		btnNext4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.setSelectedIndex(4);
+			}
+		});
+		btnNext4.setBounds(451, 245, 97, 26);
+		Kosten.add(btnNext4);
 		
 		JPanel Teilnehmer = new JPanel();
 		tabbedPane.addTab("Teilnehmer", null, Teilnehmer, null);
