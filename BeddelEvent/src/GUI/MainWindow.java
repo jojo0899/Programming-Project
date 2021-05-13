@@ -12,6 +12,10 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainWindow extends JFrame {
 
@@ -53,69 +57,87 @@ public class MainWindow extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Start your Beddel Journey ");
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel.setBounds(104, 6, 231, 30);
+		lblNewLabel.setBounds(157, 6, 231, 30);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnCreateEvent = new JButton("Create Event");
-		btnCreateEvent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CreateEvent.main(null);
-				dispose();
+		JLabel BtnActiveEvents = new JLabel("Create your own event");
+		BtnActiveEvents.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
 			}
 		});
-		btnCreateEvent.setBounds(32, 93, 119, 26);
-		contentPane.add(btnCreateEvent);
+		BtnActiveEvents.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564398-menu2_81519 (1).png"));
+		BtnActiveEvents.setBounds(81, 184, 97, 96);
+		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(BtnActiveEvents);
 		
-		JButton btnSeachEvent = new JButton("Search Event");
-		btnSeachEvent.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				SearchEvent.main(null);
-			}
-		});
-		btnSeachEvent.setBounds(32, 148, 119, 26);
-		contentPane.add(btnSeachEvent);
-		
-		JButton btnAssignedEvents = new JButton("Assigned Events");
-		btnAssignedEvents.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAssignedEvents.setBounds(32, 199, 119, 26);
-		contentPane.add(btnAssignedEvents);
-		
-		JButton btnHistory = new JButton("History");
-		btnHistory.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnHistory.setBounds(32, 251, 119, 26);
-		contentPane.add(btnHistory);
-		
-		JLabel lblHistory = new JLabel("View all past events");
-		lblHistory.setBounds(206, 256, 200, 16);
-		contentPane.add(lblHistory);
-		
-		JLabel lblAssignedEvents = new JLabel("View all current and upcoming events");
-		lblAssignedEvents.setBounds(206, 204, 222, 16);
-		contentPane.add(lblAssignedEvents);
-		
-		JLabel lblSeachEvenet = new JLabel("Seach for an event");
-		lblSeachEvenet.setBounds(206, 153, 222, 16);
-		contentPane.add(lblSeachEvenet);
-		
-		JLabel lblCreateEvent = new JLabel("Create your own event");
-		lblCreateEvent.setBounds(206, 98, 222, 16);
-		contentPane.add(lblCreateEvent);
-		
-		JButton btnNewButton = new JButton("LogOut");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnLogOUt = new JButton("LogOut");
+		btnLogOUt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Login.main(null);
 			}
 		});
-		btnNewButton.setBounds(447, 297, 97, 26);
-		contentPane.add(btnNewButton);
+		btnLogOUt.setBounds(447, 11, 97, 26);
+		btnLogOUt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnLogOUt);
+		
+		JLabel BtnCreateEvent = new JLabel("New label");
+		BtnCreateEvent.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				
+			}
+		});
+		BtnCreateEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564412-plus_81511.png"));
+		BtnCreateEvent.setBounds(81, 48, 97, 96);
+		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(BtnCreateEvent);
+		
+		JLabel BtnHistory = new JLabel("New label");
+		BtnHistory.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
+		BtnHistory.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564404-folder_81505 (1).png"));
+		BtnHistory.setBounds(361, 184, 97, 96);
+		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(BtnHistory);
+		
+		JLabel BtnSearchEvent = new JLabel("New label");
+		BtnSearchEvent.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				SearchEvent.main(null);
+			}
+		});
+		BtnSearchEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\PikPng.com_blue-circle-png_1191296 (1) (1).png"));
+		BtnSearchEvent.setBounds(361, 46, 97, 101);
+		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(BtnSearchEvent);
+		
+		JLabel lblNewLabel_4 = new JLabel("Create new Event");
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setBounds(69, 145, 109, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("Search Event");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setBounds(361, 145, 97, 16);
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("See active Events");
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6.setBounds(81, 285, 109, 16);
+		contentPane.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("See past Events");
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_7.setBounds(371, 292, 87, 16);
+		contentPane.add(lblNewLabel_7);
 	}
 }

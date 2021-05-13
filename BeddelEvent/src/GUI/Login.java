@@ -90,16 +90,18 @@ public class Login extends JFrame {
 			}
 		});
 		btnNewButton.setBounds(277, 166, 95, 37);
+		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Login");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		btnNewButton_1.setBounds(83, 166, 95, 37);
-		contentPane.add(btnNewButton_1);
+		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		btnLogin.setBounds(83, 166, 95, 37);
+		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnLogin);
 		
 		JLabel lblNew = new JLabel("New?");
 		lblNew.setHorizontalAlignment(SwingConstants.CENTER);
