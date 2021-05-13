@@ -69,6 +69,8 @@ public class MainWindow extends JFrame {
 		JButton btnSeachEvent = new JButton("Search Event");
 		btnSeachEvent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SearchEvent.main(null);
 			}
 		});
 		btnSeachEvent.setBounds(32, 148, 119, 26);

@@ -36,14 +36,13 @@ import javax.swing.ButtonGroup;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class CreateEvent extends JFrame {
+public class SearchEvent extends JFrame {
 
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtEnterCity;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JTextField txtTeilnehmerAnz;
 
 	/**
 	 * Launch the application.
@@ -73,7 +72,7 @@ public class CreateEvent extends JFrame {
 	 * @throws PropertyVetoException 
 	 * @throws ParseException 
 	 */
-	public CreateEvent() throws PropertyVetoException, ParseException {
+	public SearchEvent() throws PropertyVetoException, ParseException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
 		contentPane = new JPanel();
@@ -282,73 +281,6 @@ public class CreateEvent extends JFrame {
 		btnNext4.setBounds(451, 245, 97, 26);
 		Kosten.add(btnNext4);
 		
-		JPanel Teilnehmer = new JPanel();
-		tabbedPane.addTab("Teilnehmer", null, Teilnehmer, null);
-		Teilnehmer.setLayout(null);
-		
-		JButton btnBack5 = new JButton("Zur\u00FCck");
-		btnBack5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(3);		//vorherigen tab öffnen
-			}
-		});
-		btnBack5.setBounds(6, 244, 97, 26);
-		Teilnehmer.add(btnBack5);
-		
-		JButton btnNext5 = new JButton("Weiter");
-		btnNext5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(5);		//nächsten tab öffnen
-			}
-		});
-		btnNext5.setBounds(451, 244, 97, 26);
-		Teilnehmer.add(btnNext5);
-		
-		JLabel lblTeilnehmerInfo = new JLabel("Gibt es eine beschr\u00E4nkte Teilnehmerzahl?");
-		lblTeilnehmerInfo.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTeilnehmerInfo.setBounds(6, 6, 249, 16);
-		Teilnehmer.add(lblTeilnehmerInfo);
-		
-		txtTeilnehmerAnz = new JTextField();
-		txtTeilnehmerAnz.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-		        if(!Character.isDigit(e.getKeyChar())){			//nur zahlen als input in txt feld erlauben
-		            e.consume();
-		            }
-			}
-		});
-		txtTeilnehmerAnz.setBounds(104, 63, 47, 26);
-		Teilnehmer.add(txtTeilnehmerAnz);
-		txtTeilnehmerAnz.setColumns(10);
-		
-		JRadioButton rdbtnTeilnehmerNein = new JRadioButton("nein");
-		rdbtnTeilnehmerNein.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtTeilnehmerAnz.setEnabled(false);
-			}
-		});
-		buttonGroup_1.add(rdbtnTeilnehmerNein);
-		rdbtnTeilnehmerNein.setSelected(true);
-		rdbtnTeilnehmerNein.setBounds(6, 34, 68, 20);
-		Teilnehmer.add(rdbtnTeilnehmerNein);
-		
-		JRadioButton rdbtnTeilnehmerja = new JRadioButton("ja");
-		rdbtnTeilnehmerja.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtTeilnehmerAnz.setEnabled(true);
-			}
-		});
-		buttonGroup_1.add(rdbtnTeilnehmerja);
-		rdbtnTeilnehmerja.setBounds(6, 66, 68, 20);
-		Teilnehmer.add(rdbtnTeilnehmerja);
-		
-		
-		
-		JLabel lblNewLabel_1 = new JLabel("Teilnehmer");
-		lblNewLabel_1.setBounds(152, 68, 79, 16);
-		Teilnehmer.add(lblNewLabel_1);
-		
 		JPanel Gemischt = new JPanel();
 		tabbedPane.addTab("Gemischt", null, Gemischt, null);
 		Gemischt.setLayout(null);
@@ -366,8 +298,8 @@ public class CreateEvent extends JFrame {
 		btnNext6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MainWindow.main(null);
-			}
+				SearchEventResultList.main(null);
+				}
 		});
 		btnNext6.setBounds(451, 245, 97, 26);
 		Gemischt.add(btnNext6);
