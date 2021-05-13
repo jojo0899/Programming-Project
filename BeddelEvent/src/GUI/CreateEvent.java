@@ -103,6 +103,7 @@ public class CreateEvent extends JFrame {
 		JButton btnBack = new JButton("Zur\u00FCck");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				MainWindow.main(null);			//Bei click auf zurück das  Mainwindow öffnen
 			}
 		});
