@@ -87,6 +87,7 @@ public class MainWindow extends JFrame {
 		BtnCreateEvent.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				CreateEvent.main(null);
 				dispose();
 				
 			}
