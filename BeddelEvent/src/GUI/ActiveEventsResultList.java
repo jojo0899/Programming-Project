@@ -20,6 +20,7 @@ public class ActiveEventsResultList extends JFrame {
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
 	private JTable table;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -111,5 +112,14 @@ public class ActiveEventsResultList extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(table);
+		
+		btnNewButton = new JButton("Absagen");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//SQL DELETE
+			}
+		});
+		btnNewButton.setBounds(503, 339, 97, 26);
+		contentPane.add(btnNewButton);
 	}
 }
