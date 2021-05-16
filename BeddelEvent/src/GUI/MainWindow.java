@@ -64,7 +64,8 @@ public class MainWindow extends JFrame {
 		BtnActiveEvents.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				dispose();
+				ActiveEventsResultList.main(null);
 			}
 		});
 		BtnActiveEvents.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564398-menu2_81519 (1).png"));
@@ -101,6 +102,8 @@ public class MainWindow extends JFrame {
 		BtnHistory.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				dispose();
+				HistoryList.main(null);
 			}
 		});
 		BtnHistory.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564404-folder_81505 (1).png"));
@@ -112,8 +115,8 @@ public class MainWindow extends JFrame {
 		BtnSearchEvent.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose();
 				SearchEvent.main(null);
+				dispose();
 			}
 		});
 		BtnSearchEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\PikPng.com_blue-circle-png_1191296 (1) (1).png"));

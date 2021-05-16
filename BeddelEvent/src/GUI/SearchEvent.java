@@ -2,7 +2,11 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Frame;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,7 +60,7 @@ public class SearchEvent extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CreateEvent frame = new CreateEvent();
+					SearchEvent frame = new SearchEvent();
 					frame.setLocationRelativeTo(null);
 
 					frame.setVisible(true);
@@ -96,14 +100,17 @@ public class SearchEvent extends JFrame {
 		JComboBox SelectSports = new JComboBox(); //Sportarten in JcomboBox eintragen
 		SelectSports.setModel(new DefaultComboBoxModel(new String[] {"Aerobic", "Badminton", "Ballett", "Baseball", "Basketball", "Bauchtanz", "Beachvolleyball", "Bergsteigen", "Bergwandern", "Billard", "Bodybuilding", "Bogenschie\u00DFen", "Bowling", "Boxen", "Broomball", "Crosstrainer", "Crunches", "Darts", "Dauerlaufen", "Fechten", "Fitnesstraining", "Football", "Fu\u00DFball", "Gehen", "Gewichtheben", "Golf", "Gymnastik", "Hacky Sack", "Handball", "Hockey", "Inline-Skaten", "Jazz/Modern Dance", "Joggen", "Judo", "Kanu fahren", "Karate", "Kinderspiele", "Klettern", "Krafttraining", "Leichtathletik", "Liegest\u00FCtze", "Mountainbiken", "Pilates", "Polo", "Qigong", "Radfahren", "Reiten", "Rollschuhlaufen", "Rudern", "Schlittschuhlaufen", "Schwimmen", "Segeln", "Seilspringen", "Sit-Ups", "Skateboarden", "Skifahren", "Skilanglauf", "Snowboarden", "Softball", "Squash", "Stretching", "Taekwondo", "Tai-Chi", "Tanzen", "Tauchen", "Tennis", "Thai Bo/ Tae Bo", "Tischtennis", "Trampolinspringen", "Volleyball", "Wakeboarden", "Walking", "Wandern", "Wasseraerobic", "Windsurfen", "Yoga"}));
 		SelectSports.setBounds(6, 47, 162, 26);
+		SelectSports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		Sportart.add(SelectSports);
 		
 		JButton btnBack = new JButton("Zur\u00FCck");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				MainWindow.main(null);			//Bei click auf zurück das  Mainwindow öffnen
 			}
 		});
+		btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnBack.setBounds(6, 246, 97, 26);
 		Sportart.add(btnBack);
 		
@@ -113,6 +120,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(1);				//in nächsten Tab springen
 			}
 		});
+		btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext.setBounds(451, 246, 97, 26);
 		Sportart.add(btnNext);
 		
@@ -131,6 +139,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(2);		//in nächsten tab springen
 			}
 		});
+		btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext2.setBounds(451, 248, 97, 26);
 		Datum.add(btnNext2);
 		
@@ -140,6 +149,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(0);	//vorherigen tab öffnen
 			}
 		});
+		btnBack2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnBack2.setBounds(6, 248, 97, 26);
 		Datum.add(btnBack2);
 		
@@ -163,6 +173,7 @@ public class SearchEvent extends JFrame {
 	        
 		 Calender.setSelectableDateRange(begin, new SimpleDateFormat("DD.MM.YYYY").parse("12.07.2022")); //nur events 1 Jahr im voraus planbar 
 		 Calender.getYearChooser().getSpinner().setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		 Calender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		 internalFrame.getContentPane().add(Calender);
 		
 		
@@ -183,6 +194,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(1);			//vorherigen tab öffnen
 			}
 		});
+		btnBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnBack3.setBounds(6, 245, 97, 26);
 		Ort.add(btnBack3);
 		
@@ -192,6 +204,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
 			}
 		});
+		btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext3.setBounds(451, 245, 97, 26);
 		Ort.add(btnNext3);
 		
@@ -229,6 +242,7 @@ public class SearchEvent extends JFrame {
 			
 			}
 		});
+		slider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		slider.setBounds(188, 67, 200, 20);
 		Kosten.add(slider);
 		
@@ -240,6 +254,7 @@ public class SearchEvent extends JFrame {
 				
 			}
 		});
+		rdbtnNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		rdbtnNein.setSelected(true);
 		buttonGroup.add(rdbtnNein);
 		rdbtnNein.setBounds(6, 34, 116, 20);
@@ -251,8 +266,7 @@ public class SearchEvent extends JFrame {
 				slider.setEnabled(true);			//wenn ja ausgewählt wird slider aktivieren
 			}
 		});
-	
-		
+		rdbtnJa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnJa); //button group erstellen. Nur euin button kann uasgewählt werden
 		rdbtnJa.setBounds(6, 66, 116, 20);
 		Kosten.add(rdbtnJa);
@@ -269,6 +283,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(2);		//nächsten tab öffnen
 			}
 		});
+		btnBack4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnBack4.setBounds(6, 245, 97, 26);
 		Kosten.add(btnBack4);
 		
@@ -278,6 +293,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(4); //<vorherigen tab öffnen
 			}
 		});
+		btnNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext4.setBounds(451, 245, 97, 26);
 		Kosten.add(btnNext4);
 		
@@ -291,6 +307,7 @@ public class SearchEvent extends JFrame {
 				tabbedPane.setSelectedIndex(4);
 			}
 		});
+		btnBack6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnBack6.setBounds(6, 245, 97, 26);
 		Gemischt.add(btnBack6);
 		
@@ -299,8 +316,9 @@ public class SearchEvent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				SearchEventResultList.main(null);
-				}
+			}
 		});
+		btnNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext6.setBounds(451, 245, 97, 26);
 		Gemischt.add(btnNext6);
 	}

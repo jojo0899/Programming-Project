@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
@@ -16,7 +15,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 
-public class SearchEventResultList extends JFrame {
+public class HistoryList extends JFrame {
 
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
@@ -34,7 +33,7 @@ public class SearchEventResultList extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchEventResultList frame = new SearchEventResultList();
+					HistoryList frame = new HistoryList();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -47,7 +46,7 @@ public class SearchEventResultList extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SearchEventResultList() {
+	public HistoryList() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
 		contentPane = new JPanel();
@@ -55,7 +54,25 @@ public class SearchEventResultList extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-	
+		JButton btnSelect = new JButton("Ausw\u00E4hlen");
+		btnSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+							
+			}
+		});
+		btnSelect.setBounds(612, 339, 97, 26);
+		contentPane.add(btnSelect);
+		
+		JButton btnBack = new JButton("Zur\u00FCck");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainWindow.main(null);
+			}
+		});
+		btnBack.setBounds(6, 339, 97, 26);
+		contentPane.add(btnBack);
+		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
@@ -94,37 +111,5 @@ public class SearchEventResultList extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(table);
-		
-		
-		JButton btnSelect = new JButton("Ausw\u00E4hlen");
-		btnSelect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(!table.getSelectionModel().isSelectionEmpty()) {
-				dispose();
-				SearchEventConfirm.main(null);
-				}else {
-					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-		});
-		
-		btnSelect.setBounds(612, 339, 97, 26);
-		contentPane.add(btnSelect);
-		
-		JButton btnBack = new JButton("Zur\u00FCck");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				SearchEvent.main(null);
-			}
-		});
-
-		btnBack.setBounds(6, 339, 97, 26);
-		contentPane.add(btnBack);
-		
-		
-		
 	}
-	
-	
 }
