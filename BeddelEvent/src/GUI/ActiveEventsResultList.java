@@ -38,6 +38,7 @@ public class ActiveEventsResultList extends JFrame {
 					ActiveEventsResultList frame = new ActiveEventsResultList();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null); 		//fenster in der mitte plazieren
+					frame.setResizable(false); //größe nicht anpassbar
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

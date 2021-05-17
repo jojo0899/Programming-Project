@@ -43,6 +43,7 @@ public class Login extends JFrame {
 					Login frame = new Login();
 					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 					frame.setVisible(true);
+					frame.setResizable(false); //größe nicht anpassbar
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

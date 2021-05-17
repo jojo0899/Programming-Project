@@ -30,6 +30,7 @@ public class HistoryView extends JFrame {
 					HistoryView frame = new HistoryView();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null); //fenster in mitte plazieren
+					frame.setResizable(false); //größe nicht anpassbar
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

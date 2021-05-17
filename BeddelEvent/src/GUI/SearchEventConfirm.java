@@ -32,6 +32,7 @@ public class SearchEventConfirm extends JFrame {
 				try {
 					SearchEventConfirm frame = new SearchEventConfirm();
 					frame.setVisible(true);
+					frame.setResizable(false); //größe nicht anpassbar
 					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 				} catch (Exception e) {
 					e.printStackTrace();

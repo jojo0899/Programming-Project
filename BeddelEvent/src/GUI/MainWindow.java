@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 				try {
 					MainWindow frame = new MainWindow();
 					frame.setLocationRelativeTo(null);		//fenster in mitte plazieren
-
+					frame.setResizable(false); //größe nicht anpassbar
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

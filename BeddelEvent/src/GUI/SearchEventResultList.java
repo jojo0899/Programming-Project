@@ -36,6 +36,7 @@ public class SearchEventResultList extends JFrame {
 				try {
 					SearchEventResultList frame = new SearchEventResultList();
 					frame.setVisible(true);
+					frame.setResizable(false); //größe nicht anpassbar
 					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -30,6 +30,7 @@ public class ActiveEventsView extends JFrame {
 					ActiveEventsView frame = new ActiveEventsView();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);		//fenster in der mitte positionieren
+					frame.setResizable(false); //größe nicht anpassbar
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
