@@ -22,15 +22,24 @@ import javax.swing.ButtonGroup;
 
 public class Register extends JFrame {
 	
+	/**
+	 * Prüfen ob die Email Syntax korrejt ist 
+	 * @param email1 eingebene Emailadresse aus register feld 
+	 * @return true wenn syntax korrekt
+	 */
 	public static boolean isValidEmailAddress(String email1) {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email1);
         return m.matches();
  }
+	/**
+	 * Sind alle felder gefüllt und korrekt gefüllt? 
+	 * @return true wenn alles passt
+	 */
 	public boolean FieldsOKtest()
     {
-       	String username = txtUserName.getText();
+       	String username = txtUserName.getText(); //information aus texteignabe in vairable storen
         String firstName =  txtFirstName.getText();
         String lastName =   txtLastName.getText();
         String mail =       txtEmail.getText();
@@ -40,30 +49,28 @@ public class Register extends JFrame {
 
   
 
-        //Trim Whitespace and compare if empty
+        //leerzeichen nicht möglich und prüft ob felder leer sind
         if( firstName.trim().equals("") || lastName.trim().equals("") || mail.trim().equals("") || mailconfirm.trim().equals("") 
                 || pwd.trim().equals("") || pwdconfirm.trim().equals(""))   
-        {
-            JOptionPane.showMessageDialog(null, "Please fill all fields!", "Empty Fields",JOptionPane.WARNING_MESSAGE);
+        { //wenn feld leer ist fehlermeldung ausgeben
+            JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
             return false;
         }
              
-        else if(!isValidEmailAddress(mail)) { //check if its a valid email adress
-            JOptionPane.showMessageDialog(null, "Not a correct Email Syntax!", "Email Error",JOptionPane.WARNING_MESSAGE);
+        else if(!isValidEmailAddress(mail)) { //check if its a valid email adress wenn nicht true error ausgeben
+            JOptionPane.showMessageDialog(null, "Keine gültige Email-Adresse!", "Email Error",JOptionPane.WARNING_MESSAGE);
             return false;
         	
         }
-        else if (!mail.equals(mailconfirm)) //if equal == 1 true
+        else if (!mail.equals(mailconfirm)) // wenn die mails nicht übereinstimmen fehlermeldung
         {
-            JOptionPane.showMessageDialog(null, "Email-Addresses don't match!", "Email Error",JOptionPane.WARNING_MESSAGE);
-           // int status = 0;
-         //   System.exit(status);
+            JOptionPane.showMessageDialog(null, "Email-Adressen stimmen nicht überein!", "Email Error",JOptionPane.WARNING_MESSAGE);
             return false;
             
         }
-        else if (!pwd.equals(pwdconfirm)) //if equal == 1 true
+        else if (!pwd.equals(pwdconfirm)) //wenn passwörter nicht übereinstimmen fehlermeldung
         {
-            JOptionPane.showMessageDialog(null, "Passwords don't match!", "Password Error",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Passwörter stimmen nicht überein!", "Password Error",JOptionPane.WARNING_MESSAGE);
             return false;
             
         }
@@ -78,7 +85,7 @@ public class Register extends JFrame {
 //                    
             
            
-            return true;
+            return true; //gibt true zurück wenn alles passt
         }
         
     }
@@ -120,7 +127,7 @@ public class Register extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //set look and feel
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -128,7 +135,7 @@ public class Register extends JFrame {
 			public void run() {
 				try {
 					Register frame = new Register();
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null); //fenster in mitte plazieren
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -149,7 +156,7 @@ public class Register extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel LblRegistration = new JLabel("Registration");
+		JLabel LblRegistration = new JLabel("Registrierung");
 		LblRegistration.setHorizontalAlignment(SwingConstants.CENTER);
 		LblRegistration.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		LblRegistration.setBounds(230, 6, 145, 25);
@@ -165,7 +172,7 @@ public class Register extends JFrame {
 		lblEmail.setBounds(94, 65, 145, 16);
 		contentPane.add(lblEmail);
 		
-		JLabel lblEmailConfirmation = new JLabel("Email Confirmation:");
+		JLabel lblEmailConfirmation = new JLabel("Email bestätigen:");
 		lblEmailConfirmation.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmailConfirmation.setBounds(94, 93, 145, 16);
 		contentPane.add(lblEmailConfirmation);
@@ -175,17 +182,16 @@ public class Register extends JFrame {
 		lblPassword.setBounds(94, 124, 145, 16);
 		contentPane.add(lblPassword);
 		
-		JLabel lblPasswordConfirmation = new JLabel("Password Confirmation:");
+		JLabel lblPasswordConfirmation = new JLabel("Password bestätigen:");
 		lblPasswordConfirmation.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPasswordConfirmation.setBounds(94, 152, 145, 16);
 		contentPane.add(lblPasswordConfirmation);
 		
 		txtUserName = new JTextField();
-		txtUserName.addKeyListener(new KeyAdapter() {
+		txtUserName.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
-				 // No Whitespace in UserName
-		        if(Character.isWhitespace(e.getKeyChar())){
+				 if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeicghen zu
 		            e.consume();
 		        }
 			}
@@ -195,11 +201,11 @@ public class Register extends JFrame {
 		txtUserName.setColumns(10);
 		
 		txtEmail = new JTextField();
-		txtEmail.addKeyListener(new KeyAdapter() {
+		txtEmail.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
-				 // No Whitespace in Password
-		        if(Character.isWhitespace(e.getKeyChar())){
+				 
+		        if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeicghen zu
 		            e.consume();
 		        }
 			}
@@ -209,11 +215,10 @@ public class Register extends JFrame {
 		txtEmail.setColumns(10);
 		
 		txtemailconfirm = new JTextField();
-		txtemailconfirm.addKeyListener(new KeyAdapter() {
+		txtemailconfirm.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
-				 // No Whitespace in emailconfirm
-		        if(Character.isWhitespace(e.getKeyChar())){
+				 if(Character.isWhitespace(e.getKeyChar())){// lässt keine leerzeichen zu
 		            e.consume();
 		        }
 			}
@@ -225,9 +230,9 @@ public class Register extends JFrame {
 		txtpw = new JTextField();
 		txtpw.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				 // No Whitespace in Password
-		        if(Character.isWhitespace(e.getKeyChar())){
+			public void keyTyped(KeyEvent e) { //wenn etwas getippt wurde
+			
+		        if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeichen zu
 		            e.consume();
 		        }
 			}
@@ -237,11 +242,10 @@ public class Register extends JFrame {
 		txtpw.setColumns(10);
 		
 		txtpwconfirm = new JTextField();
-		txtpwconfirm.addKeyListener(new KeyAdapter() {
+		txtpwconfirm.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
-				 // No Whitespace in PasswordConfirm
-		        if(Character.isWhitespace(e.getKeyChar())){
+				 if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeichen zu
 		            e.consume();
 		        }
 			}
@@ -250,46 +254,46 @@ public class Register extends JFrame {
 		contentPane.add(txtpwconfirm);
 		txtpwconfirm.setColumns(10);
 		
-		JLabel lblFirstName = new JLabel("First Name: ");
+		JLabel lblFirstName = new JLabel("Vorname: ");
 		lblFirstName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFirstName.setBounds(157, 180, 82, 16);
 		contentPane.add(lblFirstName);
 		
-		JLabel lblLastName = new JLabel("Last Name:");
+		JLabel lblLastName = new JLabel("Nachname:");
 		lblLastName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblLastName.setBounds(144, 208, 95, 16);
 		contentPane.add(lblLastName);
 		
-		JLabel lblGender = new JLabel("Gender:");
+		JLabel lblGender = new JLabel("Geschlecht:");
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblGender.setBounds(187, 236, 52, 16);
 		contentPane.add(lblGender);
 		
-		JRadioButton ButtonMale = new JRadioButton("Male");
+		JRadioButton ButtonMale = new JRadioButton("Männlich");
 		buttonGroup.add(ButtonMale);
-		ButtonMale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		ButtonMale.addActionListener(new ActionListener() {
+		ButtonMale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //Handcursor beim hoovern
+		ButtonMale.addActionListener(new ActionListener() { //wenn button male gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		ButtonMale.setSelected(true);
+		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
 		ButtonMale.setBounds(251, 234, 70, 20);
 		contentPane.add(ButtonMale);
 		
-		JRadioButton ButtonFemale = new JRadioButton("Female");
+		JRadioButton ButtonFemale = new JRadioButton("Weiblich");
 		buttonGroup.add(ButtonFemale);
-		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		ButtonFemale.addActionListener(new ActionListener() {
+		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handcursor beim hoovern
+		ButtonFemale.addActionListener(new ActionListener() { //wenn female button gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		ButtonFemale.setBounds(323, 234, 70, 20);
 		contentPane.add(ButtonFemale);
 		
-		JRadioButton ButtonDiverse = new JRadioButton("Diverse");
+		JRadioButton ButtonDiverse = new JRadioButton("Divers");
 		buttonGroup.add(ButtonDiverse);
-		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		ButtonDiverse.addActionListener(new ActionListener() {
+		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handucrsor beim hoovern
+		ButtonDiverse.addActionListener(new ActionListener() { //wenn Divers gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -297,11 +301,10 @@ public class Register extends JFrame {
 		contentPane.add(ButtonDiverse);
 		
 		txtFirstName = new JTextField();
-		txtFirstName.addKeyListener(new KeyAdapter() {
+		txtFirstName.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
-				//only letters
-				  if(!Character.isLetter(e.getKeyChar())){
+				  if(!Character.isLetter(e.getKeyChar())){ //lässt nur Buchstaben zu
 			            e.consume();
 			}}
 		});
@@ -310,10 +313,10 @@ public class Register extends JFrame {
 		txtFirstName.setColumns(10);
 		
 		txtLastName = new JTextField();
-		txtLastName.addKeyListener(new KeyAdapter() {
+		txtLastName.addKeyListener(new KeyAdapter() { //wenn etas getippt wurde
 			@Override //only letters
-			public void keyTyped(KeyEvent e) {
-				  if(!Character.isLetter(e.getKeyChar())){
+			public void keyTyped(KeyEvent e) { //
+				  if(!Character.isLetter(e.getKeyChar())){ //lässt nur buchstaben zu
 			            e.consume();
 			}}
 		});
@@ -321,7 +324,7 @@ public class Register extends JFrame {
 		contentPane.add(txtLastName);
 		txtLastName.setColumns(10);
 		
-		JButton BackButton = new JButton("Back");
+		JButton BackButton = new JButton("Zurück");
 		BackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//when back is pressed return to main window and close the current one

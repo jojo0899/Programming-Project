@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
@@ -26,7 +27,7 @@ public class HistoryList extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //look and feel setten
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -35,7 +36,7 @@ public class HistoryList extends JFrame {
 				try {
 					HistoryList frame = new HistoryList();
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null);	//fenster in mitte plazieren
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,30 +55,13 @@ public class HistoryList extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnSelect = new JButton("Ausw\u00E4hlen");
-		btnSelect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-							
-			}
-		});
-		btnSelect.setBounds(612, 339, 97, 26);
-		contentPane.add(btnSelect);
-		
-		JButton btnBack = new JButton("Zur\u00FCck");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				MainWindow.main(null);
-			}
-		});
-		btnBack.setBounds(6, 339, 97, 26);
-		contentPane.add(btnBack);
+
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
+		table = new JTable();		//table ohne inhalt erstellen
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
@@ -100,16 +84,43 @@ public class HistoryList extends JFrame {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column" //column namen des tabel
 			}
 		) {
-			boolean[] columnEditables = new boolean[] {
+			boolean[] columnEditables = new boolean[] {				//zeilen nicht editierbar
 				false, false, false, false, false, false, false, false
 			};
-			public boolean isCellEditable(int row, int column) {
+			public boolean isCellEditable(int row, int column) {		//zellen nicht editierbar
 				return columnEditables[column];
 			}
 		});
 		scrollPane.setViewportView(table);
+		
+		JButton btnSelect = new JButton("Ausw\u00E4hlen");
+		btnSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!table.getSelectionModel().isSelectionEmpty()) {	//wenn button Auswählen gedrüfckt wurde und eine Zeile ausgewählt
+					dispose();			//schließe aktuelles fenester
+					HistoryView.main(null);	//öffne die übersicht History
+					} else {
+						 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);	//fehlermeldung wenn nciths ausgewählt wurde
+					}							
+			}
+		});
+		btnSelect.setBounds(612, 339, 97, 26);
+		btnSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern
+		contentPane.add(btnSelect);
+		
+		JButton btnBack = new JButton("Zur\u00FCck");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //wenn zurück button geclicked
+				dispose();				//fenster schließen
+				MainWindow.main(null); 	//hauptfenster öffnen
+			}
+		});
+		btnBack.setBounds(6, 339, 97, 26);
+		btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnBack);
+		
 	}
 }

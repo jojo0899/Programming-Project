@@ -33,7 +33,7 @@ public class Login extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //look and feel ändern
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -41,7 +41,7 @@ public class Login extends JFrame {
 			public void run() {
 				try {
 					Login frame = new Login();
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +73,7 @@ public class Login extends JFrame {
 		txtUserName = new JTextField();
 		txtUserName.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
+			public void keyTyped(KeyEvent e) { //wenn user name eingebeen wurde wert abfragen
 			}
 		});
 		txtUserName.setBounds(77, 102, 126, 24);
@@ -82,10 +82,10 @@ public class Login extends JFrame {
 		
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {		//wenn registrieren gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				Register.main(null);
+				dispose(); //login fenster schließen
+				Register.main(null); //main window öffnen
 				
 			}
 		});
@@ -96,6 +96,7 @@ public class Login extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// wenn login geclicekd wurde SQL abfrage ob daten passen
 			}
 		});
 		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 12));
@@ -121,7 +122,7 @@ public class Login extends JFrame {
 		txtPassword = new JPasswordField();
 		txtPassword.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
+			public void keyTyped(KeyEvent e) {		//Password eingabe
 			}
 		});
 		txtPassword.setBounds(77, 129, 126, 26);

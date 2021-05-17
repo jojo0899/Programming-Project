@@ -60,7 +60,7 @@ public class SearchEventResultList extends JFrame {
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
+		table = new JTable(); //leere tabelle ohne werte erstellen
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
@@ -83,10 +83,10 @@ public class SearchEventResultList extends JFrame {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column" //Spaltenname
 			}
 		) {
-			boolean[] columnEditables = new boolean[] {
+			boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
 				false, false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
@@ -99,10 +99,10 @@ public class SearchEventResultList extends JFrame {
 		JButton btnSelect = new JButton("Ausw\u00E4hlen");
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!table.getSelectionModel().isSelectionEmpty()) {
-				dispose();
-				SearchEventConfirm.main(null);
-				}else {
+				if(!table.getSelectionModel().isSelectionEmpty()) { //wenn auswählen dgedrückt und eine zeile asugewählt wurde
+				dispose(); //fnester schließen
+				SearchEventConfirm.main(null); //Bestötigungsfenster öffnen
+				}else { //wenn keine zeiele asugewählt wurde
 					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);
 				}
 			}
@@ -113,9 +113,9 @@ public class SearchEventResultList extends JFrame {
 		
 		JButton btnBack = new JButton("Zur\u00FCck");
 		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				SearchEvent.main(null);
+			public void actionPerformed(ActionEvent e) {	//wenn click on zurück 
+				dispose(); //fenster schließen 
+				SearchEvent.main(null); //Search event main öffnen
 			}
 		});
 

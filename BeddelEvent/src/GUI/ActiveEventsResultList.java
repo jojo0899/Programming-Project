@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
@@ -27,7 +28,7 @@ public class ActiveEventsResultList extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //look and feel setzten
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -36,7 +37,7 @@ public class ActiveEventsResultList extends JFrame {
 				try {
 					ActiveEventsResultList frame = new ActiveEventsResultList();
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null); 		//fenster in der mitte plazieren
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,31 +56,14 @@ public class ActiveEventsResultList extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnSelect = new JButton("Ausw\u00E4hlen");
-		btnSelect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-							
-			}
-		});
-		btnSelect.setBounds(612, 339, 97, 26);
-		contentPane.add(btnSelect);
-		
-		JButton btnBack = new JButton("Zur\u00FCck");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				MainWindow.main(null);
-			}
-		});
-		btnBack.setBounds(6, 339, 97, 26);
-		contentPane.add(btnBack);
+
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		table.setModel(new DefaultTableModel(					//tabelle ohne Inhalte
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -101,13 +85,13 @@ public class ActiveEventsResultList extends JFrame {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"     //ComunName
 			}
 		) {
-			boolean[] columnEditables = new boolean[] {
+			boolean[] columnEditables = new boolean[] {					//Spalten dürfen nicht editiert werden
 				false, false, false, false, false, false, false, false
 			};
-			public boolean isCellEditable(int row, int column) {
+			public boolean isCellEditable(int row, int column) {		//Zellen dürfen nicht editiert werden
 				return columnEditables[column];
 			}
 		});
@@ -116,10 +100,42 @@ public class ActiveEventsResultList extends JFrame {
 		btnNewButton = new JButton("Absagen");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(!table.getSelectionModel().isSelectionEmpty()) {		//wenn der button absagen gedrüclt wurde und eine reihe ausgewählt wurde, führe sql delete statement aus 
 				//SQL DELETE
+				} else {
+					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //button gedrückt aber nichts ausgewählt
+				}
+							
 			}
 		});
 		btnNewButton.setBounds(503, 339, 97, 26);
+		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
+		
+		JButton btnSelect = new JButton("Ausw\u00E4hlen");
+		btnSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!table.getSelectionModel().isSelectionEmpty()) {	//button auswählen gedrückt, schließe das aktuelle fenster und öffne die übersicht ActiveEventsView
+				dispose();
+				ActiveEventsView.main(null);
+				} else {
+					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //falls der button gedrückt wurde aber nichts ausgewählt wurde
+				}
+							
+			}
+		});
+		btnSelect.setBounds(612, 339, 97, 26);
+		contentPane.add(btnSelect);
+		
+		JButton btnBack = new JButton("Zur\u00FCck");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {		//button zurück wurde gedrückt. Kehre zum Main window zurück und schließe das aktuelle fenster
+				dispose();
+				MainWindow.main(null);
+			}
+		});
+		btnBack.setBounds(6, 339, 97, 26);
+		btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnBack);
 	}
 }

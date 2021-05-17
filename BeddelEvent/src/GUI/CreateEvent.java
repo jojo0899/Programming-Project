@@ -41,7 +41,7 @@ public class CreateEvent extends JFrame {
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JTextField txtEnterCity;
+	private JTextField txtOrtEnterCity;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JTextField txtTeilnehmerAnz;
 
@@ -50,7 +50,7 @@ public class CreateEvent extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");		//look and feel einrichten
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -58,7 +58,7 @@ public class CreateEvent extends JFrame {
 			public void run() {
 				try {
 					CreateEvent frame = new CreateEvent();
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null);		//fenster in der mitte plazieren
 
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -97,29 +97,29 @@ public class CreateEvent extends JFrame {
 		JComboBox SelectSports = new JComboBox(); //Sportarten in JcomboBox eintragen
 		SelectSports.setModel(new DefaultComboBoxModel(new String[] {"Aerobic", "Badminton", "Ballett", "Baseball", "Basketball", "Bauchtanz", "Beachvolleyball", "Bergsteigen", "Bergwandern", "Billard", "Bodybuilding", "Bogenschie\u00DFen", "Bowling", "Boxen", "Broomball", "Crosstrainer", "Crunches", "Darts", "Dauerlaufen", "Fechten", "Fitnesstraining", "Football", "Fu\u00DFball", "Gehen", "Gewichtheben", "Golf", "Gymnastik", "Hacky Sack", "Handball", "Hockey", "Inline-Skaten", "Jazz/Modern Dance", "Joggen", "Judo", "Kanu fahren", "Karate", "Kinderspiele", "Klettern", "Krafttraining", "Leichtathletik", "Liegest\u00FCtze", "Mountainbiken", "Pilates", "Polo", "Qigong", "Radfahren", "Reiten", "Rollschuhlaufen", "Rudern", "Schlittschuhlaufen", "Schwimmen", "Segeln", "Seilspringen", "Sit-Ups", "Skateboarden", "Skifahren", "Skilanglauf", "Snowboarden", "Softball", "Squash", "Stretching", "Taekwondo", "Tai-Chi", "Tanzen", "Tauchen", "Tennis", "Thai Bo/ Tae Bo", "Tischtennis", "Trampolinspringen", "Volleyball", "Wakeboarden", "Walking", "Wandern", "Wasseraerobic", "Windsurfen", "Yoga"}));
 		SelectSports.setBounds(6, 47, 162, 26);
-		SelectSports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		SelectSports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
 		Sportart.add(SelectSports);
 		
-		JButton btnBack = new JButton("Zur\u00FCck");
-		btnBack.addActionListener(new ActionListener() {
+		JButton btnSportArtBack = new JButton("Zur\u00FCck");
+		btnSportArtBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MainWindow.main(null);			//Bei click auf zurück das  Mainwindow öffnen
 			}
 		});
-		btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack.setBounds(6, 246, 97, 26);
-		Sportart.add(btnBack);
+		btnSportArtBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
+		btnSportArtBack.setBounds(6, 246, 97, 26);
+		Sportart.add(btnSportArtBack);
 		
-		JButton btnNext = new JButton("Weiter");
-		btnNext.addActionListener(new ActionListener() {
+		JButton btnSportArtNext = new JButton("Weiter");
+		btnSportArtNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(1);				//in nächsten Tab springen
 			}
 		});
-		btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext.setBounds(451, 246, 97, 26);
-		Sportart.add(btnNext);
+		btnSportArtNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
+		btnSportArtNext.setBounds(451, 246, 97, 26);
+		Sportart.add(btnSportArtNext);
 		
 		JPanel Datum = new JPanel();
 		tabbedPane.addTab("Datum", null, Datum, null);
@@ -130,25 +130,25 @@ public class CreateEvent extends JFrame {
 		lblSelectDatum.setBounds(6, 6, 117, 16);
 		Datum.add(lblSelectDatum);
 		
-		JButton btnNext2 = new JButton("Weiter");
-		btnNext2.addActionListener(new ActionListener() {
+		JButton btnDatumNext2 = new JButton("Weiter");
+		btnDatumNext2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(2);		//in nächsten tab springen
 			}
 		});
-		btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext2.setBounds(451, 248, 97, 26);
-		Datum.add(btnNext2);
+		btnDatumNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
+		btnDatumNext2.setBounds(451, 248, 97, 26);
+		Datum.add(btnDatumNext2);
 		
-		JButton btnBack2 = new JButton("Zur\u00FCck");
-		btnBack2.addActionListener(new ActionListener() {
+		JButton btnDatumBack2 = new JButton("Zur\u00FCck");
+		btnDatumBack2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(0);	//vorherigen tab öffnen
 			}
 		});
-		btnBack2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack2.setBounds(6, 248, 97, 26);
-		Datum.add(btnBack2);
+		btnDatumBack2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
+		btnDatumBack2.setBounds(6, 248, 97, 26);
+		Datum.add(btnDatumBack2);
 		
 		 JInternalFrame internalFrame = new JInternalFrame() { //internal jframe für calender erzeugen
 	           @Override
@@ -170,7 +170,7 @@ public class CreateEvent extends JFrame {
 	        
 		 Calender.setSelectableDateRange(begin, new SimpleDateFormat("DD.MM.YYYY").parse("12.07.2022")); //nur events 1 Jahr im voraus planbar 
 		 Calender.getYearChooser().getSpinner().setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		 Calender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		 Calender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
 		 internalFrame.getContentPane().add(Calender);
 		
 		
@@ -185,30 +185,30 @@ public class CreateEvent extends JFrame {
 		lblSelectCity.setBounds(6, 6, 126, 16);
 		Ort.add(lblSelectCity);
 		
-		JButton btnBack3 = new JButton("Zur\u00FCck");
-		btnBack3.addActionListener(new ActionListener() {
+		JButton btnOrtBack3 = new JButton("Zur\u00FCck");
+		btnOrtBack3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(1);			//vorherigen tab öffnen
 			}
 		});
-		btnBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack3.setBounds(6, 245, 97, 26);
-		Ort.add(btnBack3);
+		btnOrtBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
+		btnOrtBack3.setBounds(6, 245, 97, 26);
+		Ort.add(btnOrtBack3);
 		
-		JButton btnNext3 = new JButton("Weiter");
-		btnNext3.addActionListener(new ActionListener() {
+		JButton btnOrtNext3 = new JButton("Weiter");
+		btnOrtNext3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
 			}
 		});
-		btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext3.setBounds(451, 245, 97, 26);
-		Ort.add(btnNext3);
+		btnOrtNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnOrtNext3.setBounds(451, 245, 97, 26);
+		Ort.add(btnOrtNext3);
 		
-		txtEnterCity = new JTextField();
-		txtEnterCity.setBounds(6, 61, 252, 26);
-		Ort.add(txtEnterCity);
-		txtEnterCity.setColumns(10);
+		txtOrtEnterCity = new JTextField();
+		txtOrtEnterCity.setBounds(6, 61, 252, 26);
+		Ort.add(txtOrtEnterCity);
+		txtOrtEnterCity.setColumns(10);
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);
@@ -228,10 +228,10 @@ public class CreateEvent extends JFrame {
 		ShowSliderValue.setBounds(242, 99, 52, 16);
 		Kosten.add(ShowSliderValue);
 		
-		JSlider slider = new JSlider();
+		JSlider Kostenslider = new JSlider();
 
-		slider.setEnabled(false); //slider standardgemäß deaktivieren
-		slider.addChangeListener(new ChangeListener() {
+		Kostenslider.setEnabled(false); //slider standardgemäß deaktivieren
+		Kostenslider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 			int val = ((JSlider)e.getSource()).getValue();
 			String val2 = Integer.toString(val);
@@ -239,34 +239,34 @@ public class CreateEvent extends JFrame {
 			
 			}
 		});
-		slider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		slider.setBounds(188, 67, 200, 20);
-		Kosten.add(slider);
+		Kostenslider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		Kostenslider.setBounds(188, 67, 200, 20);
+		Kosten.add(Kostenslider);
 		
 		
-		JRadioButton rdbtnNein = new JRadioButton("nein");
-		rdbtnNein.addActionListener(new ActionListener() {
+		JRadioButton rdbtnKostenNein = new JRadioButton("nein");
+		rdbtnKostenNein.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				slider.setEnabled(false);				//wenn nein gedrüctk wird slider deaktivierne
+				Kostenslider.setEnabled(false);				//wenn nein gedrüctk wird slider deaktivierne
 				
 			}
 		});
-		rdbtnNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		rdbtnNein.setSelected(true);
-		buttonGroup.add(rdbtnNein);
-		rdbtnNein.setBounds(6, 34, 116, 20);
-		Kosten.add(rdbtnNein);
+		rdbtnKostenNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		rdbtnKostenNein.setSelected(true);
+		buttonGroup.add(rdbtnKostenNein);
+		rdbtnKostenNein.setBounds(6, 34, 116, 20);
+		Kosten.add(rdbtnKostenNein);
 		
-		JRadioButton rdbtnJa = new JRadioButton("ja");
-		rdbtnJa.addActionListener(new ActionListener() {
+		JRadioButton rdbtnKostenJa = new JRadioButton("ja");
+		rdbtnKostenJa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				slider.setEnabled(true);			//wenn ja ausgewählt wird slider aktivieren
+				Kostenslider.setEnabled(true);			//wenn ja ausgewählt wird slider aktivieren
 			}
 		});
-		rdbtnJa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		buttonGroup.add(rdbtnJa); //button group erstellen. Nur euin button kann uasgewählt werden
-		rdbtnJa.setBounds(6, 66, 116, 20);
-		Kosten.add(rdbtnJa);
+		rdbtnKostenJa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		buttonGroup.add(rdbtnKostenJa); //button group erstellen. Nur euin button kann uasgewählt werden
+		rdbtnKostenJa.setBounds(6, 66, 116, 20);
+		Kosten.add(rdbtnKostenJa);
 		
 
 		
@@ -274,49 +274,49 @@ public class CreateEvent extends JFrame {
 		lblEuro.setBounds(306, 99, 52, 16);
 		Kosten.add(lblEuro);
 		
-		JButton btnBack4 = new JButton("Zur\u00FCck");
-		btnBack4.addActionListener(new ActionListener() {
+		JButton btnKostenBack4 = new JButton("Zur\u00FCck");
+		btnKostenBack4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(2);		//nächsten tab öffnen
 			}
 		});
-		btnBack4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack4.setBounds(6, 245, 97, 26);
-		Kosten.add(btnBack4);
+		btnKostenBack4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnKostenBack4.setBounds(6, 245, 97, 26);
+		Kosten.add(btnKostenBack4);
 		
-		JButton btnNext4 = new JButton("Weiter");
-		btnNext4.addActionListener(new ActionListener() {
+		JButton btnKostenNext4 = new JButton("Weiter");
+		btnKostenNext4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(4); //<vorherigen tab öffnen
 			}
 		});
-		btnNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext4.setBounds(451, 245, 97, 26);
-		Kosten.add(btnNext4);
+		btnKostenNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnKostenNext4.setBounds(451, 245, 97, 26);
+		Kosten.add(btnKostenNext4);
 		
 		JPanel Teilnehmer = new JPanel();
 		tabbedPane.addTab("Teilnehmer", null, Teilnehmer, null);
 		Teilnehmer.setLayout(null);
 		
-		JButton btnBack5 = new JButton("Zur\u00FCck");
-		btnBack5.addActionListener(new ActionListener() {
+		JButton btnTeilnehmerBack5 = new JButton("Zur\u00FCck");
+		btnTeilnehmerBack5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(3);		//vorherigen tab öffnen
 			}
 		});
-		btnBack5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack5.setBounds(6, 244, 97, 26);
-		Teilnehmer.add(btnBack5);
+		btnTeilnehmerBack5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnTeilnehmerBack5.setBounds(6, 244, 97, 26);
+		Teilnehmer.add(btnTeilnehmerBack5);
 		
-		JButton btnNext5 = new JButton("Weiter");
-		btnNext5.addActionListener(new ActionListener() {
+		JButton btnTeilnehmerNext5 = new JButton("Weiter");
+		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(5);		//nächsten tab öffnen
 			}
 		});
-		btnNext5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext5.setBounds(451, 244, 97, 26);
-		Teilnehmer.add(btnNext5);
+		btnTeilnehmerNext5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnTeilnehmerNext5.setBounds(451, 244, 97, 26);
+		Teilnehmer.add(btnTeilnehmerNext5);
 		
 		JLabel lblTeilnehmerInfo = new JLabel("Gibt es eine beschr\u00E4nkte Teilnehmerzahl?");
 		lblTeilnehmerInfo.setHorizontalAlignment(SwingConstants.LEFT);
@@ -337,24 +337,24 @@ public class CreateEvent extends JFrame {
 		txtTeilnehmerAnz.setColumns(10);
 		
 		JRadioButton rdbtnTeilnehmerNein = new JRadioButton("nein");
-		rdbtnTeilnehmerNein.addActionListener(new ActionListener() {
+		rdbtnTeilnehmerNein.addActionListener(new ActionListener() { //ist der button Teilnehmer auf nein gesstzt bleibt das Textfeld der Anzahl deaktiviert
 			public void actionPerformed(ActionEvent e) {
 				txtTeilnehmerAnz.setEnabled(false);
 			}
 		});
 		buttonGroup_1.add(rdbtnTeilnehmerNein);
-		rdbtnTeilnehmerNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		rdbtnTeilnehmerNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
 		rdbtnTeilnehmerNein.setSelected(true);
 		rdbtnTeilnehmerNein.setBounds(6, 34, 68, 20);
 		Teilnehmer.add(rdbtnTeilnehmerNein);
 		
 		JRadioButton rdbtnTeilnehmerja = new JRadioButton("ja");
-		rdbtnTeilnehmerja.addActionListener(new ActionListener() {
+		rdbtnTeilnehmerja.addActionListener(new ActionListener() { //Button der Teilnehmer auf ja gestzt, aktiviert das freitext feld "txtTeilnehmerAnz"
 			public void actionPerformed(ActionEvent e) {
 				txtTeilnehmerAnz.setEnabled(true);
 			}
 		});
-		rdbtnTeilnehmerja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		rdbtnTeilnehmerja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
 		buttonGroup_1.add(rdbtnTeilnehmerja);
 		rdbtnTeilnehmerja.setBounds(6, 66, 68, 20);
 		Teilnehmer.add(rdbtnTeilnehmerja);
@@ -369,25 +369,25 @@ public class CreateEvent extends JFrame {
 		tabbedPane.addTab("Gemischt", null, Gemischt, null);
 		Gemischt.setLayout(null);
 		
-		JButton btnBack6 = new JButton("Zur\u00FCck");
-		btnBack6.addActionListener(new ActionListener() {
+		JButton btGeschlechtnBack6 = new JButton("Zur\u00FCck");
+		btGeschlechtnBack6.addActionListener(new ActionListener() { //beim klick auf zurück vorherigen tab öffnen
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(4);
 			}
 		});
-		btnBack6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack6.setBounds(6, 245, 97, 26);
-		Gemischt.add(btnBack6);
+		btGeschlechtnBack6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btGeschlechtnBack6.setBounds(6, 245, 97, 26);
+		Gemischt.add(btGeschlechtnBack6);
 		
-		JButton btnNext6 = new JButton("Fertig");
-		btnNext6.addActionListener(new ActionListener() {
+		JButton btnGeschlechtNext6 = new JButton("Fertig"); 
+		btnGeschlechtNext6.addActionListener(new ActionListener() { //beim klick auf fertig, fenster schließen und mainwindow wieder öffnen
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MainWindow.main(null);
 			}
 		});
-		btnNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext6.setBounds(451, 245, 97, 26);
-		Gemischt.add(btnNext6);
+		btnGeschlechtNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		btnGeschlechtNext6.setBounds(451, 245, 97, 26);
+		Gemischt.add(btnGeschlechtNext6);
 	}
 }

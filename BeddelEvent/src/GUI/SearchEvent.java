@@ -53,7 +53,7 @@ public class SearchEvent extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //set look and feel
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -61,7 +61,7 @@ public class SearchEvent extends JFrame {
 			public void run() {
 				try {
 					SearchEvent frame = new SearchEvent();
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null); //fenster in mitte plazieren
 
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -92,7 +92,7 @@ public class SearchEvent extends JFrame {
 		tabbedPane.addTab("Sportart", null, Sportart, null);
 		Sportart.setLayout(null);
 		
-		JLabel lblSelectSports = new JLabel("Bitte w\u00E4hle deine Sportart aus:");
+		JLabel lblSelectSports = new JLabel("Welche Sportart suchst du?");
 		lblSelectSports.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSelectSports.setBounds(6, 6, 162, 16);
 		Sportart.add(lblSelectSports);
@@ -128,7 +128,7 @@ public class SearchEvent extends JFrame {
 		tabbedPane.addTab("Datum", null, Datum, null);
 		Datum.setLayout(null);
 		
-		JLabel lblSelectDatum = new JLabel("W\u00E4hle das Datum aus:");
+		JLabel lblSelectDatum = new JLabel("W\u00E4hle das Datum: ");
 		lblSelectDatum.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSelectDatum.setBounds(6, 6, 117, 16);
 		Datum.add(lblSelectDatum);
@@ -184,7 +184,7 @@ public class SearchEvent extends JFrame {
 		tabbedPane.addTab("Ort", null, Ort, null);
 		Ort.setLayout(null);
 		
-		JLabel lblSelectCity = new JLabel("Trage die Stadt ein");
+		JLabel lblSelectCity = new JLabel("Wo suchst du?");
 		lblSelectCity.setBounds(6, 6, 126, 16);
 		Ort.add(lblSelectCity);
 		
@@ -217,9 +217,9 @@ public class SearchEvent extends JFrame {
 		tabbedPane.addTab("Kosten", null, Kosten, null);
 		Kosten.setLayout(null);
 		
-		JLabel lblKosten = new JLabel("Fallen f\u00FCr das Event kosten an?");
+		JLabel lblKosten = new JLabel("D\u00FCrfen Kosten f\u00FCr das Event anfallen?");
 		lblKosten.setHorizontalAlignment(SwingConstants.LEFT);
-		lblKosten.setBounds(6, 6, 172, 16);
+		lblKosten.setBounds(6, 6, 236, 16);
 		Kosten.add(lblKosten);
 		
 		
@@ -297,6 +297,11 @@ public class SearchEvent extends JFrame {
 		btnNext4.setBounds(451, 245, 97, 26);
 		Kosten.add(btnNext4);
 		
+		JLabel lblNewLabel = new JLabel("Max:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setBounds(134, 68, 52, 16);
+		Kosten.add(lblNewLabel);
+		
 		JPanel Gemischt = new JPanel();
 		tabbedPane.addTab("Gemischt", null, Gemischt, null);
 		Gemischt.setLayout(null);
@@ -321,5 +326,9 @@ public class SearchEvent extends JFrame {
 		btnNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext6.setBounds(451, 245, 97, 26);
 		Gemischt.add(btnNext6);
+		
+		JLabel lblNewLabel_1 = new JLabel("Welche Geschlechter nehmen teil?");
+		lblNewLabel_1.setBounds(6, 6, 209, 16);
+		Gemischt.add(lblNewLabel_1);
 	}
 }

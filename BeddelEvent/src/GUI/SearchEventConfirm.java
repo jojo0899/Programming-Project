@@ -23,7 +23,7 @@ public class SearchEventConfirm extends JFrame {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme");
+			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //set look anbd feel
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ public class SearchEventConfirm extends JFrame {
 				try {
 					SearchEventConfirm frame = new SearchEventConfirm();
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
+					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -79,9 +79,9 @@ public class SearchEventConfirm extends JFrame {
 		
 		JButton btnZurück = new JButton("Zur\u00FCck");
 		btnZurück.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				SearchEventResultList.main(null);
+			public void actionPerformed(ActionEvent e) { //click on zurück
+				dispose(); //fenster schließen
+				SearchEventResultList.main(null); //Vorheriges fenster öffnen
 			}
 		});
 		btnZurück.setBounds(6, 215, 97, 26);
@@ -89,9 +89,9 @@ public class SearchEventConfirm extends JFrame {
 		
 		JButton btnBestätigen = new JButton("Best\u00E4tigen");
 		btnBestätigen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				MainWindow.main(null);
+			public void actionPerformed(ActionEvent e) { //click on bestätigen
+				dispose(); //fenster schließen 
+				MainWindow.main(null); //main fenster öffnen
 				
 			}
 		});
