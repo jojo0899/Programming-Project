@@ -1,3 +1,5 @@
+//test
+
 package GUI;
 
 import java.awt.BorderLayout;
@@ -64,20 +66,20 @@ public class MainWindow extends JFrame {
 		BtnActiveEvents.addMouseListener(new MouseAdapter() { //wenn bild ggelicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose();	//fenster schließeesn
-				ActiveEventsResultList.main(null); //activeEvents öffnen
+				dispose();	//fenster schlieï¿½eesn
+				ActiveEventsResultList.main(null); //activeEvents ï¿½ffnen
 			}
 		});
-		BtnActiveEvents.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564398-menu2_81519 (1).png")); //bild für label setzen
+		BtnActiveEvents.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564398-menu2_81519 (1).png")); //bild fï¿½r label setzen
 		BtnActiveEvents.setBounds(81, 184, 97, 96);
 		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hoover c ursor hinzufgen
 		contentPane.add(BtnActiveEvents);
 		
 		JButton btnLogOUt = new JButton("LogOut");
 		btnLogOUt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //wenn logout button gedrückt
-				dispose(); //fenster schließen
-				Login.main(null); //mainwindow öffnen
+			public void actionPerformed(ActionEvent e) { //wenn logout button gedrï¿½ckt
+				dispose(); //fenster schlieï¿½en
+				Login.main(null); //mainwindow ï¿½ffnen
 			}
 		});
 		btnLogOUt.setBounds(447, 11, 97, 26);
@@ -88,12 +90,12 @@ public class MainWindow extends JFrame {
 		BtnCreateEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CreateEvent.main(null); //create event öffnen 
-				dispose(); //fenster schließen
+				CreateEvent.main(null); //create event ï¿½ffnen 
+				dispose(); //fenster schlieï¿½en
 				
 			}
 		});
-		BtnCreateEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564412-plus_81511.png")); //vbild für label settten
+		BtnCreateEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564412-plus_81511.png")); //vbild fï¿½r label settten
 		BtnCreateEvent.setBounds(81, 48, 97, 96);
 		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hoovern
 		contentPane.add(BtnCreateEvent);
@@ -102,11 +104,11 @@ public class MainWindow extends JFrame {
 		BtnHistory.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose(); //fenster schließen 
-				HistoryList.main(null); // History list öffnen
+				dispose(); //fenster schlieï¿½en 
+				HistoryList.main(null); // History list ï¿½ffnen
 			}
 		});
-		BtnHistory.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564404-folder_81505 (1).png")); //bild für label setten
+		BtnHistory.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564404-folder_81505 (1).png")); //bild fï¿½r label setten
 		BtnHistory.setBounds(361, 184, 97, 96);
 		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor setten
 		contentPane.add(BtnHistory);
@@ -115,13 +117,13 @@ public class MainWindow extends JFrame {
 		BtnSearchEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				SearchEvent.main(null); //Search event öffnen
-				dispose(); //aktuelles fenster schließen
+				SearchEvent.main(null); //Search event ï¿½ffnen
+				dispose(); //aktuelles fenster schlieï¿½en
 			}
 		});
-		BtnSearchEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\PikPng.com_blue-circle-png_1191296 (1) (1).png"));//bild für label setten
+		BtnSearchEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\PikPng.com_blue-circle-png_1191296 (1) (1).png"));//bild fï¿½r label setten
 		BtnSearchEvent.setBounds(361, 46, 97, 101);
-		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor für hoovern
+		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor fï¿½r hoovern
 		contentPane.add(BtnSearchEvent);
 		
 		JLabel lblNewLabel_4 = new JLabel("Neues Event");
