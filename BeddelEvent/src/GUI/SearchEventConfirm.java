@@ -78,15 +78,15 @@ public class SearchEventConfirm extends JFrame {
 		lblGeschlechter.setBounds(24, 160, 78, 16);
 		contentPane.add(lblGeschlechter);
 		
-		JButton btnZurÃ¼ck = new JButton("Zur\u00FCck");
-		btnZurÃ¼ck.addActionListener(new ActionListener() {
+		JButton btnZurück= new JButton("Zur\u00FCck");
+		btnZurück.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on zurï¿½ck
 				dispose(); //fenster schlieï¿½en
 				SearchEventResultList.main(null); //Vorheriges fenster ï¿½ffnen
 			}
 		});
-		btnZurÃ¼ck.setBounds(6, 215, 97, 26);
-		contentPane.add(btnZurÃ¼ck);
+		btnZurück.setBounds(6, 215, 97, 26);
+		contentPane.add(btnZurück);
 		
 		JButton btnBestÃ¤tigen = new JButton("Best\u00E4tigen");
 		btnBestÃ¤tigen.addActionListener(new ActionListener() {
