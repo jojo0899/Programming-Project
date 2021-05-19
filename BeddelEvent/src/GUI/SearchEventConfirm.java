@@ -32,7 +32,7 @@ public class SearchEventConfirm extends JFrame {
 				try {
 					SearchEventConfirm frame = new SearchEventConfirm();
 					frame.setVisible(true);
-					frame.setResizable(false); //größe nicht anpassbar
+					frame.setResizable(false); //grï¿½ï¿½e nicht anpassbar
 					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -78,25 +78,25 @@ public class SearchEventConfirm extends JFrame {
 		lblGeschlechter.setBounds(24, 160, 78, 16);
 		contentPane.add(lblGeschlechter);
 		
-		JButton btnZurück = new JButton("Zur\u00FCck");
-		btnZurück.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //click on zurück
-				dispose(); //fenster schließen
-				SearchEventResultList.main(null); //Vorheriges fenster öffnen
+		JButton btnZurÃ¼ck = new JButton("Zur\u00FCck");
+		btnZurÃ¼ck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //click on zurï¿½ck
+				dispose(); //fenster schlieï¿½en
+				SearchEventResultList.main(null); //Vorheriges fenster ï¿½ffnen
 			}
 		});
-		btnZurück.setBounds(6, 215, 97, 26);
-		contentPane.add(btnZurück);
+		btnZurÃ¼ck.setBounds(6, 215, 97, 26);
+		contentPane.add(btnZurÃ¼ck);
 		
-		JButton btnBestätigen = new JButton("Best\u00E4tigen");
-		btnBestätigen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //click on bestätigen
-				dispose(); //fenster schließen 
-				MainWindow.main(null); //main fenster öffnen
+		JButton btnBestÃ¤tigen = new JButton("Best\u00E4tigen");
+		btnBestÃ¤tigen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) { //click on bestï¿½tigen
+				dispose(); //fenster schlieï¿½en 
+				MainWindow.main(null); //main fenster ï¿½ffnen
 				
 			}
 		});
-		btnBestätigen.setBounds(331, 215, 97, 26);
-		contentPane.add(btnBestätigen);
+		btnBestÃ¤tigen.setBounds(331, 215, 97, 26);
+		contentPane.add(btnBestÃ¤tigen);
 	}
 }
