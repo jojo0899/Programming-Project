@@ -113,7 +113,7 @@ public class ActiveEventsResultList extends JFrame {
 		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
 		
-		JButton btnSelect = new JButton("Ausw\u00E4hlen");
+		JButton btnSelect = new JButton("Auswählen");
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) {	//button auswählen gedrückt, schließe das aktuelle fenster und öffne die übersicht ActiveEventsView
@@ -128,7 +128,7 @@ public class ActiveEventsResultList extends JFrame {
 		btnSelect.setBounds(612, 339, 97, 26);
 		contentPane.add(btnSelect);
 		
-		JButton btnBack = new JButton("Zur\u00FCck");
+		JButton btnBack = new JButton("Zurück");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		//button zurück wurde gedrückt. Kehre zum Main window zurück und schließe das aktuelle fenster
 				dispose();

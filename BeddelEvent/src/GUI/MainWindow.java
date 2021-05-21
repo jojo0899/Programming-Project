@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 				try {
 					MainWindow frame = new MainWindow();
 					frame.setLocationRelativeTo(null);		//fenster in mitte plazieren
-					frame.setResizable(false); //grï¿½ï¿½e nicht anpassbar
+					frame.setResizable(false); //größe nicht anpassbar
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,20 +67,20 @@ public class MainWindow extends JFrame {
 		BtnActiveEvents.addMouseListener(new MouseAdapter() { //wenn bild ggelicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose();	//fenster schlieï¿½eesn
-				ActiveEventsResultList.main(null); //activeEvents ï¿½ffnen
+				dispose();	//fenster schließen
+				ActiveEventsResultList.main(null); //activeEvents öffnen
 			}
 		});
-		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png")); //bild fï¿½r label setzen
+		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png")); //bild für label setzen
 		BtnActiveEvents.setBounds(81, 184, 97, 96);
 		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hoover c ursor hinzufgen
 		contentPane.add(BtnActiveEvents);
 		
 		JButton btnLogOUt = new JButton("LogOut");
 		btnLogOUt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //wenn logout button gedrï¿½ckt
-				dispose(); //fenster schlieï¿½en
-				Login.main(null); //mainwindow ï¿½ffnen
+			public void actionPerformed(ActionEvent e) { //wenn logout button gedrückt
+				dispose(); //fenster schließen
+				Login.main(null); //mainwindow öffnen
 			}
 		});
 		btnLogOUt.setBounds(447, 11, 97, 26);
@@ -91,12 +91,12 @@ public class MainWindow extends JFrame {
 		BtnCreateEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CreateEvent.main(null); //create event ï¿½ffnen 
-				dispose(); //fenster schlieï¿½en
+				CreateEvent.main(null); //create event öffnen 
+				dispose(); //fenster schließen
 				
 			}
 		});
-		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png")); //vbild fï¿½r label settten
+		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png")); //vbild für label settten
 		BtnCreateEvent.setBounds(81, 48, 97, 96);
 		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hoovern
 		contentPane.add(BtnCreateEvent);
@@ -105,11 +105,11 @@ public class MainWindow extends JFrame {
 		BtnHistory.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispose(); //fenster schlieï¿½en 
-				HistoryList.main(null); // History list ï¿½ffnen
+				dispose(); //fenster schließen 
+				HistoryList.main(null); // History list öffnen
 			}
 		});
-		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png")); //bild fï¿½r label setten
+		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png")); //bild für label setten
 		BtnHistory.setBounds(361, 184, 97, 96);
 		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor setten
 		contentPane.add(BtnHistory);
@@ -118,13 +118,13 @@ public class MainWindow extends JFrame {
 		BtnSearchEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				SearchEvent.main(null); //Search event ï¿½ffnen
-				dispose(); //aktuelles fenster schlieï¿½en
+				SearchEvent.main(null); //Search event öffnen
+				dispose(); //aktuelles fenster schließen
 			}
 		});
-		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));//bild fï¿½r label setten
+		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));//bild für label setten
 		BtnSearchEvent.setBounds(361, 46, 97, 101);
-		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor fï¿½r hoovern
+		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor für hoovern
 		contentPane.add(BtnSearchEvent);
 		
 		JLabel lblNewLabel_4 = new JLabel("Neues Event");

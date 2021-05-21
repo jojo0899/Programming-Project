@@ -49,7 +49,7 @@ public class ActiveEventsView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnBack = new JButton("Zur\u00FCck");
+		JButton btnBack = new JButton("Zurück");
 		btnBack.addActionListener(new ActionListener() {		//button zurück wurde gedrückt. Schließe das Fgenster und kehre zur ActiveEvent Liste zurück
 			public void actionPerformed(ActionEvent e) {
 				dispose();
