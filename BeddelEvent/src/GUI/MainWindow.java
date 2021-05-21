@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 				try {
 					MainWindow frame = new MainWindow();
 					frame.setLocationRelativeTo(null);		//fenster in mitte plazieren
-					frame.setResizable(false); //größe nicht anpassbar
+					frame.setResizable(false); //grï¿½ï¿½e nicht anpassbar
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,7 +71,7 @@ public class MainWindow extends JFrame {
 				ActiveEventsResultList.main(null); //activeEvents ï¿½ffnen
 			}
 		});
-		BtnActiveEvents.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564398-menu2_81519 (1).png")); //bild fï¿½r label setzen
+		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png")); //bild fï¿½r label setzen
 		BtnActiveEvents.setBounds(81, 184, 97, 96);
 		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hoover c ursor hinzufgen
 		contentPane.add(BtnActiveEvents);
@@ -96,7 +96,7 @@ public class MainWindow extends JFrame {
 				
 			}
 		});
-		BtnCreateEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564412-plus_81511.png")); //vbild fï¿½r label settten
+		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png")); //vbild fï¿½r label settten
 		BtnCreateEvent.setBounds(81, 48, 97, 96);
 		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hoovern
 		contentPane.add(BtnCreateEvent);
@@ -109,7 +109,7 @@ public class MainWindow extends JFrame {
 				HistoryList.main(null); // History list ï¿½ffnen
 			}
 		});
-		BtnHistory.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\1486564404-folder_81505 (1).png")); //bild fï¿½r label setten
+		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png")); //bild fï¿½r label setten
 		BtnHistory.setBounds(361, 184, 97, 96);
 		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor setten
 		contentPane.add(BtnHistory);
@@ -122,7 +122,7 @@ public class MainWindow extends JFrame {
 				dispose(); //aktuelles fenster schlieï¿½en
 			}
 		});
-		BtnSearchEvent.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\PikPng.com_blue-circle-png_1191296 (1) (1).png"));//bild fï¿½r label setten
+		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));//bild fï¿½r label setten
 		BtnSearchEvent.setBounds(361, 46, 97, 101);
 		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor fï¿½r hoovern
 		contentPane.add(BtnSearchEvent);
