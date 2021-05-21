@@ -1,11 +1,17 @@
 package GUI;
 
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Functionalities.Password;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -20,6 +26,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Point;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.UnsupportedEncodingException;
+
 import javax.swing.JPasswordField;
 
 public class Login extends JFrame {
@@ -97,7 +105,8 @@ public class Login extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// wenn login geclicekd wurde SQL abfrage ob daten passen
+				login();
+				// wenn login geclicekd wurde SQL abfrage ob daten passen --> augelagert in login methode (JJ)
 			}
 		});
 		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 12));
@@ -124,9 +133,38 @@ public class Login extends JFrame {
 		txtPassword.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {		//Password eingabe
+				login();
 			}
 		});
 		txtPassword.setBounds(77, 129, 126, 26);
 		contentPane.add(txtPassword);
+	}
+	
+	private void login() {
+		String user;
+		user = txtUserName.getText();
+	
+		char[] password = txtPassword.getPassword();
+	    String encryptedPassword = "";
+	    try {
+			encryptedPassword = Password.createhash(password, user);
+		} catch (UnsupportedEncodingException e1) {
+			showMessageDialog(null, "Password Error", "Warning", WARNING_MESSAGE);
+		}
+	    
+	    // Abgleich der login daten mit datenbank hier einfügen
+	    
+	    
+	    // aus eHealth übernommen / muss noch geändert werden!
+	    /*
+		if(userTable.validLoginData(user, encryptedPassword)) {
+			dispose();
+			AuthenticationWindow.createAuthenticationWindow(user);
+		}
+		else {
+			showMessageDialog(null, "Wrong Username or Password!\nPlease try again!", "Warning", WARNING_MESSAGE);
+			usernameField.setText("");
+			passwordField.setText("");
+		}*/
 	}
 }
