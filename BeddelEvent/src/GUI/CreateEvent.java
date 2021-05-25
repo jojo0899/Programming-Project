@@ -59,7 +59,7 @@ public class CreateEvent extends JFrame {
 				try {
 					CreateEvent frame = new CreateEvent();
 					frame.setLocationRelativeTo(null);		//fenster in der mitte plazieren
-
+					frame.setResizable(false); //größe nicht anpassbar
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
