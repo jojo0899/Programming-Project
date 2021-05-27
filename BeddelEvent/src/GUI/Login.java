@@ -58,11 +58,14 @@ public class Login extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public Login() {
+		setTitle("Login");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("48.PNG")));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -126,7 +129,7 @@ public class Login extends JFrame {
 		JLabel lblHeadline = new JLabel("BeddelEvent");
 		lblHeadline.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 20));
 		lblHeadline.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeadline.setBounds(159, 6, 126, 37);
+		lblHeadline.setBounds(163, 6, 126, 37);
 		contentPane.add(lblHeadline);
 		
 		txtPassword = new JPasswordField();
@@ -138,6 +141,11 @@ public class Login extends JFrame {
 		});
 		txtPassword.setBounds(77, 129, 126, 26);
 		contentPane.add(txtPassword);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("72.PNG")));
+		lblNewLabel_2.setBounds(109, -11, 55, 74);
+		contentPane.add(lblNewLabel_2);
 	}
 	
 	private void login() {

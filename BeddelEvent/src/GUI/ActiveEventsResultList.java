@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -37,11 +38,13 @@ public class ActiveEventsResultList extends JFrame {
 				try {
 					ActiveEventsResultList frame = new ActiveEventsResultList();
 					frame.setVisible(true);
+					
 					frame.setLocationRelativeTo(null); 		//fenster in der mitte plazieren
 					frame.setResizable(false); //größe nicht anpassbar
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}

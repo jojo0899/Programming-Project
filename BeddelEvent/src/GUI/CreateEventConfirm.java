@@ -2,19 +2,22 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.security.GeneralSecurityException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class SearchEventConfirm extends JFrame {
+import Functionalities.SendMail;
+
+public class CreateEventConfirm extends JFrame {
 
 	private JPanel contentPane;
 
@@ -30,7 +33,7 @@ public class SearchEventConfirm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchEventConfirm frame = new SearchEventConfirm();
+					CreateEventConfirm frame = new CreateEventConfirm();
 					frame.setVisible(true);
 					frame.setResizable(false); //größe nicht anpassbar
 					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
@@ -44,7 +47,7 @@ public class SearchEventConfirm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SearchEventConfirm() {
+	public CreateEventConfirm() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -58,31 +61,31 @@ public class SearchEventConfirm extends JFrame {
 		lblHeadline.setBounds(114, 6, 168, 25);
 		contentPane.add(lblHeadline);
 		
-		JLabel lblSports = new JLabel("Sportart:");
+		JLabel lblSports = new JLabel("Sportart");
 		lblSports.setBounds(24, 48, 78, 16);
 		contentPane.add(lblSports);
 		
-		JLabel lblOrt = new JLabel("Ort:");
+		JLabel lblOrt = new JLabel("Ort");
 		lblOrt.setBounds(24, 76, 52, 16);
 		contentPane.add(lblOrt);
 		
-		JLabel lblDatum = new JLabel("Datum:");
+		JLabel lblDatum = new JLabel("Datum");
 		lblDatum.setBounds(24, 104, 52, 16);
 		contentPane.add(lblDatum);
 		
-		JLabel lblKOstne = new JLabel("Kosten:");
+		JLabel lblKOstne = new JLabel("Kosten");
 		lblKOstne.setBounds(24, 132, 78, 16);
 		contentPane.add(lblKOstne);
 		
-		JLabel lblGeschlechter = new JLabel("Geschlechter:");
-		lblGeschlechter.setBounds(24, 160, 78, 16);
+		JLabel lblGeschlechter = new JLabel("Geschlechter");
+		lblGeschlechter.setBounds(24, 187, 78, 16);
 		contentPane.add(lblGeschlechter);
 		
 		JButton btnZurueck= new JButton("Zurück");
 		btnZurueck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on zurück
 				dispose(); //fenster schließen
-				SearchEventResultList.main(null); //Vorheriges fenster öffnen
+				CreateEvent.main(null); //Vorheriges fenster öffnen
 			}
 		});
 		btnZurueck.setBounds(6, 215, 97, 26);
@@ -93,30 +96,43 @@ public class SearchEventConfirm extends JFrame {
 			public void actionPerformed(ActionEvent e) { //click on bestätigen
 				dispose(); //fenster schließen 
 				MainWindow.main(null); //main fenster öffnen
-				
+				try {
+					SendMail.createEventMail(DB.DB.email, DB.DB.username, CreateEvent.date, CreateEvent.sports, CreateEvent.place, CreateEvent.costs , CreateEvent.participantsnum);
+				} catch (GeneralSecurityException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnBestÃ¤tigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBestÃ¤tigen);
 		
-		JLabel lblSports2 = new JLabel("New label");
-		lblSports2.setBounds(114, 48, 52, 16);
+		JLabel lblSports2 = new JLabel(CreateEvent.sports);
+		lblSports2.setBounds(114, 48, 232, 16);
 		contentPane.add(lblSports2);
 		
-		JLabel lblOrt2 = new JLabel("New label");
-		lblOrt2.setBounds(114, 76, 52, 16);
+		JLabel lblOrt2 = new JLabel(CreateEvent.place);
+		lblOrt2.setBounds(114, 76, 232, 16);
 		contentPane.add(lblOrt2);
 		
-		JLabel lblDatum2 = new JLabel("New label");
-		lblDatum2.setBounds(114, 104, 52, 16);
+		JLabel lblDatum2 = new JLabel(CreateEvent.date);
+		lblDatum2.setBounds(114, 104, 232, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel("New label");
-		lblKosten2.setBounds(114, 132, 52, 16);
+		JLabel lblKosten2 = new JLabel(CreateEvent.costs);
+		lblKosten2.setBounds(114, 132, 232, 16);
 		contentPane.add(lblKosten2);
 		
 		JLabel lblGeschlechter2 = new JLabel("New label");
-		lblGeschlechter2.setBounds(114, 160, 52, 16);
+		lblGeschlechter2.setBounds(114, 187, 232, 16);
 		contentPane.add(lblGeschlechter2);
+		
+		JLabel lblAnzteil = new JLabel("Teilnehmer: ");
+		lblAnzteil.setBounds(24, 160, 78, 16);
+		contentPane.add(lblAnzteil);
+		
+		JLabel lblAnzteil2 = new JLabel(CreateEvent.participantsnum);
+		lblAnzteil2.setBounds(114, 160, 232, 16);
+		contentPane.add(lblAnzteil2);
 	}
 }

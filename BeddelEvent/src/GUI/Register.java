@@ -271,7 +271,7 @@ public class Register extends JFrame {
 			}
 		});
 		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
-		ButtonMale.setBounds(251, 234, 70, 20);
+		ButtonMale.setBounds(251, 234, 79, 20);
 		contentPane.add(ButtonMale);
 		
 		JRadioButton ButtonFemale = new JRadioButton("Weiblich");
@@ -281,7 +281,7 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		ButtonFemale.setBounds(323, 234, 70, 20);
+		ButtonFemale.setBounds(342, 234, 70, 20);
 		contentPane.add(ButtonFemale);
 		
 		JRadioButton ButtonDiverse = new JRadioButton("Divers");
@@ -291,7 +291,7 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		ButtonDiverse.setBounds(405, 234, 116, 20);
+		ButtonDiverse.setBounds(424, 234, 116, 20);
 		contentPane.add(ButtonDiverse);
 		
 		txtFirstName = new JTextField();

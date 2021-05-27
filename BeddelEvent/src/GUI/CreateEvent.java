@@ -412,15 +412,8 @@ public class CreateEvent extends JFrame {
 		JButton btnGeschlechtNext6 = new JButton("Fertig"); 
 		btnGeschlechtNext6.addActionListener(new ActionListener() { //beim klick auf fertig, fenster schließen und mainwindow wieder öffnen
 			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					SendMail.createEventMail(DB.DB.email, DB.DB.username, date, sports, place, costs , participantsnum);
-				} catch (GeneralSecurityException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				dispose();
-				MainWindow.main(null);
+				CreateEventConfirm.main(null);
 			}
 		});
 		btnGeschlechtNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
