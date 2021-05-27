@@ -39,6 +39,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.ButtonGroup;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
 
 public class SearchEvent extends JFrame {
 
@@ -77,6 +78,7 @@ public class SearchEvent extends JFrame {
 	 * @throws ParseException 
 	 */
 	public SearchEvent() throws PropertyVetoException, ParseException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
 		contentPane = new JPanel();

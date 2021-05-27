@@ -65,7 +65,8 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setTitle("Login");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("48.PNG")));
+		
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -143,7 +144,8 @@ public class Login extends JFrame {
 		contentPane.add(txtPassword);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("72.PNG")));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\48.png"));
+		//lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\72.png")));
 		lblNewLabel_2.setBounds(109, -11, 55, 74);
 		contentPane.add(lblNewLabel_2);
 	}

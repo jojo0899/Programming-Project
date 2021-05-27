@@ -3,6 +3,7 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -91,7 +92,7 @@ public class CreateEvent extends JFrame {
 	 * @throws ParseException 
 	 */
 	public CreateEvent() throws PropertyVetoException, ParseException {
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
@@ -315,8 +316,10 @@ public class CreateEvent extends JFrame {
 		btnKostenNext4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(4); //<vorherigen tab öffnen
-				
-			}
+				if(rdbtnKostenNein.isSelected()) {
+				costs="kostenlos";	
+				}
+				}
 		});
 		btnKostenNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
 		btnKostenNext4.setBounds(451, 245, 97, 26);
@@ -336,11 +339,44 @@ public class CreateEvent extends JFrame {
 		btnTeilnehmerBack5.setBounds(6, 244, 97, 26);
 		Teilnehmer.add(btnTeilnehmerBack5);
 		
+		
+		JRadioButton rdbtnTeilnehmerNein = new JRadioButton("nein");
+		rdbtnTeilnehmerNein.addActionListener(new ActionListener() { //ist der button Teilnehmer auf nein gesstzt bleibt das Textfeld der Anzahl deaktiviert
+			public void actionPerformed(ActionEvent e) {
+				txtTeilnehmerAnz.setEnabled(false);
+			}
+		});
+		buttonGroup_1.add(rdbtnTeilnehmerNein);
+		rdbtnTeilnehmerNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		rdbtnTeilnehmerNein.setSelected(true);
+		rdbtnTeilnehmerNein.setBounds(6, 34, 68, 20);
+		Teilnehmer.add(rdbtnTeilnehmerNein);
+		
+		JRadioButton rdbtnTeilnehmerja = new JRadioButton("ja");
+		rdbtnTeilnehmerja.addActionListener(new ActionListener() { //Button der Teilnehmer auf ja gestzt, aktiviert das freitext feld "txtTeilnehmerAnz"
+			public void actionPerformed(ActionEvent e) {
+				txtTeilnehmerAnz.setEnabled(true);
+			}
+		});
+		rdbtnTeilnehmerja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
+		buttonGroup_1.add(rdbtnTeilnehmerja);
+		rdbtnTeilnehmerja.setBounds(6, 66, 68, 20);
+		Teilnehmer.add(rdbtnTeilnehmerja);
+		
+		
+		
+		
 		JButton btnTeilnehmerNext5 = new JButton("Weiter");
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(5);		//nächsten tab öffnen
-				participants = txtTeilnehmerAnz.getText();
+				if(rdbtnTeilnehmerNein.isSelected()) {
+					participantsnum="nicht beschränkt";
+				}else {
+					participantsnum = txtTeilnehmerAnz.getText();	
+				}
+				
+				
 			}
 		});
 		btnTeilnehmerNext5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
@@ -366,29 +402,7 @@ public class CreateEvent extends JFrame {
 		txtTeilnehmerAnz.setColumns(10);
 
 		
-		JRadioButton rdbtnTeilnehmerNein = new JRadioButton("nein");
-		rdbtnTeilnehmerNein.addActionListener(new ActionListener() { //ist der button Teilnehmer auf nein gesstzt bleibt das Textfeld der Anzahl deaktiviert
-			public void actionPerformed(ActionEvent e) {
-				txtTeilnehmerAnz.setEnabled(false);
-			}
-		});
-		buttonGroup_1.add(rdbtnTeilnehmerNein);
-		rdbtnTeilnehmerNein.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
-		rdbtnTeilnehmerNein.setSelected(true);
-		rdbtnTeilnehmerNein.setBounds(6, 34, 68, 20);
-		Teilnehmer.add(rdbtnTeilnehmerNein);
-		
-		JRadioButton rdbtnTeilnehmerja = new JRadioButton("ja");
-		rdbtnTeilnehmerja.addActionListener(new ActionListener() { //Button der Teilnehmer auf ja gestzt, aktiviert das freitext feld "txtTeilnehmerAnz"
-			public void actionPerformed(ActionEvent e) {
-				txtTeilnehmerAnz.setEnabled(true);
-			}
-		});
-		rdbtnTeilnehmerja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
-		buttonGroup_1.add(rdbtnTeilnehmerja);
-		rdbtnTeilnehmerja.setBounds(6, 66, 68, 20);
-		Teilnehmer.add(rdbtnTeilnehmerja);
-		
+	
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("Teilnehmer");

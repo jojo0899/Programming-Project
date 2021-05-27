@@ -13,6 +13,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="flatlaf-demo-1.1.2.jar"/>
-	<classpathentry kind="lib" path="pic/32.png"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

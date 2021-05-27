@@ -19,6 +19,10 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
 
 public class MainWindow extends JFrame {
 
@@ -51,19 +55,39 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 566, 368);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Logout");
+		menuBar.add(mnNewMenu);
+		
+		JButton LogOut = new JButton("Best\u00E4tigen");
+		LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+		LogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose(); //fenster schließen
+				Login.main(null); //mainwindow öffnen
+			}
+		});
+		mnNewMenu.add(LogOut);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Starte dein Beddel-Erlebnis");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel.setBounds(157, 6, 231, 30);
+		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		contentPane.add(lblNewLabel);
 		
 		JLabel BtnActiveEvents = new JLabel("");
+		BtnActiveEvents.setBounds(81, 184, 97, 96);
 		BtnActiveEvents.addMouseListener(new MouseAdapter() { //wenn bild ggelicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -71,23 +95,12 @@ public class MainWindow extends JFrame {
 				ActiveEventsResultList.main(null); //activeEvents öffnen
 			}
 		});
-		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png")); //bild für label setzen
-		BtnActiveEvents.setBounds(81, 184, 97, 96);
+		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png"));
 		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hoover c ursor hinzufgen
 		contentPane.add(BtnActiveEvents);
 		
-		JButton btnLogOUt = new JButton("LogOut");
-		btnLogOUt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { //wenn logout button gedrückt
-				dispose(); //fenster schließen
-				Login.main(null); //mainwindow öffnen
-			}
-		});
-		btnLogOUt.setBounds(447, 11, 97, 26);
-		btnLogOUt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		contentPane.add(btnLogOUt);
-		
 		JLabel BtnCreateEvent = new JLabel("");
+		BtnCreateEvent.setBounds(81, 48, 97, 96);
 		BtnCreateEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked wurde
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -96,12 +109,12 @@ public class MainWindow extends JFrame {
 				
 			}
 		});
-		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png")); //vbild für label settten
-		BtnCreateEvent.setBounds(81, 48, 97, 96);
+		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png"));
 		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hoovern
 		contentPane.add(BtnCreateEvent);
 		
 		JLabel BtnHistory = new JLabel("");
+		BtnHistory.setBounds(361, 184, 97, 96);
 		BtnHistory.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -109,12 +122,12 @@ public class MainWindow extends JFrame {
 				HistoryList.main(null); // History list öffnen
 			}
 		});
-		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png")); //bild für label setten
-		BtnHistory.setBounds(361, 184, 97, 96);
+		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png"));
 		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor setten
 		contentPane.add(BtnHistory);
 		
 		JLabel BtnSearchEvent = new JLabel("");
+		BtnSearchEvent.setBounds(361, 46, 97, 101);
 		BtnSearchEvent.addMouseListener(new MouseAdapter() { //wenn bild geclicked
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -122,29 +135,28 @@ public class MainWindow extends JFrame {
 				dispose(); //aktuelles fenster schließen
 			}
 		});
-		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));//bild für label setten
-		BtnSearchEvent.setBounds(361, 46, 97, 101);
+		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));
 		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor für hoovern
 		contentPane.add(BtnSearchEvent);
 		
 		JLabel lblNewLabel_4 = new JLabel("Neues Event");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setBounds(69, 145, 121, 16);
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Suchen");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setBounds(361, 145, 97, 16);
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Active Events");
-		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_6.setBounds(81, 285, 109, 16);
+		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Historie");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_7.setBounds(371, 292, 87, 16);
+		lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel_7);
 	}
 }
