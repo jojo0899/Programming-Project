@@ -55,8 +55,8 @@ public class Register extends JFrame {
         lastName =   txtLastName.getText();
         mail =       txtEmail.getText();
         String mailconfirm =  txtemailconfirm.getText();
-        String pwd =        txtpw.getText();
-        String pwdconfirm =       txtpwconfirm.getText();      
+        String pwd =        String.valueOf(txtpw.getPassword());
+        String pwdconfirm = String.valueOf(txtpwconfirm.getPassword());
 
   
 
