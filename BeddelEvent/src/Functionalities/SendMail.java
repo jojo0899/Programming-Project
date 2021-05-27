@@ -14,13 +14,12 @@ import java.util.Properties;
 
 	public class SendMail {
 		static String recievermail;
-		static String reiecvername;
 		static String subject;
 		static String msg;
 		
 		public static void registrationMail(String mail, String name) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
-			SendMail.reiecvername = name;
+			SendMail.subject = "BeddelEvent Registrierung";
 			msg = "Hi "+name+",\n \n Willkommen im Beddel-Team. Deine Registrierung war erfolgreich!"+
 				"\nDu kannst nun anfangen deine eigenen Events zu erstellen und zu managenen. Viel Spaﬂ! :)"+
 					"\n\nViel Erfolg\n"+
@@ -31,17 +30,30 @@ import java.util.Properties;
 		}
 		public static void createEventMail(String mail, String name, String date, String sport, String place,String cost, String participantsnumber) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
-			SendMail.reiecvername = name;
+			SendMail.subject = "Event Erstellung";
+			SendMail.msg ="";
+			
 			SendMail.main(null);
 						
 		}
-		public static void deleteEventMail(String mail,String name, String date, String sport, String place) {
+		public static void deleteEventMail(String mail,String name, String date, String sport, String place) throws GeneralSecurityException {
+			SendMail.recievermail = mail;
+			SendMail.subject = "Event Absage";
+			SendMail.msg ="";
+			
+			SendMail.main(null);
 			
 			
 			
 			
 		}
-		public static void participateEventMail(String mail, String name, String date, String sport, String place, String costs, String participatns ) {
+		public static void participateEventMail(String mail, String name, String date, String sport, String place, String costs, String participatns ) throws GeneralSecurityException {
+			SendMail.recievermail = mail;
+			SendMail.subject = "Event Teilnahme";
+			SendMail.msg ="";
+			
+			SendMail.main(null);
+			
 			
 		}
 		

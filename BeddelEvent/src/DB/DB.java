@@ -5,6 +5,7 @@ public class DB {
 	public static String username;
 	public static String passwort;
 	public static boolean bool;
+	public static String email; 
 	
 	public static void DBconnection() {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
@@ -98,7 +99,20 @@ public class DB {
 				for (int i = 1; i <= rs2.getMetaData().getColumnCount();i++) {
 					passwort = rs2.getString(i);
 				}
-			}			
+			}
+			
+			String query3 = "SELECT email FROM user WHERE username = '" + username +"'";
+			Statement s3 = connection.createStatement(); 
+			ResultSet rs3 = s3.executeQuery(query3);
+			while(rs3.next()) {
+				for (int i = 1; i <= rs3.getMetaData().getColumnCount();i++) {
+					email= rs3.getString(i);
+				}
+			}
+			
+			
+			
+			
 //			System.out.println(passwort);
 			if (UserName.equals(username) && PassWort.equals(passwort)) {
 				System.out.println("Login");
