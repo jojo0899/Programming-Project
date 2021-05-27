@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Functionalities.SendMail;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
@@ -15,12 +18,20 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.security.GeneralSecurityException;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
+import javax.swing.JPasswordField;
 
 public class Register extends JFrame {
+	static String firstName;
+	static String username;
+	static String lastName;
+	static String mail;
+	
 	
 	/**
 	 * Prüfen ob die Email Syntax korrejt ist 
@@ -39,10 +50,10 @@ public class Register extends JFrame {
 	 */
 	public boolean FieldsOKtest()
     {
-       	String username = txtUserName.getText(); //information aus texteignabe in vairable storen
-        String firstName =  txtFirstName.getText();
-        String lastName =   txtLastName.getText();
-        String mail =       txtEmail.getText();
+       	username = txtUserName.getText(); //information aus texteignabe in vairable storen
+        firstName =  txtFirstName.getText();
+        lastName =   txtLastName.getText();
+        mail =       txtEmail.getText();
         String mailconfirm =  txtemailconfirm.getText();
         String pwd =        txtpw.getText();
         String pwdconfirm =       txtpwconfirm.getText();      
@@ -116,8 +127,8 @@ public class Register extends JFrame {
 	private JTextField txtUserName;
 	private JTextField txtEmail;
 	private JTextField txtemailconfirm;
-	private JTextField txtpw;
-	private JTextField txtpwconfirm;
+	private JPasswordField txtpw;
+	private JPasswordField txtpwconfirm;
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -227,29 +238,12 @@ public class Register extends JFrame {
 		contentPane.add(txtemailconfirm);
 		txtemailconfirm.setColumns(10);
 		
-		txtpw = new JTextField();
-		txtpw.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) { //wenn etwas getippt wurde
-			
-		        if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeichen zu
-		            e.consume();
-		        }
-			}
-		});
+		txtpw = new JPasswordField();
 		txtpw.setBounds(251, 119, 128, 26);
 		contentPane.add(txtpw);
 		txtpw.setColumns(10);
 		
-		txtpwconfirm = new JTextField();
-		txtpwconfirm.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
-			@Override
-			public void keyTyped(KeyEvent e) {
-				 if(Character.isWhitespace(e.getKeyChar())){ //lässt keine leerzeichen zu
-		            e.consume();
-		        }
-			}
-		});
+		txtpwconfirm = new JPasswordField();
 		txtpwconfirm.setBounds(251, 147, 128, 26);
 		contentPane.add(txtpwconfirm);
 		txtpwconfirm.setColumns(10);
@@ -340,18 +334,25 @@ public class Register extends JFrame {
 		RegisterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        FieldsOKtest(); //Test Function
-//		        try {
-//					if(FieldsOKtest()) {
+		        	        
+		    	if(FieldsOKtest()) {
 //						if(!DoubleEmail()) {
 //						CreateConnection();
-//						 JOptionPane.showMessageDialog(null, "Thank you for your registration!", "Registration Successful",JOptionPane.PLAIN_MESSAGE);
-//				            dispose();
-//				            LoginGUI.main(null);
+						JOptionPane.showMessageDialog(null, "Vielen Dank für deine Registrierung!", "Registrierung erfolgreich",JOptionPane.PLAIN_MESSAGE);
+				            
+							dispose();
+				            Login.main(null);
+				            try {
+								SendMail.registrationMail(mail, firstName); //SENDET EMAIL!
+							} catch (GeneralSecurityException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 //						}else 
 //					 JOptionPane.showMessageDialog(null, "Email already registered", "Registration failed",JOptionPane.WARNING_MESSAGE);
 							
 //						
-//						}
+						}
 //				} catch (SQLException e) {
 //					// TODO Auto-generated catch block
 //					e.printStackTrace();
@@ -359,8 +360,8 @@ public class Register extends JFrame {
 				
 				
 				
-			}
-		});
+			}});
+		
 		RegisterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		RegisterButton.setBounds(474, 296, 97, 26);
 		contentPane.add(RegisterButton);
