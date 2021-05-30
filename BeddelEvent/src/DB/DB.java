@@ -20,7 +20,7 @@ public class DB {
 		}
 	}
 	
-	public static void InsertDataIntoUser(String b, String c, String d, String e, String f, String g) {
+	public static void InsertDataIntoUser(String username, String vorname, String nachname, String geschlecht, String email, String passworthash) {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
@@ -28,7 +28,7 @@ public class DB {
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
 			
-			String query = "INSERT INTO user (username, vorname, nachname, geschlecht, email, passwort) VALUES ('" + b +"', '" + c + "' , '"+ d + "' , '"+ e + "' , '"+ f + "' , '"+ g + "' )";
+			String query = "INSERT INTO user (username, vorname, nachname, geschlecht, email, passwort) VALUES ('" + username +"', '" + vorname + "' , '"+ nachname+ "' , '"+ geschlecht+ "' , '"+ email + "' , '"+passworthash + "' )";
 			Statement s = connection.createStatement();
 			s.execute(query);
 			s.close();

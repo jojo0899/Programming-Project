@@ -1,12 +1,17 @@
 package GUI;
 
 
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DB.DB;
+import Functionalities.Password;
 import Functionalities.SendMail;
 
 import javax.swing.JLabel;
@@ -18,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 
 import javax.swing.JButton;
@@ -32,6 +38,12 @@ public class Register extends JFrame {
 	static String username;
 	static String lastName;
 	static String mail;
+	static String gender;
+	static char[] password;
+	static String pwhash;
+	
+	
+
 	
 	
 	/**
@@ -55,8 +67,10 @@ public class Register extends JFrame {
         firstName =  txtFirstName.getText();
         lastName =   txtLastName.getText();
         mail =       txtEmail.getText();
+        
         String mailconfirm =  txtemailconfirm.getText();
         String pwd =        String.valueOf(txtpw.getPassword());
+        password = txtpw.getPassword();
         String pwdconfirm = String.valueOf(txtpwconfirm.getPassword());
 
   
@@ -270,6 +284,7 @@ public class Register extends JFrame {
 		ButtonMale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //Handcursor beim hoovern
 		ButtonMale.addActionListener(new ActionListener() { //wenn button male gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
+				Register.gender = "M";
 			}
 		});
 		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
@@ -281,6 +296,7 @@ public class Register extends JFrame {
 		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handcursor beim hoovern
 		ButtonFemale.addActionListener(new ActionListener() { //wenn female button gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
+				Register.gender = "W";
 			}
 		});
 		ButtonFemale.setBounds(342, 234, 70, 20);
@@ -291,6 +307,8 @@ public class Register extends JFrame {
 		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handucrsor beim hoovern
 		ButtonDiverse.addActionListener(new ActionListener() { //wenn Divers gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
+				Register.gender = "X";
+		
 			}
 		});
 		ButtonDiverse.setBounds(424, 234, 116, 20);
@@ -338,8 +356,20 @@ public class Register extends JFrame {
 		        FieldsOKtest(); //Test Function
 		        	        
 		    	if(FieldsOKtest()) {
-//						if(!DoubleEmail()) {
+		    		
+		    		try {
+		    			pwhash = Password.createhash(password, username);
+					} catch (UnsupportedEncodingException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+
+	    			DB.InsertDataIntoUser(username, firstName, lastName, gender, mail, pwhash);
+		    		
+		    		//						if(!DoubleEmail()) {
 //						CreateConnection();
+		    		
+		    		//DB.DB.InsertDataIntoUser(username, firstName,lastName, gender,email );
 						JOptionPane.showMessageDialog(null, "Vielen Dank für deine Registrierung!", "Registrierung erfolgreich",JOptionPane.PLAIN_MESSAGE);
 				            
 							dispose();

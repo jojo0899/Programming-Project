@@ -80,7 +80,7 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Login");
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -155,7 +155,7 @@ public class Login extends JFrame {
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\48.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("./pic/48.png"));
 		//lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\72.png")));
 		lblNewLabel_2.setBounds(109, -11, 55, 74);
 		contentPane.add(lblNewLabel_2);
@@ -170,17 +170,17 @@ public class Login extends JFrame {
 	    try {
 			encryptedPassword = Password.createhash(password, user);
 		} catch (UnsupportedEncodingException e1) {
-			showMessageDialog(null, "Password Error", "Warning", WARNING_MESSAGE);
+		
 		}
 	    
 	    if(DB.LoginCheck(user, encryptedPassword) == true) {
 	    	dispose();
 	    	MainWindow.main(null);
 	    }
-	   /* else {
+	    else {
 			showMessageDialog(null, "Wrong Username or Password!\nPlease try again!", "Warning", WARNING_MESSAGE);
 			txtUserName.setText("");
 			txtPassword.setText("");
-	    }*/
+	    }
 	}
 }
