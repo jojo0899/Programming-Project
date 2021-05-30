@@ -48,15 +48,15 @@ public class Login extends JFrame {
 			e.printStackTrace();
 		}
 		
-		// generate test hash
-		String test = "test";
-		char test1[] = test.toCharArray();
-		try {
-			System.out.print(Functionalities.Password.createhash(test1, "test"));
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//		// generate test hash
+//		String test = "test";
+//		char test1[] = test.toCharArray();
+//		try {
+//			System.out.print(Functionalities.Password.createhash(test1, "test"));
+//		} catch (UnsupportedEncodingException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 		//
 		
 		EventQueue.invokeLater(new Runnable() {

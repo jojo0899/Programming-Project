@@ -289,10 +289,11 @@ public class SearchEvent extends JFrame {
 		btnBack4.setBounds(6, 245, 97, 26);
 		Kosten.add(btnBack4);
 		
-		JButton btnNext4 = new JButton("Weiter");
+		JButton btnNext4 = new JButton("Fertig");
 		btnNext4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(4); //<vorherigen tab öffnen
+				dispose();
+				SearchEventResultList.main(null);
 			}
 		});
 		btnNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -304,33 +305,8 @@ public class SearchEvent extends JFrame {
 		lblNewLabel.setBounds(134, 68, 52, 16);
 		Kosten.add(lblNewLabel);
 		
-		JPanel Gemischt = new JPanel();
-		tabbedPane.addTab("Gemischt", null, Gemischt, null);
-		Gemischt.setLayout(null);
+	
 		
-		JButton btnBack6 = new JButton("Zur\u00FCck");
-		btnBack6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(4);
-			}
-		});
-		btnBack6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnBack6.setBounds(6, 245, 97, 26);
-		Gemischt.add(btnBack6);
-		
-		JButton btnNext6 = new JButton("Fertig");
-		btnNext6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				SearchEventResultList.main(null);
-			}
-		});
-		btnNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext6.setBounds(451, 245, 97, 26);
-		Gemischt.add(btnNext6);
-		
-		JLabel lblNewLabel_1 = new JLabel("Welche Geschlechter nehmen teil?");
-		lblNewLabel_1.setBounds(6, 6, 209, 16);
-		Gemischt.add(lblNewLabel_1);
+	
 	}
 }

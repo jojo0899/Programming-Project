@@ -174,7 +174,7 @@ public class Register extends JFrame {
 	 * Create the frame.
 	 */
 	public Register() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 609, 384);
@@ -189,7 +189,7 @@ public class Register extends JFrame {
 		LblRegistration.setBounds(230, 6, 145, 25);
 		contentPane.add(LblRegistration);
 		
-		JLabel LblUserName = new JLabel("UserName:");
+		JLabel LblUserName = new JLabel("Benutzername:");
 		LblUserName.setHorizontalAlignment(SwingConstants.RIGHT);
 		LblUserName.setBounds(94, 40, 145, 16);
 		contentPane.add(LblUserName);
@@ -204,12 +204,12 @@ public class Register extends JFrame {
 		lblEmailConfirmation.setBounds(94, 93, 145, 16);
 		contentPane.add(lblEmailConfirmation);
 		
-		JLabel lblPassword = new JLabel("Password:");
+		JLabel lblPassword = new JLabel("Passwort:");
 		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPassword.setBounds(94, 124, 145, 16);
 		contentPane.add(lblPassword);
 		
-		JLabel lblPasswordConfirmation = new JLabel("Password bestätigen:");
+		JLabel lblPasswordConfirmation = new JLabel("Passwort bestätigen:");
 		lblPasswordConfirmation.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPasswordConfirmation.setBounds(94, 152, 145, 16);
 		contentPane.add(lblPasswordConfirmation);
@@ -350,7 +350,7 @@ public class Register extends JFrame {
 		BackButton.setBounds(19, 296, 97, 26);
 		contentPane.add(BackButton);
 		
-		JButton RegisterButton = new JButton("Register");
+		JButton RegisterButton = new JButton("Registrieren");
 		RegisterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        FieldsOKtest(); //Test Function

@@ -79,10 +79,6 @@ public class CreateEventConfirm extends JFrame {
 		lblKOstne.setBounds(24, 132, 78, 16);
 		contentPane.add(lblKOstne);
 		
-		JLabel lblGeschlechter = new JLabel("Geschlechter");
-		lblGeschlechter.setBounds(24, 187, 78, 16);
-		contentPane.add(lblGeschlechter);
-		
 		JButton btnZurueck= new JButton("Zurück");
 		btnZurueck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on zurück
@@ -124,10 +120,6 @@ public class CreateEventConfirm extends JFrame {
 		JLabel lblKosten2 = new JLabel(CreateEvent.costs);
 		lblKosten2.setBounds(114, 132, 232, 16);
 		contentPane.add(lblKosten2);
-		
-		JLabel lblGeschlechter2 = new JLabel("New label");
-		lblGeschlechter2.setBounds(114, 187, 232, 16);
-		contentPane.add(lblGeschlechter2);
 		
 		JLabel lblAnzteil = new JLabel("Teilnehmer: ");
 		lblAnzteil.setBounds(24, 160, 78, 16);

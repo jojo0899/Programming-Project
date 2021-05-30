@@ -37,6 +37,11 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.ButtonGroup;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class CreateEvent extends JFrame {
 
@@ -180,6 +185,8 @@ public class CreateEvent extends JFrame {
 		 
 		 
 		 JCalendar Calender = new JCalendar();
+			Calender.getYearChooser().setForeground(Color.LIGHT_GRAY);
+		
 		 Date begin=java.util.Calendar.getInstance().getTime(); //nur zukünftige daten in kalender anzeigen
 	        
 		 Calender.setSelectableDateRange(begin, new SimpleDateFormat("DD.MM.YYYY").parse("12.07.2022")); //nur events 1 Jahr im voraus planbar 
@@ -199,8 +206,16 @@ public class CreateEvent extends JFrame {
 			btnDatumNext2.setBounds(451, 248, 97, 26);
 			Datum.add(btnDatumNext2);
 
-		
-		
+			
+			
+			
+//		
+//			txtTeilnehmerAnz = new JTextField();
+//			txtTeilnehmerAnz.setBackground(Color.LIGHT_GRAY);
+//			txtTeilnehmerAnz.setForeground(Color.BLACK);
+//			
+			
+			
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
 		Ort.setLayout(null);
@@ -364,7 +379,7 @@ public class CreateEvent extends JFrame {
 		
 		
 		
-		JButton btnTeilnehmerNext5 = new JButton("Weiter");
+		JButton btnTeilnehmerNext5 = new JButton("Fertig");
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(5);		//nächsten tab öffnen
@@ -373,6 +388,8 @@ public class CreateEvent extends JFrame {
 				}else {
 					participantsnum = txtTeilnehmerAnz.getText();	
 				}
+				dispose();
+				CreateEventConfirm.main(null);
 				
 				
 			}
@@ -387,6 +404,8 @@ public class CreateEvent extends JFrame {
 		Teilnehmer.add(lblTeilnehmerInfo);
 		
 		txtTeilnehmerAnz = new JTextField();
+		txtTeilnehmerAnz.setBackground(Color.LIGHT_GRAY);
+		txtTeilnehmerAnz.setForeground(Color.BLACK);
 		txtTeilnehmerAnz.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -407,29 +426,8 @@ public class CreateEvent extends JFrame {
 		lblNewLabel_1.setBounds(152, 68, 79, 16);
 		Teilnehmer.add(lblNewLabel_1);
 		
-		JPanel Gemischt = new JPanel();
-		tabbedPane.addTab("Gemischt", null, Gemischt, null);
-		Gemischt.setLayout(null);
-		
-		JButton btGeschlechtnBack6 = new JButton("Zur\u00FCck");
-		btGeschlechtnBack6.addActionListener(new ActionListener() { //beim klick auf zurück vorherigen tab öffnen
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(4);
-			}
-		});
-		btGeschlechtnBack6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
-		btGeschlechtnBack6.setBounds(6, 245, 97, 26);
-		Gemischt.add(btGeschlechtnBack6);
-		
-		JButton btnGeschlechtNext6 = new JButton("Fertig"); 
-		btnGeschlechtNext6.addActionListener(new ActionListener() { //beim klick auf fertig, fenster schließen und mainwindow wieder öffnen
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				CreateEventConfirm.main(null);
-			}
-		});
-		btnGeschlechtNext6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
-		btnGeschlechtNext6.setBounds(451, 245, 97, 26);
-		Gemischt.add(btnGeschlechtNext6);
+	
+	
+
 	}
 }

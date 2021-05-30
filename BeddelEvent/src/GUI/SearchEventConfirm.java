@@ -77,10 +77,6 @@ public class SearchEventConfirm extends JFrame {
 		lblKOstne.setBounds(24, 132, 78, 16);
 		contentPane.add(lblKOstne);
 		
-		JLabel lblGeschlechter = new JLabel("Geschlechter:");
-		lblGeschlechter.setBounds(24, 160, 78, 16);
-		contentPane.add(lblGeschlechter);
-		
 		JButton btnZurueck= new JButton("Zurück");
 		btnZurueck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on zurück
@@ -102,24 +98,20 @@ public class SearchEventConfirm extends JFrame {
 		btnBestÃ¤tigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBestÃ¤tigen);
 		
-		JLabel lblSports2 = new JLabel("New label");
+		JLabel lblSports2 = new JLabel("");
 		lblSports2.setBounds(114, 48, 52, 16);
 		contentPane.add(lblSports2);
 		
-		JLabel lblOrt2 = new JLabel("New label");
+		JLabel lblOrt2 = new JLabel("");
 		lblOrt2.setBounds(114, 76, 52, 16);
 		contentPane.add(lblOrt2);
 		
-		JLabel lblDatum2 = new JLabel("New label");
+		JLabel lblDatum2 = new JLabel("");
 		lblDatum2.setBounds(114, 104, 52, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel("New label");
+		JLabel lblKosten2 = new JLabel("");
 		lblKosten2.setBounds(114, 132, 52, 16);
 		contentPane.add(lblKosten2);
-		
-		JLabel lblGeschlechter2 = new JLabel("New label");
-		lblGeschlechter2.setBounds(114, 160, 52, 16);
-		contentPane.add(lblGeschlechter2);
 	}
 }
