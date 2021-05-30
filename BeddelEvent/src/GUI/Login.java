@@ -121,6 +121,16 @@ public class Login extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		txtPassword = new JPasswordField();
+		txtPassword.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				  if(e.getKeyCode() == KeyEvent.VK_ENTER){ //login mit enter key
+					login();  
+				  }
+				  }
+							
+			}
+		);
 		txtPassword.setBounds(77, 129, 126, 26);
 		contentPane.add(txtPassword);
 		
