@@ -13,7 +13,6 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import com.toedter.calendar.JCalendar;
 
-import Functionalities.SendMail;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
