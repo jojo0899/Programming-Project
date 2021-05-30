@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DB.DB;
 import Functionalities.Password;
 
 import javax.swing.JLabel;
@@ -45,6 +46,18 @@ public class Login extends JFrame {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+		
+		// generate test hash
+		String test = "test";
+		char test1[] = test.toCharArray();
+		try {
+			System.out.print(Functionalities.Password.createhash(test1, "test"));
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -162,19 +175,14 @@ public class Login extends JFrame {
 			showMessageDialog(null, "Password Error", "Warning", WARNING_MESSAGE);
 		}
 	    
-	    // Abgleich der login daten mit datenbank hier einfügen
-	    
-	    
-	    // aus eHealth übernommen / muss noch geändert werden!
-	    /*
-		if(userTable.validLoginData(user, encryptedPassword)) {
-			dispose();
-			AuthenticationWindow.createAuthenticationWindow(user);
-		}
-		else {
+	    if(DB.LoginCheck(user, encryptedPassword) == true) {
+	    	dispose();
+	    	MainWindow.main(null);
+	    }
+	   /* else {
 			showMessageDialog(null, "Wrong Username or Password!\nPlease try again!", "Warning", WARNING_MESSAGE);
-			usernameField.setText("");
-			passwordField.setText("");
-		}*/
+			txtUserName.setText("");
+			txtPassword.setText("");
+	    }*/
 	}
 }
