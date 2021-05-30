@@ -119,10 +119,16 @@ public class Login extends JFrame {
 		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
 		
+		txtPassword = new JPasswordField();
+		txtPassword.setBounds(77, 129, 126, 26);
+		contentPane.add(txtPassword);
+		
+		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				login();
+					login();
+				
 				// wenn login geclicekd wurde SQL abfrage ob daten passen --> augelagert in login methode (JJ)
 			}
 		});
@@ -146,15 +152,6 @@ public class Login extends JFrame {
 		lblHeadline.setBounds(163, 6, 126, 37);
 		contentPane.add(lblHeadline);
 		
-		txtPassword = new JPasswordField();
-		txtPassword.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {		//Password eingabe
-				login();
-			}
-		});
-		txtPassword.setBounds(77, 129, 126, 26);
-		contentPane.add(txtPassword);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\48.png"));
