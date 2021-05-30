@@ -90,7 +90,7 @@ public class CreateEvent extends JFrame {
 	 * @throws ParseException 
 	 */
 	public CreateEvent() throws PropertyVetoException, ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);

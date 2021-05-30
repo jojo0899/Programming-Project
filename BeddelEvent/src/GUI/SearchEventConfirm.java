@@ -47,7 +47,7 @@ public class SearchEventConfirm extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchEventConfirm() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
