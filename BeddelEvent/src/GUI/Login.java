@@ -129,8 +129,7 @@ public class Login extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					login();
-				
-				// wenn login geclicekd wurde SQL abfrage ob daten passen --> augelagert in login methode (JJ)
+					// wenn login geclicekd wurde SQL abfrage ob daten passen --> augelagert in login methode (JJ)
 			}
 		});
 		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 12));

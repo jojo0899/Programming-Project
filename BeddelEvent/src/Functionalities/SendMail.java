@@ -93,7 +93,7 @@ import java.util.Properties;
 	        String host = "smtp-mail.outlook.com";
 
 	        MailSSLSocketFactory sf = new MailSSLSocketFactory();
-	    sf.setTrustAllHosts(true);
+	        sf.setTrustAllHosts(true);
 	    // or
 	    // sf.setTrustedHosts(new String[] { "my-server" });  
 
@@ -118,7 +118,7 @@ import java.util.Properties;
 	        });
 
 	        // Used to debug SMTP issues
-	        session.setDebug(true);
+	       // session.setDebug(true);
 
 	        try {
 	            // Create a default MimeMessage object.
