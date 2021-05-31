@@ -13,6 +13,8 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import com.toedter.calendar.JCalendar;
 
+import Functionalities.Event;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -54,13 +56,7 @@ public class CreateEvent extends JFrame {
 	private JTextField txtOrtEnterCity;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JTextField txtTeilnehmerAnz;
-	public static String sports;
-	public static String costs;
-	public static String date;
-	public static String time;
-	public static String place;
-	public static String participants;
-	public static String participantsnum;
+
 	/**
 	 * Launch the application.
 	 */
@@ -144,7 +140,7 @@ public class CreateEvent extends JFrame {
 		btnSportArtNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(1);				//in nächsten Tab springen
-				sports = String.valueOf(SelectSports.getSelectedItem());
+				Event.Sport = String.valueOf(SelectSports.getSelectedItem());
 			}
 		});
 		btnSportArtNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
@@ -203,7 +199,7 @@ public class CreateEvent extends JFrame {
 			btnDatumNext2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					tabbedPane.setSelectedIndex(2);		//in nächsten tab springen
-					date = CreateEvent.getDateAsString(Calender.getDayChooser().getDay(), Calender.getMonthChooser().getMonth()+1, Calender.getYearChooser().getYear()); //datum als String
+					Event.Date = CreateEvent.getDateAsString(Calender.getDayChooser().getDay(), Calender.getMonthChooser().getMonth()+1, Calender.getYearChooser().getYear()); //datum als String
 					}
 			});
 			btnDatumNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
@@ -252,7 +248,7 @@ public class CreateEvent extends JFrame {
 			btnTimeNext4.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-					time = dateFormat.format(timeSpinner.getValue());
+					Event.Time = dateFormat.format(timeSpinner.getValue());
 					tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
 				}
 			});
@@ -282,7 +278,7 @@ public class CreateEvent extends JFrame {
 		JButton btnOrtNext3 = new JButton("Weiter");
 		btnOrtNext3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				place = txtOrtEnterCity.getText();
+				Event.Ort = txtOrtEnterCity.getText();
 				tabbedPane.setSelectedIndex(4); //nächsten tab öffnen 
 			}
 		});
@@ -320,7 +316,7 @@ public class CreateEvent extends JFrame {
 			public void stateChanged(ChangeEvent e) {
 			int val = ((JSlider)e.getSource()).getValue();
 			String val2 = Integer.toString(val);
-			costs = val2;
+			Event.Kosten = val2;
 			ShowSliderValue.setText(val2);			//wert des Sliders in textfeld eintragen bei veränderung
 			
 			}
@@ -375,7 +371,7 @@ public class CreateEvent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(5); //<vorherigen tab öffnen
 				if(rdbtnKostenNein.isSelected()) {
-				costs="kostenlos";	
+				Event.Kosten="kostenlos";	
 				}
 				}
 		});
@@ -429,9 +425,9 @@ public class CreateEvent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 				if(rdbtnTeilnehmerNein.isSelected()) {
-					participantsnum="nicht beschränkt";
+					Event.Anz="nicht beschränkt";
 				}else {
-					participantsnum = txtTeilnehmerAnz.getText();	
+					Event.Anz= txtTeilnehmerAnz.getText();	
 				}
 				dispose();
 				CreateEventConfirm.main(null);

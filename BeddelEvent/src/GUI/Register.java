@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import DB.DB;
 import Functionalities.Password;
 import Functionalities.SendMail;
+import Functionalities.User;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,13 +35,8 @@ import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 
 public class Register extends JFrame {
-	static String firstName;
-	static String username;
-	static String lastName;
-	static String mail;
-	static String gender;
 	static char[] password;
-	static String pwhash;
+
 	
 	
 
@@ -63,10 +59,10 @@ public class Register extends JFrame {
 	 */
 	public boolean FieldsOKtest()
     {
-       	username = txtUserName.getText(); //information aus texteignabe in vairable storen
-        firstName =  txtFirstName.getText();
-        lastName =   txtLastName.getText();
-        mail =       txtEmail.getText();
+       	User.username = txtUserName.getText(); //information aus texteignabe in vairable storen
+        User.firstName =  txtFirstName.getText();
+        User.lastName =   txtLastName.getText();
+        User.email =       txtEmail.getText();
         
         String mailconfirm =  txtemailconfirm.getText();
         String pwd =        String.valueOf(txtpw.getPassword());
@@ -76,19 +72,19 @@ public class Register extends JFrame {
   
 
         //leerzeichen nicht möglich und prüft ob felder leer sind
-        if( firstName.trim().equals("") || lastName.trim().equals("") || mail.trim().equals("") || mailconfirm.trim().equals("") 
+        if(User.firstName.trim().equals("") || User.lastName.trim().equals("") || User.email.trim().equals("") || mailconfirm.trim().equals("") 
                 || pwd.trim().equals("") || pwdconfirm.trim().equals(""))   
         { //wenn feld leer ist fehlermeldung ausgeben
             JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
             return false;
         }
              
-        else if(!isValidEmailAddress(mail)) { //check if its a valid email adress wenn nicht true error ausgeben
+        else if(!isValidEmailAddress(User.email)) { //check if its a valid email adress wenn nicht true error ausgeben
             JOptionPane.showMessageDialog(null, "Keine gültige Email-Adresse!", "Email Error",JOptionPane.WARNING_MESSAGE);
             return false;
         	
         }
-        else if (!mail.equals(mailconfirm)) // wenn die mails nicht übereinstimmen fehlermeldung
+        else if (!User.email.equals(mailconfirm)) // wenn die mails nicht übereinstimmen fehlermeldung
         {
             JOptionPane.showMessageDialog(null, "Email-Adressen stimmen nicht überein!", "Email Error",JOptionPane.WARNING_MESSAGE);
             return false;
@@ -284,7 +280,7 @@ public class Register extends JFrame {
 		ButtonMale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //Handcursor beim hoovern
 		ButtonMale.addActionListener(new ActionListener() { //wenn button male gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
-				Register.gender = "M";
+				User.gender = "M";
 			}
 		});
 		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
@@ -296,7 +292,7 @@ public class Register extends JFrame {
 		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handcursor beim hoovern
 		ButtonFemale.addActionListener(new ActionListener() { //wenn female button gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
-				Register.gender = "W";
+				User.gender = "W";
 			}
 		});
 		ButtonFemale.setBounds(342, 234, 70, 20);
@@ -307,7 +303,7 @@ public class Register extends JFrame {
 		ButtonFemale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //handucrsor beim hoovern
 		ButtonDiverse.addActionListener(new ActionListener() { //wenn Divers gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
-				Register.gender = "X";
+				User.gender = "X";
 		
 			}
 		});
@@ -358,13 +354,13 @@ public class Register extends JFrame {
 		    	if(FieldsOKtest()) {
 		    		
 		    		try {
-		    			pwhash = Password.createhash(password, username);
+		    			User.passwort = Password.createhash(password, User.username);
 					} catch (UnsupportedEncodingException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}
 
-	    			DB.InsertDataIntoUser(username, firstName, lastName, gender, mail, pwhash);
+	    			DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
 		    		
 		    		//						if(!DoubleEmail()) {
 //						CreateConnection();
@@ -375,7 +371,7 @@ public class Register extends JFrame {
 							dispose();
 				            Login.main(null);
 				            try {
-								SendMail.registrationMail(mail, firstName); //SENDET EMAIL!
+								SendMail.registrationMail(User.email, User.firstName); //SENDET EMAIL!
 							} catch (GeneralSecurityException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();

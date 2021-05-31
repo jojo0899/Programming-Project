@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import DB.DB;
 import Functionalities.Password;
+import Functionalities.User;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -190,6 +191,7 @@ public class Login extends JFrame {
 	    if(DB.LoginCheck(user, encryptedPassword) == true) {
 	    	dispose();
 	    	MainWindow.main(null);
+	    	User.username = user;
 	    }
 	    else {
 =======
