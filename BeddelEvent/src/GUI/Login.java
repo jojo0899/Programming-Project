@@ -186,7 +186,7 @@ public class Login extends JFrame {
 		} catch (UnsupportedEncodingException e1) {
 		
 		}
-<<<<<<< Updated upstream
+
 	    
 	    if(DB.LoginCheck(user, encryptedPassword) == true) {
 	    	dispose();
@@ -194,13 +194,13 @@ public class Login extends JFrame {
 	    	User.username = user;
 	    }
 	    else {
-=======
+
 //	   jona26.05 
 	   // System.out.println(user);
 	   // System.out.println(password);
 	    String s = new String(password);
 	  //  System.out.println(s);
-	    if (DB.DB.LoginCheck(user, s) == true ) {
+	    if (DB.LoginCheck(user, s) == true ) {
 	    	System.out.println("login und neues fenster öffnet sich");
 	    	
 	    }
@@ -209,21 +209,6 @@ public class Login extends JFrame {
 	    	System.out.println("Fail");
 	    }
 	   
-//	    jona 26.05
-	    // Abgleich der login daten mit datenbank hier einfügen
-	    
-	    
-	    // aus eHealth übernommen / muss noch geändert werden!
-	    /*
-		if(userTable.validLoginData(user, encryptedPassword)) {
-			dispose();
-			AuthenticationWindow.createAuthenticationWindow(user);
-		}
-		else {
->>>>>>> Stashed changes
-			showMessageDialog(null, "Wrong Username or Password!\nPlease try again!", "Warning", WARNING_MESSAGE);
-			txtUserName.setText("");
-			txtPassword.setText("");
-	    }
+
 	}
-}
+	}}
