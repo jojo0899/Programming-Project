@@ -6,7 +6,7 @@ public class DB {
 	public static String passwort;
 	public static boolean bool;
 	public static String email; 
-	
+//	
 	public static void DBconnection() {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
