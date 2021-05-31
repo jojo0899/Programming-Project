@@ -94,6 +94,7 @@ public class CreateEventConfirm extends JFrame {
 		JButton btnBest√§tigen = new JButton("Best‰tigen");
 		btnBest√§tigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on best‰tigen
+				DB.DB.InsertDataIntoEvent(Event.Sport, Event.Date, Event.Time, Event.Ort, Event.Anz, Event.Kosten, User.username);
 				dispose(); //fenster schlieﬂen 
 				MainWindow.main(null); //main fenster ˆffnen
 				try {
