@@ -47,12 +47,21 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>8.0.25</version>
 	</dependency>
+<!--  https://vaadin.com/api/platform/14.6.1/com/vaadin/flow/component/timepicker/TimePicker.html -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-bom</artifactId>
+      <version>19.0.8</version>
+      <type>pom</type>
+       </dependency>
+	
 	<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 <dependency>
 	<groupId>com.sun.mail</groupId>
 	<artifactId>javax.mail</artifactId>
 	<version>1.5.5</version>
 </dependency>
+
 	
   </dependencies>
 </project>

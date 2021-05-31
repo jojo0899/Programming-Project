@@ -23,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.security.GeneralSecurityException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +32,9 @@ import javax.swing.JInternalFrame;
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
 import javax.swing.JSlider;
+import javax.swing.JSpinner;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.ButtonGroup;
@@ -54,6 +57,7 @@ public class CreateEvent extends JFrame {
 	public static String sports;
 	public static String costs;
 	public static String date;
+	public static String time;
 	public static String place;
 	public static String participants;
 	public static String participantsnum;
@@ -215,6 +219,47 @@ public class CreateEvent extends JFrame {
 //			txtTeilnehmerAnz.setForeground(Color.BLACK);
 //			
 			
+			JPanel Time = new JPanel();
+			tabbedPane.addTab("Uhrzeit", null, Time, null);
+			Time.setLayout(null);
+			
+			JLabel lblEnterTime = new JLabel("Wähle eine Uhrzeit aus: ");
+			lblEnterTime.setBounds(6, 6, 126, 16);
+			Time.add(lblEnterTime);	
+			
+			JButton btnTimeBack4 = new JButton("Zur\u00FCck");
+			btnTimeBack4.setBounds(6, 245, 97, 26);
+			btnTimeBack4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					tabbedPane.setSelectedIndex(1);			//vorherigen tab öffnen
+					}
+			});
+			btnTimeBack4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+			Time.add(btnTimeBack4);
+			
+			JSpinner timeSpinner = new JSpinner( new SpinnerDateModel() );
+			timeSpinner.setBounds(16, 44, 87, 26);
+			JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(timeSpinner, "HH:mm");
+			timeSpinner.setEditor(timeEditor);
+			timeSpinner.setValue(new Date()); // will only show the current time		
+			Time.add(timeSpinner);
+			
+			
+		
+
+			JButton btnTimeNext4 = new JButton("Weiter");
+			btnTimeNext4.setBounds(451, 245, 97, 26);
+			btnTimeNext4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+					time = dateFormat.format(timeSpinner.getValue());
+					tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
+				}
+			});
+			btnTimeNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+			Time.add(btnTimeNext4);
+			
+			
 			
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
@@ -227,7 +272,7 @@ public class CreateEvent extends JFrame {
 		JButton btnOrtBack3 = new JButton("Zur\u00FCck");
 		btnOrtBack3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(1);			//vorherigen tab öffnen
+				tabbedPane.setSelectedIndex(2);			//vorherigen tab öffnen
 				}
 		});
 		btnOrtBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern über button
@@ -238,7 +283,7 @@ public class CreateEvent extends JFrame {
 		btnOrtNext3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				place = txtOrtEnterCity.getText();
-				tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
+				tabbedPane.setSelectedIndex(4); //nächsten tab öffnen 
 			}
 		});
 		btnOrtNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
@@ -318,7 +363,7 @@ public class CreateEvent extends JFrame {
 		JButton btnKostenBack4 = new JButton("Zur\u00FCck");
 		btnKostenBack4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(2);		//nächsten tab öffnen
+				tabbedPane.setSelectedIndex(3);		//nächsten tab öffnen
 			}
 		});
 		btnKostenBack4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
@@ -328,7 +373,7 @@ public class CreateEvent extends JFrame {
 		JButton btnKostenNext4 = new JButton("Weiter");
 		btnKostenNext4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(4); //<vorherigen tab öffnen
+				tabbedPane.setSelectedIndex(5); //<vorherigen tab öffnen
 				if(rdbtnKostenNein.isSelected()) {
 				costs="kostenlos";	
 				}
@@ -345,7 +390,7 @@ public class CreateEvent extends JFrame {
 		JButton btnTeilnehmerBack5 = new JButton("Zur\u00FCck");
 		btnTeilnehmerBack5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(3);		//vorherigen tab öffnen
+				tabbedPane.setSelectedIndex(4);		//vorherigen tab öffnen
 			}
 		});
 		btnTeilnehmerBack5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button

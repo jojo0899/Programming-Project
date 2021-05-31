@@ -76,7 +76,7 @@ public class CreateEventConfirm extends JFrame {
 		contentPane.add(lblDatum);
 		
 		JLabel lblKOstne = new JLabel("Kosten");
-		lblKOstne.setBounds(24, 132, 78, 16);
+		lblKOstne.setBounds(24, 159, 78, 16);
 		contentPane.add(lblKOstne);
 		
 		JButton btnZurueck= new JButton("Zurück");
@@ -95,7 +95,7 @@ public class CreateEventConfirm extends JFrame {
 				dispose(); //fenster schließen 
 				MainWindow.main(null); //main fenster öffnen
 				try {
-					SendMail.createEventMail(DB.DB.email, DB.DB.username, CreateEvent.date, CreateEvent.sports, CreateEvent.place, CreateEvent.costs , CreateEvent.participantsnum);
+					SendMail.createEventMail(DB.DB.email, DB.DB.username, CreateEvent.date,CreateEvent.time, CreateEvent.sports, CreateEvent.place, CreateEvent.costs , CreateEvent.participantsnum);
 				} catch (GeneralSecurityException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -118,15 +118,23 @@ public class CreateEventConfirm extends JFrame {
 		contentPane.add(lblDatum2);
 		
 		JLabel lblKosten2 = new JLabel(CreateEvent.costs);
-		lblKosten2.setBounds(114, 132, 232, 16);
+		lblKosten2.setBounds(114, 159, 232, 16);
 		contentPane.add(lblKosten2);
 		
 		JLabel lblAnzteil = new JLabel("Teilnehmer: ");
-		lblAnzteil.setBounds(24, 160, 78, 16);
+		lblAnzteil.setBounds(24, 187, 78, 16);
 		contentPane.add(lblAnzteil);
 		
 		JLabel lblAnzteil2 = new JLabel(CreateEvent.participantsnum);
-		lblAnzteil2.setBounds(114, 160, 232, 16);
+		lblAnzteil2.setBounds(114, 187, 232, 16);
 		contentPane.add(lblAnzteil2);
+		
+		JLabel lblUhrzeit = new JLabel("Uhrzeit");
+		lblUhrzeit.setBounds(24, 131, 52, 16);
+		contentPane.add(lblUhrzeit);
+		
+		JLabel lblUhrzeit2 = new JLabel(CreateEvent.time);
+		lblUhrzeit2.setBounds(114, 132, 232, 16);
+		contentPane.add(lblUhrzeit2);
 	}
 }
