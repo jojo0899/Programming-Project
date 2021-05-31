@@ -316,7 +316,7 @@ public class CreateEvent extends JFrame {
 			public void stateChanged(ChangeEvent e) {
 			int val = ((JSlider)e.getSource()).getValue();
 			String val2 = Integer.toString(val);
-			Event.Kosten = val2;
+			Event.Kosten = (double) val;
 			ShowSliderValue.setText(val2);			//wert des Sliders in textfeld eintragen bei veränderung
 			
 			}
@@ -371,7 +371,7 @@ public class CreateEvent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(5); //<vorherigen tab öffnen
 				if(rdbtnKostenNein.isSelected()) {
-				Event.Kosten="kostenlos";	
+				Event.Kosten=0.00;	
 				}
 				}
 		});
@@ -425,9 +425,9 @@ public class CreateEvent extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 				if(rdbtnTeilnehmerNein.isSelected()) {
-					Event.Anz="nicht beschränkt";
+					Event.Anz=0;
 				}else {
-					Event.Anz= txtTeilnehmerAnz.getText();	
+					Event.Anz= Integer.valueOf(txtTeilnehmerAnz.getText());
 				}
 				dispose();
 				CreateEventConfirm.main(null);

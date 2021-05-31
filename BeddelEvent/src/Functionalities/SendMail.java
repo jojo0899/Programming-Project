@@ -28,7 +28,7 @@ import java.util.Properties;
 			
 			
 		}
-		public static void createEventMail(String mail, String name, String date,String time, String sport, String place,String cost, String participantsnumber) throws GeneralSecurityException {
+		public static void createEventMail(String mail, String name, String date,String time, String sport, String place,double kosten, int anz) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Erstellung";
 			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
@@ -38,8 +38,8 @@ import java.util.Properties;
 						"Datum: "+date+"\n"+
 						"Uhrzeut: "+time+"\n"+
 						"Ort: "+place+"\n"+
-						"Kosten: "+cost+"\n"+
-						"Teilnehmerzahl: "+participantsnumber+"\n\n\n"+
+						"Kosten: "+kosten+"\n"+
+						"Teilnehmerzahl: "+anz+"\n\n\n"+
 						"Wir wünschen dir viel spaß! \n\n"+
 						"dein Beddel-Team";
 			

@@ -23,7 +23,7 @@ import Functionalities.User;
 public class CreateEventConfirm extends JFrame {
 
 	private JPanel contentPane;
-
+	String  TeilnAsString;
 	/**
 	 * Launch the application.
 	 */
@@ -119,7 +119,13 @@ public class CreateEventConfirm extends JFrame {
 		lblDatum2.setBounds(114, 104, 232, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel(Event.Kosten);
+		String KstAsString;
+		if(Event.Kosten==0.00) {
+			KstAsString = "kostenlos";
+		}else {
+			KstAsString = Double.toString(Event.Kosten);
+			}
+		JLabel lblKosten2 = new JLabel(KstAsString);
 		lblKosten2.setBounds(114, 159, 232, 16);
 		contentPane.add(lblKosten2);
 		
@@ -127,7 +133,13 @@ public class CreateEventConfirm extends JFrame {
 		lblAnzteil.setBounds(24, 187, 78, 16);
 		contentPane.add(lblAnzteil);
 		
-		JLabel lblAnzteil2 = new JLabel(Event.Anz);
+		String TeilnAsString;
+		if(Event.Anz==0) {
+			TeilnAsString = "keine Beschärnkung";
+		}else {
+			TeilnAsString = Integer.toString(Event.Anz);
+		}
+		JLabel lblAnzteil2 = new JLabel(TeilnAsString);
 		lblAnzteil2.setBounds(114, 187, 232, 16);
 		contentPane.add(lblAnzteil2);
 		
