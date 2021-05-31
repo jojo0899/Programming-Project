@@ -382,7 +382,7 @@ public class CreateEvent extends JFrame {
 		JButton btnTeilnehmerNext5 = new JButton("Fertig");
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(5);		//nächsten tab öffnen
+			
 				if(rdbtnTeilnehmerNein.isSelected()) {
 					participantsnum="nicht beschränkt";
 				}else {
