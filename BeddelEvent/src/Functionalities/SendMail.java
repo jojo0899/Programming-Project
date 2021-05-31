@@ -33,8 +33,8 @@ import java.util.Properties;
 			SendMail.subject = "Event Erstellung";
 			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
 						"dein Event wurde erfolgreich erstellt. \n\n\n "+ 
-					"Zusammenfassung: "+
-						"Sportart: "+sport+
+					"Zusammenfassung:\n\n "+
+						"Sportart: "+sport+"\n"+
 						"Datum: "+date+"\n"+
 						"Uhrzeut: "+time+"\n"+
 						"Ort: "+place+"\n"+

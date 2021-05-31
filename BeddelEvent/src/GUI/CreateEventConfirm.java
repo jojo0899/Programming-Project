@@ -16,7 +16,9 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import Functionalities.Event;
 import Functionalities.SendMail;
+import Functionalities.User;
 
 public class CreateEventConfirm extends JFrame {
 
@@ -95,7 +97,7 @@ public class CreateEventConfirm extends JFrame {
 				dispose(); //fenster schlieﬂen 
 				MainWindow.main(null); //main fenster ˆffnen
 				try {
-					SendMail.createEventMail(DB.DB.email, DB.DB.username, CreateEvent.date,CreateEvent.time, CreateEvent.sports, CreateEvent.place, CreateEvent.costs , CreateEvent.participantsnum);
+					SendMail.createEventMail(User.email, User.username, Event.Date,Event.Time, Event.Sport, Event.Ort, Event.Kosten, Event.Anz);
 				} catch (GeneralSecurityException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -105,19 +107,19 @@ public class CreateEventConfirm extends JFrame {
 		btnBest√§tigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBest√§tigen);
 		
-		JLabel lblSports2 = new JLabel(CreateEvent.sports);
+		JLabel lblSports2 = new JLabel(Event.Sport);
 		lblSports2.setBounds(114, 48, 232, 16);
 		contentPane.add(lblSports2);
 		
-		JLabel lblOrt2 = new JLabel(CreateEvent.place);
+		JLabel lblOrt2 = new JLabel(Event.Ort);
 		lblOrt2.setBounds(114, 76, 232, 16);
 		contentPane.add(lblOrt2);
 		
-		JLabel lblDatum2 = new JLabel(CreateEvent.date);
+		JLabel lblDatum2 = new JLabel(Event.Date);
 		lblDatum2.setBounds(114, 104, 232, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel(CreateEvent.costs);
+		JLabel lblKosten2 = new JLabel(Event.Kosten);
 		lblKosten2.setBounds(114, 159, 232, 16);
 		contentPane.add(lblKosten2);
 		
@@ -125,7 +127,7 @@ public class CreateEventConfirm extends JFrame {
 		lblAnzteil.setBounds(24, 187, 78, 16);
 		contentPane.add(lblAnzteil);
 		
-		JLabel lblAnzteil2 = new JLabel(CreateEvent.participantsnum);
+		JLabel lblAnzteil2 = new JLabel(Event.Anz);
 		lblAnzteil2.setBounds(114, 187, 232, 16);
 		contentPane.add(lblAnzteil2);
 		
@@ -133,7 +135,7 @@ public class CreateEventConfirm extends JFrame {
 		lblUhrzeit.setBounds(24, 131, 52, 16);
 		contentPane.add(lblUhrzeit);
 		
-		JLabel lblUhrzeit2 = new JLabel(CreateEvent.time);
+		JLabel lblUhrzeit2 = new JLabel(Event.Time);
 		lblUhrzeit2.setBounds(114, 132, 232, 16);
 		contentPane.add(lblUhrzeit2);
 	}
