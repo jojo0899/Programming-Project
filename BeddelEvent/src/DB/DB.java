@@ -38,7 +38,7 @@ public class DB {
 		}
 	}
 	
-	public static void InsertDataIntoEvent(String b, String c,String d, String e, int g, double h, String i) {
+	public static void InsertDataIntoEvent(String sportart, String datum,String uhrzeit, String stadt, int anz, double kosten, String veranstalter) {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
@@ -46,7 +46,7 @@ public class DB {
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
 			
-			String query = "INSERT INTO event (sportart, Datum, Uhrzeit, Stadt, Anzahlplätze, kosten, veranstalter) VALUES ('" + b + "' , '"+ c + "' , '"+ d + "' , '"+ e + "' , '"+ g + "' , '"+ h + "' , '"+ i + "' )";			
+			String query = "INSERT INTO event (sportart, Datum, Uhrzeit, Stadt, Anzahlplätze, kosten, veranstalter) VALUES ('" + sportart + "' , '"+ datum + "' , '"+ uhrzeit + "' , '"+ stadt + "' , '"+ anz + "' , '"+ kosten + "' , '"+ veranstalter + "' )";			
 			Statement s = connection.createStatement();
 			s.execute(query);
 			s.close();
