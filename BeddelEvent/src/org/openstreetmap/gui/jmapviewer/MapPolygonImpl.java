@@ -1,5 +1,5 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;

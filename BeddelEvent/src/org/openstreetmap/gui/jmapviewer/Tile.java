@@ -1,5 +1,5 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -28,12 +28,12 @@ public class Tile {
     /**
      * Hourglass image that is displayed until a map tile has been loaded, except for overlay sources
      */
-    public static final BufferedImage LOADING_IMAGE = loadImage("./pic/hourglass.png");
+    public static final BufferedImage LOADING_IMAGE = loadImage("images/hourglass.png");
 
     /**
      * Red cross image that is displayed after a loading error, except for overlay sources
      */
-    public static final BufferedImage ERROR_IMAGE = loadImage("./pic/error.png");
+    public static final BufferedImage ERROR_IMAGE = loadImage("images/error.png");
 
     protected TileSource source;
     protected int xtile;
@@ -267,9 +267,7 @@ public class Tile {
     }
 
     public String getUrl() throws IOException {
-    	
-    	return source.getTileUrl(zoom, xtile, ytile);
-       
+        return source.getTileUrl(zoom, xtile, ytile);
     }
 
     /**

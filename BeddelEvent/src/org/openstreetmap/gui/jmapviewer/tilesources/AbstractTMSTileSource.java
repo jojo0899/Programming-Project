@@ -11,11 +11,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.openstreetmap.gui.jmapviewer.OsmMercator;
+import org.openstreetmap.gui.jmapviewer.Tile;
+import org.openstreetmap.gui.jmapviewer.TileXY;
 import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
-
-import Map.OsmMercator;
-import Map.Tile;
-import Map.TileXY;
 
 /**
  * Class generalizing all tile based tile sources

@@ -1,5 +1,5 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
 /**
  * This is a rectangular range of tiles.

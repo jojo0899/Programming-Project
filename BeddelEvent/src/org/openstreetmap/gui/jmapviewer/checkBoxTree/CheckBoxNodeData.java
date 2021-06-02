@@ -1,8 +1,8 @@
 // License: GPL. For details, see Readme.txt file.
 package org.openstreetmap.gui.jmapviewer.checkBoxTree;
 
-import Map.AbstractLayer;
-import Map.LayerGroup;
+import org.openstreetmap.gui.jmapviewer.AbstractLayer;
+import org.openstreetmap.gui.jmapviewer.LayerGroup;
 
 /**
  * Node Data for checkBox Tree

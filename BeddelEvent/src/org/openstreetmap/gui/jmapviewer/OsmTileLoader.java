@@ -1,7 +1,7 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
-import static Map.FeatureAdapter.tr;
+import static org.openstreetmap.gui.jmapviewer.FeatureAdapter.tr;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -120,15 +120,13 @@ public class OsmTileLoader implements TileLoader {
     }
 
     protected URLConnection loadTileFromOsm(Tile tile) throws IOException {
-        URL url;
-        url = new URL(tile.getUrl());
-        HttpURLConnection urlConn = (HttpURLConnection)url.openConnection();
-        urlConn.addRequestProperty("User-Agent", "Mozilla/4.76");
-        if (urlConn instanceof HttpURLConnection) {
-            prepareHttpUrlConnection((HttpURLConnection) urlConn);
+    	  URL url;
+          url = new URL(tile.getUrl());
+          HttpURLConnection urlConn = (HttpURLConnection)url.openConnection();
+          urlConn.addRequestProperty("User-Agent", "Mozilla/4.76");
+          if (urlConn instanceof HttpURLConnection) {
+              prepareHttpUrlConnection((HttpURLConnection) urlConn);
         }
-       
-       
         return urlConn;
     }
 

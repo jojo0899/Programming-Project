@@ -12,9 +12,9 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
-import Map.AbstractLayer;
-import Map.Layer;
-import Map.LayerGroup;
+import org.openstreetmap.gui.jmapviewer.AbstractLayer;
+import org.openstreetmap.gui.jmapviewer.Layer;
+import org.openstreetmap.gui.jmapviewer.LayerGroup;
 
 /**
  * JTree for checkBox Tree Layers

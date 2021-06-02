@@ -25,16 +25,15 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.FeatureAdapter;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
 import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
-import Map.Coordinate;
-import Map.FeatureAdapter;
-import Map.JMapViewer;
 
 /**
  * Tile source for the Bing Maps REST Imagery API.

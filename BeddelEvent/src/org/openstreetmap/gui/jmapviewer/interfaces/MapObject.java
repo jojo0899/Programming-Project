@@ -5,8 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Stroke;
 
-import Map.Layer;
-import Map.Style;
+import org.openstreetmap.gui.jmapviewer.Layer;
+import org.openstreetmap.gui.jmapviewer.Style;
 
 public interface MapObject {
 

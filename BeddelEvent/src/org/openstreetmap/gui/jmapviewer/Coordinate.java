@@ -1,5 +1,5 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
 import java.awt.geom.Point2D;
 import java.io.IOException;
@@ -7,31 +7,45 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Objects;
 
-import org.openstreetmap.gui.jmapviewer.interfaces.IProjected;
+import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
 
 /**
- * Projected coordinates represented by an encapsulates a Point2D.Double value.
+ * This class encapsulates a Point2D.Double and provide access
+ * via <code>lat</code> and <code>lon</code>.
+ *
+ * @author Jan Peter Stotz
+ *
  */
-public class Projected implements IProjected {
+public class Coordinate implements ICoordinate {
     private transient Point2D.Double data;
 
     /**
-     * Constructs a new {@code Projected}.
-     * @param east easting
-     * @param north northing
+     * Constructs a new {@code Coordinate}.
+     * @param lat latitude in degrees
+     * @param lon longitude in degrees
      */
-    public Projected(double east, double north) {
-        data = new Point2D.Double(east, north);
+    public Coordinate(double lat, double lon) {
+        data = new Point2D.Double(lon, lat);
     }
 
     @Override
-    public double getEast() {
+    public double getLat() {
+        return data.y;
+    }
+
+    @Override
+    public void setLat(double lat) {
+        data.y = lat;
+    }
+
+    @Override
+    public double getLon() {
         return data.x;
     }
 
     @Override
-    public double getNorth() {
-        return data.y;
+    public void setLon(double lon) {
+        data.x = lon;
     }
 
     private void writeObject(ObjectOutputStream out) throws IOException {
@@ -47,7 +61,7 @@ public class Projected implements IProjected {
 
     @Override
     public String toString() {
-        return "Projected[" + data.y + ", " + data.x + ']';
+        return "Coordinate[" + data.y + ", " + data.x + ']';
     }
 
     @Override
@@ -59,9 +73,9 @@ public class Projected implements IProjected {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null || !(obj instanceof Projected))
+        if (obj == null || !(obj instanceof Coordinate))
             return false;
-        final Projected other = (Projected) obj;
+        final Coordinate other = (Coordinate) obj;
         return Objects.equals(data, other.data);
     }
 }

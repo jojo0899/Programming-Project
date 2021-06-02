@@ -6,11 +6,10 @@ package org.openstreetmap.gui.jmapviewer.tilesources;
 import java.awt.Point;
 import java.util.Random;
 
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.OsmMercator;
+import org.openstreetmap.gui.jmapviewer.TileXY;
 import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
-
-import Map.Coordinate;
-import Map.OsmMercator;
-import Map.TileXY;
 
 /**
  * This tilesource uses different to OsmMercator projection.

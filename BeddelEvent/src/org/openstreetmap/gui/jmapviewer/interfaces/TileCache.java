@@ -1,8 +1,8 @@
 // License: GPL. For details, see Readme.txt file.
 package org.openstreetmap.gui.jmapviewer.interfaces;
 
-import Map.JMapViewer;
-import Map.Tile;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.Tile;
 
 /**
  * Implement this interface for creating your custom tile cache for

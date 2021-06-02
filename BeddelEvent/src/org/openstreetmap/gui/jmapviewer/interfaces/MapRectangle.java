@@ -4,8 +4,8 @@ package org.openstreetmap.gui.jmapviewer.interfaces;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import Map.Coordinate;
-import Map.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
 
 /**
  * Interface to be implemented by rectangles that can be displayed on the map.

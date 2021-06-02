@@ -3,15 +3,14 @@ package org.openstreetmap.gui.jmapviewer.tilesources;
 
 import java.awt.Point;
 
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.OsmMercator;
+import org.openstreetmap.gui.jmapviewer.Projected;
+import org.openstreetmap.gui.jmapviewer.Tile;
+import org.openstreetmap.gui.jmapviewer.TileRange;
+import org.openstreetmap.gui.jmapviewer.TileXY;
 import org.openstreetmap.gui.jmapviewer.interfaces.ICoordinate;
 import org.openstreetmap.gui.jmapviewer.interfaces.IProjected;
-
-import Map.Coordinate;
-import Map.OsmMercator;
-import Map.Projected;
-import Map.Tile;
-import Map.TileRange;
-import Map.TileXY;
 
 /**
  * TMS tile source.

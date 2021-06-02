@@ -16,6 +16,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.openstreetmap.gui.jmapviewer.Coordinate;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.JMapViewerTree;
+import org.openstreetmap.gui.jmapviewer.Layer;
+import org.openstreetmap.gui.jmapviewer.LayerGroup;
+import org.openstreetmap.gui.jmapviewer.MapMarkerCircle;
+import org.openstreetmap.gui.jmapviewer.MapMarkerDot;
+import org.openstreetmap.gui.jmapviewer.MapPolygonImpl;
+import org.openstreetmap.gui.jmapviewer.MapRectangleImpl;
+import org.openstreetmap.gui.jmapviewer.OsmTileLoader;
 import org.openstreetmap.gui.jmapviewer.events.JMVCommandEvent;
 import org.openstreetmap.gui.jmapviewer.interfaces.JMapViewerEventListener;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapPolygon;
@@ -23,14 +33,6 @@ import org.openstreetmap.gui.jmapviewer.interfaces.TileLoader;
 import org.openstreetmap.gui.jmapviewer.interfaces.TileSource;
 import org.openstreetmap.gui.jmapviewer.tilesources.BingAerialTileSource;
 import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
-
-import Map.Coordinate;
-import Map.JMapViewer;
-import Map.JMapViewerTree;
-import Map.Layer;
-import Map.LayerGroup;
-import Map.MapMarkerDot;
-import Map.OsmTileLoader;
 
 /**
  * Demonstrates the usage of {@link JMapViewer}

@@ -1,7 +1,7 @@
 // License: GPL. For details, see Readme.txt file.
-package Map;
+package org.openstreetmap.gui.jmapviewer;
 
-import static Map.FeatureAdapter.tr;
+import static org.openstreetmap.gui.jmapviewer.FeatureAdapter.tr;
 
 import java.awt.Color;
 import java.awt.Font;

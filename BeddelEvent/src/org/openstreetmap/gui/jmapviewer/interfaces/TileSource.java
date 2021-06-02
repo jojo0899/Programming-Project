@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import Map.JMapViewer;
-import Map.Tile;
-import Map.TileRange;
-import Map.TileXY;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
+import org.openstreetmap.gui.jmapviewer.Tile;
+import org.openstreetmap.gui.jmapviewer.TileRange;
+import org.openstreetmap.gui.jmapviewer.TileXY;
 
 /**
  *
