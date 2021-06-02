@@ -13,6 +13,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import com.toedter.calendar.JCalendar;
 
+import Functionalities.Map;
 import Functionalities.Event;
 import Functionalities.User;
 
@@ -54,7 +55,6 @@ public class CreateEvent extends JFrame {
 
 	private JPanel contentPane;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JTextField txtOrtEnterCity;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JTextField txtTeilnehmerAnz;
 
@@ -96,7 +96,7 @@ public class CreateEvent extends JFrame {
 	 * @throws ParseException 
 	 */
 	public CreateEvent() throws PropertyVetoException, ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
@@ -262,10 +262,6 @@ public class CreateEvent extends JFrame {
 		tabbedPane.addTab("Ort", null, Ort, null);
 		Ort.setLayout(null);
 		
-		JLabel lblSelectCity = new JLabel("Trage die Stadt ein");
-		lblSelectCity.setBounds(6, 6, 126, 16);
-		Ort.add(lblSelectCity);
-		
 		JButton btnOrtBack3 = new JButton("Zur\u00FCck");
 		btnOrtBack3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -279,18 +275,38 @@ public class CreateEvent extends JFrame {
 		JButton btnOrtNext3 = new JButton("Weiter");
 		btnOrtNext3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Event.Ort = txtOrtEnterCity.getText();
+				//Event.Ort = txtOrtEnterCity.getText();
 				tabbedPane.setSelectedIndex(4); //nächsten tab öffnen 
+				Event.xval =Map.xtemp;
+				Event.yval =Map.ytemp;
 			}
 		});
 		btnOrtNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));//hand cursor beim hovern über button
 		btnOrtNext3.setBounds(451, 245, 97, 26);
 		Ort.add(btnOrtNext3);
 		
-		txtOrtEnterCity = new JTextField();
-		txtOrtEnterCity.setBounds(6, 61, 252, 26);
-		Ort.add(txtOrtEnterCity);
-		txtOrtEnterCity.setColumns(10);
+		JInternalFrame internalFrame_1 = new JInternalFrame("New JInternalFrame"){ //internal jframe für calender erzeugen
+	           @Override
+	           public void setUI(InternalFrameUI ui) {	//headline für interneal jframe für calender ausblenden
+	               super.setUI(ui); // this gets called internally when updating the ui and makes the northPane reappear
+	               BasicInternalFrameUI frameUI = (BasicInternalFrameUI) getUI(); // so...
+	               if (frameUI != null) frameUI.setNorthPane(null); // lets get rid of it
+	           }
+	        };
+	
+		internalFrame_1.setBounds(0, -33, 548, 280);
+		Ort.add(internalFrame_1);
+		internalFrame_1.setVisible(true);
+//		Map.Demo.main(null);
+		
+		Map mp = new Map();
+		internalFrame_1.getContentPane().add(mp);
+		
+		
+		
+		
+		
+		
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);

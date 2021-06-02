@@ -62,6 +62,15 @@
 	<version>1.5.5</version>
 </dependency>
 
+
+
 	
   </dependencies>
+   <repositories>
+     <repository>
+        <id>josm-public</id>
+        <name>josm public releases</name>
+        <url>https://josm.openstreetmap.de/nexus/content/groups/public</url>
+    </repository>
+ </repositories>
 </project>

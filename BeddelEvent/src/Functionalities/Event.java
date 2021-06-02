@@ -8,6 +8,8 @@ public class Event {
 	public static double Kosten;
 	public static String Ort;
 	public static String Veranstalter;
+	public static double xval;
+	public static double yval;
 	
 	
 	
