@@ -85,7 +85,7 @@ public class Map extends JPanel implements JMapViewerEventListener {
         panel.add(panelTop, BorderLayout.NORTH);
         panel.add(panelBottom, BorderLayout.SOUTH);
         JLabel helpLabel = new JLabel("Use right mouse button to move,\n "
-                + "left double click or mouse wheel to zoom.");
+                + "and the mouse wheel to zoom.");
         helpPanel.add(helpLabel);
         JButton button = new JButton("setDisplayToFitMapMarkers");
         button.addActionListener(e -> map().setDisplayToFitMapMarkers());
@@ -144,14 +144,11 @@ public class Map extends JPanel implements JMapViewerEventListener {
 
         add(treeMap, BorderLayout.CENTER);
 
-        //
         LayerGroup germanyGroup = new LayerGroup("Germany");
         Layer germanyWestLayer = germanyGroup.addLayer("Germany West");
-             MapMarkerDot Test = new MapMarkerDot(germanyWestLayer, "TEST", 50.12905921689572,8.5950368642807);
-      
-       // map().addMapMarker(eberstadt);
-        map().addMapMarker(Test);
-      //  map().addMapMarker(empty);
+       
+        
+        
         
         treeMap.addLayer(germanyWestLayer);
 
@@ -167,7 +164,7 @@ public class Map extends JPanel implements JMapViewerEventListener {
                     map().getAttribution().handleAttribution(e.getPoint(), true);
                     xtemp= map().getPosition(getMousePosition()).getLat();
                     ytemp =map().getPosition(getMousePosition()).getLon();
-                    MapMarkerDot MyEvent= new MapMarkerDot(germanyWestLayer, "WirProbierenmal",xtemp,ytemp);
+                    MapMarkerDot MyEvent= new MapMarkerDot(germanyWestLayer, "Meine Veranstaltung",xtemp,ytemp);
                     map().addMapMarker(MyEvent);                
                     
                     System.out.println(xtemp);
