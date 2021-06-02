@@ -10,6 +10,10 @@ public class Event {
 	public static String Veranstalter;
 	public static double xval;
 	public static double yval;
+	public static String hnr; //wegen 14a 
+	public static String street;
+	public static String city;
+	public static String zip;
 	
 	
 	
