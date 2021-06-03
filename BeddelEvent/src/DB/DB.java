@@ -1,6 +1,7 @@
 package DB;
 import java.sql.*;
 
+import Functionalities.Map;
 import Functionalities.User;
 
 public class DB {
@@ -18,6 +19,32 @@ public class DB {
 		}catch(SQLException ex) {
 			System.err.println(ex.getMessage());
 		}
+	}
+	public static int counter=0;
+	public static void getMakers() throws SQLException {
+
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+		
+		
+		String query = "SELECT sportart,xCoordinate,yCoordinate FROM event";
+		Statement s = connection.createStatement();
+		ResultSet rs = s.executeQuery(query);
+		 
+		while(rs.next()) {
+			for (int i = 1; i <= rs.getMetaData().getColumnCount();i++) {
+				Map.nMark.add(rs.getString(i));
+
+				
+				}	
+		}	
+		
+		
+		
+	}
 	}
 	
 	public static void InsertDataIntoUser(String username, String vorname, String nachname, String geschlecht, String email, String passworthash) {
@@ -38,7 +65,7 @@ public class DB {
 		}
 	}
 	
-	public static void InsertDataIntoEvent(String sportart, String datum,String uhrzeit, String stadt, int anz, double kosten, String veranstalter, double xval, double yval) {
+	public static void InsertDataIntoEvent(String sportart, String datum,String uhrzeit, String zip,String stadt,String straße, String hausnummer, int anz, double kosten, String veranstalter, double xval, double yval) {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
@@ -46,7 +73,7 @@ public class DB {
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
 			
-			String query = "INSERT INTO event (sportart, Datum, Uhrzeit, Stadt, Anzahlplätze, kosten, veranstalter,xCoordinate,yCoordinate) VALUES ('" + sportart + "' , '"+ datum + "' , '"+ uhrzeit + "' , '"+ stadt + "' , '"+ anz + "' , '"+ kosten + "' , '"+ veranstalter + "' , '"+xval+"' , '"+yval+"' )";			
+			String query = "INSERT INTO event (sportart, Datum, Uhrzeit, Postleitzahl,Stadt,Straße,Hausnummer, Anzahlplätze, kosten, veranstalter,xCoordinate,yCoordinate) VALUES ('" + sportart + "' , '"+ datum + "' , '"+ uhrzeit + "' , '"+ zip + "' , '"+ stadt + "' , '"+ straße + "' , '"+ hausnummer + "' , '"+ anz + "' , '"+ kosten + "' , '"+ veranstalter + "' , '"+xval+"' , '"+yval+"' )";			
 			Statement s = connection.createStatement();
 			s.execute(query);
 			s.close();

@@ -14,6 +14,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import com.toedter.calendar.JCalendar;
 
 import Functionalities.Map;
+import Functionalities.Testsuche2;
 import Functionalities.Event;
 import Functionalities.User;
 
@@ -27,6 +28,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.security.GeneralSecurityException;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -94,9 +96,10 @@ public class CreateEvent extends JFrame {
 	 * Create the frame.
 	 * @throws PropertyVetoException 
 	 * @throws ParseException 
+	 * @throws SQLException 
 	 */
-	public CreateEvent() throws PropertyVetoException, ParseException {
-	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	public CreateEvent() throws PropertyVetoException, ParseException, SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
@@ -440,8 +443,10 @@ public class CreateEvent extends JFrame {
 		JButton btnTeilnehmerNext5 = new JButton("Fertig");
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	DB.DB.InsertDataIntoEvent(Event.Sport, Event.Date, Event.Time, Event.Ort, Event.Anz, Event.Kosten, User.username);
-
+				 String holeadresse = Double.toString(Map.xtemp)+" "+Double.toString(Map.ytemp);
+				 Testsuche2.convert(holeadresse);
+				
+			
 				if(rdbtnTeilnehmerNein.isSelected()) {
 					Event.Anz=0;
 				}else {
