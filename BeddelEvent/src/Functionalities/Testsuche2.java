@@ -27,21 +27,29 @@ public class Testsuche2 {
 
 
 		String[] splitted = fin.split(",");
-		if(splitted.length==8) {
+		
 		if(isNumeric(splitted[0])) {
+			if(splitted.length==8) {
 			System.out.println("ist nummer");
 			hnr =splitted[0].trim();
-			street=splitted[1];
-			city =splitted[4];
-			zip =splitted[6];
+			street=splitted[1].trim();
+			city =splitted[3].trim();
+			zip =splitted[6].trim();
 			
-		}}else if(splitted.length>8) {
-			zip = splitted[splitted.length-2];
-			city= splitted[splitted.length-4];
-			street= splitted[splitted.length-7];
-			hnr = splitted[0];		
+		}else {
+			System.out.println(splitted.toString());
+			zip = splitted[splitted.length-2].trim();
+			city= splitted[3].trim();
+			street= splitted[1].trim();
+			hnr = splitted[0].trim();		
 			
+		}}else {
+			hnr =splitted[1].trim();
+			street=splitted[2].trim();
+			city =splitted[4].trim();
+			zip =splitted[splitted.length-2].trim();
 		}
+		
 		
 		
 		

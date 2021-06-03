@@ -177,9 +177,9 @@ public class Map extends JPanel implements JMapViewerEventListener {
         
   
             
-        System.out.println(Map.nMark);
+      
         int j=0;
-        System.out.println("DOT: ");
+       
 //        for(int i=0;i<size;i+=3) {
 //        	label = Map.nMark.get(i);
 //        	System.out.println(label);
