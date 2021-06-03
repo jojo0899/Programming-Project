@@ -64,6 +64,7 @@ public class DB {
 			System.err.println(ex.getMessage());
 		}
 	}
+	//hallo
 	
 	public static void InsertDataIntoEvent(String sportart, String datum,String uhrzeit, String zip,String stadt,String straﬂe, String hausnummer, int anz, double kosten, String veranstalter, double xval, double yval) {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
