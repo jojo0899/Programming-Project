@@ -27,26 +27,37 @@ public class Testsuche2 {
 
 
 		String[] splitted = fin.split(",");
-		
+		if(splitted.length==8) {
 		if(isNumeric(splitted[0])) {
-			if(splitted.length==8) {
-			System.out.println("ist nummer");
 			hnr =splitted[0].trim();
 			street=splitted[1].trim();
-			city =splitted[3].trim();
+			city =splitted[4].trim();
 			zip =splitted[6].trim();
-			
-		}else {
-			System.out.println(splitted.toString());
-			zip = splitted[splitted.length-2].trim();
-			city= splitted[3].trim();
-			street= splitted[1].trim();
-			hnr = splitted[0].trim();		
-			
-		}}else {
+	
+		}else if(isNumeric(splitted[1])){
 			hnr =splitted[1].trim();
 			street=splitted[2].trim();
 			city =splitted[4].trim();
+			zip =splitted[splitted.length-2].trim();
+		}else {
+			hnr =splitted[0].trim();
+			street=splitted[1].trim();
+			city =splitted[splitted.length-4].trim();
+			zip =splitted[splitted.length-2].trim();
+			
+		}
+		}else	if(splitted.length==7&&!isNumeric(splitted[0])) {
+			hnr ="";
+			street=splitted[0].trim();
+			city =splitted[splitted.length-5].trim();
+			zip =splitted[splitted.length-2].trim();
+			
+		}else if(splitted.length==9 &&!isNumeric(splitted[0])) {
+			
+		}else if(splitted.length==9&&isNumeric(splitted[1])) {
+			hnr =splitted[1];
+			street=splitted[2].trim();
+			city =splitted[splitted.length-5].trim();
 			zip =splitted[splitted.length-2].trim();
 		}
 		

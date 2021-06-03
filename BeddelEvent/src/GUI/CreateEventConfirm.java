@@ -52,7 +52,7 @@ public class CreateEventConfirm extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateEventConfirm() {
-	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -153,7 +153,7 @@ public class CreateEventConfirm extends JFrame {
 		JTextArea textArea = new JTextArea(Event.zip+" "+Event.city+"\n"+Event.street+" "+Event.hnr);
 		textArea.setEditable(false);
 		textArea.setLineWrap(true);
-		textArea.setBounds(114, 74, 168, 45);
+		textArea.setBounds(114, 74, 314, 45);
 		contentPane.add(textArea);
 	}
 }
