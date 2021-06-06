@@ -21,7 +21,7 @@ import java.util.Properties;
 			SendMail.recievermail = mail;
 			SendMail.subject = "BeddelEvent Registrierung";
 			msg = "Hi "+name+",\n \nWillkommen im Beddel-Team. Deine Registrierung war erfolgreich!"+
-				"\nDu kannst nun anfangen deine eigenen Events zu erstellen und zu managenen. Viel Spaß! :)"+
+				"\nDu kannst nun anfangen deine eigenen Events zu erstellen und zu managenen. Viel SpaÃŸ! :)"+
 					"\n\nViel Erfolg\n"+
 					"Dein Beddel-Team";
 			SendMail.main(null);
@@ -31,17 +31,16 @@ import java.util.Properties;
 		public static void createEventMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten, int anz) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Erstellung";
-			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
-						"dein Event wurde erfolgreich erstellt. \n\n\n "+ 
+			SendMail.msg ="GlÃ¼ckwunsch "+ name+ ", \n"+
+						"dein Event wurde erfolgreich erstellt.\n\n\n"+ 
 					"Zusammenfassung:\n\n "+
 						"Sportart: "+sport+"\n"+
 						"Datum: "+date+"\n"+
-						"Uhrzeut: "+time+"\n"+
-						"Ort: "+zip+" "+city+"\n"+
-						"     "+street+" "+hnr+"\n"+
-						"Kosten: "+kosten+"\n"+
+						"Uhrzeit: "+time+"\n"+
+						"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
+						"Kosten: "+kosten+"â‚¬\n"+
 						"Teilnehmerzahl: "+anz+"\n\n\n"+
-						"Wir wünschen dir viel spaß! \n\n"+
+						"Wir wÃ¼nschen dir viel spaÃŸ! \n\n"+
 						"dein Beddel-Team";
 			
 			SendMail.main(null);
@@ -57,7 +56,7 @@ import java.util.Properties;
 					"Datum: "+date+"\n"+
 					"Ort: "+place+"\n"+
 					"\n\n\n"+
-					"Wir wünschen dir viel spaß! \n\n"+
+					"Wir wÃ¼nschen dir viel spaÃŸ! \n\n"+
 					"dein Beddel-Team";;
 			
 			SendMail.main(null);
@@ -66,17 +65,19 @@ import java.util.Properties;
 			
 			
 		}
-		public static void participateEventMail(String mail, String name, String date, String sport, String place, String costs, String participatns ) throws GeneralSecurityException {
+		public static void participateEventMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten,int anz) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Teilnahme";
-			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
-					"du hast dich erfolgreich für ein Event eingetragen. \n\n\n "+ 
-				"Zusammenfassung: "+
-					"Sportart: "+sport+
+			SendMail.msg ="GlÃ¼ckwunsch "+ name+ ", \n"+
+					"du hast dich erfolgreich fÃ¼r ein Event eingetragen. \n\n\n"+ 
+				"Zusammenfassung: "+"\n"+
+					"Sportart: "+sport+"\n"+
 					"Datum: "+date+"\n"+
-					"Ort: "+place+"\n"+
-					"\n\n\n"+
-					"Wir wünschen dir viel spaß! \n\n"+
+					"Uhrzeit: "+time+"\n"+
+					"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
+					"Teilneherzahl insg: "+anz+"\n"+
+					"Kosten: "+kosten+"â‚¬\n\n\n"+					
+					"Wir wÃ¼nschen dir viel spaÃŸ! \n\n"+
 					"dein Beddel-Team";;
 			
 			SendMail.main(null);

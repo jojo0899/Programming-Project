@@ -9,6 +9,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import Functionalities.Event;
+import Functionalities.SendMail;
 import Functionalities.User;
 
 import javax.swing.JLabel;
@@ -18,6 +19,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.security.GeneralSecurityException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 public class SearchEventConfirm extends JFrame {
@@ -95,6 +97,12 @@ public class SearchEventConfirm extends JFrame {
 		btnBestÃ¤tigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on bestätigen
 				DB.DB.InsertDataIntoParticipate_on(User.username, Event.id);
+				try {
+					SendMail.participateEventMail(User.email, User.username, Event.Date, Event.Time, Event.Sport, Event.zip,Event.city,Event.street,Event.hnr,Event.Kosten,Event.Anz);
+				} catch (GeneralSecurityException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose(); //fenster schließen 
 				MainWindow.main(null); //main fenster öffnen
 				
