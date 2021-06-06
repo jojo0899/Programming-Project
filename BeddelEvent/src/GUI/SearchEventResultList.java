@@ -84,11 +84,11 @@ public class SearchEventResultList extends JFrame {
 				},
 				
 				new String[] {
-					"ID", "sportart", "Datum", "Uhrzeit", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+					"ID", "sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
-					false, false, false, false, false, false, false, false, false
+						false, false, false, false, false, false, false, false,false,false
 				};
 				
 				public boolean isCellEditable(int row, int column) {
@@ -101,20 +101,21 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT id, sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
+		String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String ID = String.valueOf(rs.getInt("id"));
 			String sportart = rs.getString("sportart");
 			String Datum = rs.getString("Datum");
 			String Uhrzeit = rs.getString("Uhrzeit");
+			String Plz= rs.getString("Postleitzahl");
 			String Stadt = rs.getString("Stadt");
 			String Straﬂe = rs.getString("Straﬂe");
 			String Hausnummer = rs.getString("Hausnummer");
 			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
 			String kosten = String.valueOf(rs.getDouble("kosten"));
 			
-			String data[] = {ID, sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 			tblModel.addRow(data);
 
@@ -177,7 +178,18 @@ public class SearchEventResultList extends JFrame {
 					int row = table.getSelectedRow();
 					String cell = table.getModel().getValueAt(row, 0).toString();
 					Event.id = Integer.parseInt(cell);
-					System.out.println(Event.id);
+					
+					
+					Event.Sport =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.Date =(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.Time =(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.zip=(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.city =(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.street =(String) table.getValueAt(table.getSelectedRow(),6);
+					Event.hnr =(String) table.getValueAt(table.getSelectedRow(),7);
+					
+					Event.Kosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),9));
+					
 				dispose(); //fnester schlieﬂen
 				SearchEventConfirm.main(null); //Bestˆtigungsfenster ˆffnen
 				}else { //wenn keine zeiele asugew‰hlt wurde

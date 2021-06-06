@@ -19,7 +19,7 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import javax.swing.JTextArea;
 public class SearchEventConfirm extends JFrame {
 
 	private JPanel contentPane;
@@ -74,11 +74,11 @@ public class SearchEventConfirm extends JFrame {
 		contentPane.add(lblOrt);
 		
 		JLabel lblDatum = new JLabel("Datum:");
-		lblDatum.setBounds(24, 104, 52, 16);
+		lblDatum.setBounds(24, 126, 52, 16);
 		contentPane.add(lblDatum);
 		
 		JLabel lblKOstne = new JLabel("Kosten:");
-		lblKOstne.setBounds(24, 132, 78, 16);
+		lblKOstne.setBounds(24, 154, 78, 16);
 		contentPane.add(lblKOstne);
 		
 		JButton btnZurueck= new JButton("Zur�ck");
@@ -103,20 +103,21 @@ public class SearchEventConfirm extends JFrame {
 		btnBestätigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBestätigen);
 		
-		JLabel lblSports2 = new JLabel(Event.SearchSport);
-		lblSports2.setBounds(114, 48, 52, 16);
+		JLabel lblSports2 = new JLabel(Event.Sport);
+		lblSports2.setBounds(114, 48, 314, 16);
 		contentPane.add(lblSports2);
 		
-		JLabel lblOrt2 = new JLabel(Event.Searchcity);
-		lblOrt2.setBounds(114, 76, 52, 16);
-		contentPane.add(lblOrt2);
-		
-		JLabel lblDatum2 = new JLabel(Event.SearchDate);
-		lblDatum2.setBounds(114, 104, 52, 16);
+
+		JLabel lblDatum2 = new JLabel(Event.Date);
+		lblDatum2.setBounds(114, 126, 314, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel("");
-		lblKosten2.setBounds(114, 132, 52, 16);
+		JLabel lblKosten2 = new JLabel(Double.toString(Event.Kosten));
+		lblKosten2.setBounds(114, 154, 87, 16);
 		contentPane.add(lblKosten2);
+		
+		JTextArea textArea = new JTextArea(Event.zip +" "+Event.city+"\n"+Event.street+ " "+Event.hnr);
+		textArea.setBounds(114, 74, 314, 40);
+		contentPane.add(textArea);
 	}
 }
