@@ -12,10 +12,19 @@ import javax.swing.JTable;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+
+import Functionalities.Event;
+import Functionalities.User;
+
 import javax.swing.JScrollPane;
 
 public class ActiveEventsResultList extends JFrame {
@@ -102,7 +111,7 @@ public class ActiveEventsResultList extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(table);
-		
+
 		btnNewButton = new JButton("Absagen");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
