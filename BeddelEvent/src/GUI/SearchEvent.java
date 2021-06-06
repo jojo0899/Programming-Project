@@ -62,7 +62,7 @@ public class SearchEvent extends JFrame {
 			public void run() {
 				try {
 					SearchEvent frame = new SearchEvent();
-					frame.setLocationRelativeTo(null); //fenster in mitte plazieren
+					frame.setLocationRelativeTo(null); //fenster in mitte plazieren  
 					frame.setResizable(false); //größe nicht anpassbar
 					frame.setVisible(true);
 				} catch (Exception e) {

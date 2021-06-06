@@ -96,10 +96,10 @@ public class DB {
 			Statement s = connection.createStatement();
 			s.execute(query);
 			s.close();
-			
 		}catch(SQLException ex) {
 			System.err.println(ex.getMessage());
 		}
+		
 	}
 	
 	public static boolean LoginCheck(String UserName, String PassWort) {

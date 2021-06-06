@@ -1,4 +1,9 @@
 package GUI;
+import java.sql.*;//////////////////////////////////////////////////
+
+import Functionalities.Map;
+import Functionalities.User;
+
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -11,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
@@ -62,8 +70,62 @@ public class SearchEventResultList extends JFrame {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
+		////////////////////////////////////////
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
 		
-		table = new JTable(); //leere tabelle ohne werte erstellen
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+				table = new JTable(); //leere tabelle ohne werte erstellen
+			table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				
+				new String[] {
+					"sportart", "Datum", "Uhrzeit", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+				}
+			) {
+				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
+					false, false, false, false, false, false, false, false
+				};
+				
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			});
+			scrollPane.setViewportView(table);
+			
+			
+		
+		
+		Statement st = connection.createStatement();
+		String query = "SELECT sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event";
+		ResultSet rs = st.executeQuery(query);
+		while(rs.next()) {
+			String sportart = rs.getString("sportart");
+			String Datum = rs.getString("Datum");
+			String Uhrzeit = rs.getString("Uhrzeit");
+			String Stadt = rs.getString("Stadt");
+			String Straﬂe = rs.getString("Straﬂe");
+			String Hausnummer = rs.getString("Hausnummer");
+			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
+			String kosten = String.valueOf(rs.getDouble("kosten"));
+			
+			String data[] = {sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+			tblModel.addRow(data);
+
+			
+		}
+		}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+		
+		
+	/////////////////////////////////////////////////////////////
+		
+	/*	table = new JTable(); //leere tabelle ohne werte erstellen
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
@@ -85,6 +147,7 @@ public class SearchEventResultList extends JFrame {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 			},
+			
 			new String[] {
 				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column" //Spaltenname
 			}
@@ -92,13 +155,18 @@ public class SearchEventResultList extends JFrame {
 			boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
 				false, false, false, false, false, false, false, false
 			};
+			
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
-		});
+		});*/
 		scrollPane.setViewportView(table);
+		//////////////////////////////////////////////////////////
+		/*}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}*/
 		
-		
+		////////////////////////////////////////////////////////////////
 		JButton btnSelect = new JButton("Ausw\u00E4hlen");
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,6 +182,7 @@ public class SearchEventResultList extends JFrame {
 		btnSelect.setBounds(612, 339, 97, 26);
 		contentPane.add(btnSelect);
 		
+		
 		JButton btnBack = new JButton("Zur\u00FCck");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	//wenn click on zur¸ck 
@@ -127,7 +196,9 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		
+		}
+	
+	
+	
 	}
-	
-	
-}
+
