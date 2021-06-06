@@ -312,6 +312,10 @@ public class SearchEvent extends JFrame {
 				
 				dispose();
 				SearchEventResultList.main(null);
+				System.out.println(Event.SearchSport);
+				System.out.println(Event.SearchDate);
+				System.out.println(Event.Searchcity);
+				System.out.println(Event.SearchKosten);
 	
 				
 				
