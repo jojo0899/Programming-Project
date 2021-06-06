@@ -84,11 +84,11 @@ public class SearchEventResultList extends JFrame {
 				},
 				
 				new String[] {
-					"sportart", "Datum", "Uhrzeit", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+					"ID", "sportart", "Datum", "Uhrzeit", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
-					false, false, false, false, false, false, false, false
+					false, false, false, false, false, false, false, false, false
 				};
 				
 				public boolean isCellEditable(int row, int column) {
@@ -101,9 +101,10 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
+		String query = "SELECT id, sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
+			String ID = String.valueOf(rs.getInt("id"));
 			String sportart = rs.getString("sportart");
 			String Datum = rs.getString("Datum");
 			String Uhrzeit = rs.getString("Uhrzeit");
@@ -113,7 +114,7 @@ public class SearchEventResultList extends JFrame {
 			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
 			String kosten = String.valueOf(rs.getDouble("kosten"));
 			
-			String data[] = {sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+			String data[] = {ID, sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 			tblModel.addRow(data);
 
@@ -172,6 +173,11 @@ public class SearchEventResultList extends JFrame {
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) { //wenn ausw‰hlen dgedr¸ckt und eine zeile asugew‰hlt wurde
+					//hier 
+					int row = table.getSelectedRow();
+					String cell = table.getModel().getValueAt(row, 0).toString();
+					Event.id = Integer.parseInt(cell);
+					System.out.println(Event.id);
 				dispose(); //fnester schlieﬂen
 				SearchEventConfirm.main(null); //Bestˆtigungsfenster ˆffnen
 				}else { //wenn keine zeiele asugew‰hlt wurde

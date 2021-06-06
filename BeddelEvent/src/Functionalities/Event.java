@@ -25,6 +25,7 @@ public class Event {
 	public static String Searchcity;
 	public static String Searchzip;
 	
+	public static int id;
 	
 	
 	

@@ -9,6 +9,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import Functionalities.Event;
+import Functionalities.User;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -93,6 +94,7 @@ public class SearchEventConfirm extends JFrame {
 		JButton btnBest√§tigen = new JButton("Best‰tigen");
 		btnBest√§tigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on best‰tigen
+				DB.DB.InsertDataIntoParticipate_on(User.username, Event.id);
 				dispose(); //fenster schlieﬂen 
 				MainWindow.main(null); //main fenster ˆffnen
 				
@@ -101,15 +103,15 @@ public class SearchEventConfirm extends JFrame {
 		btnBest√§tigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBest√§tigen);
 		
-		JLabel lblSports2 = new JLabel("");
+		JLabel lblSports2 = new JLabel(Event.SearchSport);
 		lblSports2.setBounds(114, 48, 52, 16);
 		contentPane.add(lblSports2);
 		
-		JLabel lblOrt2 = new JLabel("");
+		JLabel lblOrt2 = new JLabel(Event.Searchcity);
 		lblOrt2.setBounds(114, 76, 52, 16);
 		contentPane.add(lblOrt2);
 		
-		JLabel lblDatum2 = new JLabel("");
+		JLabel lblDatum2 = new JLabel(Event.SearchDate);
 		lblDatum2.setBounds(114, 104, 52, 16);
 		contentPane.add(lblDatum2);
 		
