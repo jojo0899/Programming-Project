@@ -16,8 +16,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import com.toedter.calendar.JCalendar;
 
+import Functionalities.Event;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.JComboBox;
@@ -78,7 +81,7 @@ public class SearchEvent extends JFrame {
 	 * @throws ParseException 
 	 */
 	public SearchEvent() throws PropertyVetoException, ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
 		contentPane = new JPanel();
@@ -120,6 +123,7 @@ public class SearchEvent extends JFrame {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.setSelectedIndex(1);				//in nächsten Tab springen
+				Event.SearchSport =String.valueOf(SelectSports.getSelectedItem());
 			}
 		});
 		btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,15 +139,8 @@ public class SearchEvent extends JFrame {
 		lblSelectDatum.setBounds(6, 6, 117, 16);
 		Datum.add(lblSelectDatum);
 		
-		JButton btnNext2 = new JButton("Weiter");
-		btnNext2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(2);		//in nächsten tab springen
-			}
-		});
-		btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext2.setBounds(451, 248, 97, 26);
-		Datum.add(btnNext2);
+
+		
 		
 		JButton btnBack2 = new JButton("Zur\u00FCck");
 		btnBack2.addActionListener(new ActionListener() {
@@ -179,8 +176,16 @@ public class SearchEvent extends JFrame {
 		 internalFrame.getContentPane().add(Calender);
 		
 		
-		
-		
+			JButton btnNext2 = new JButton("Weiter");
+			btnNext2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					tabbedPane.setSelectedIndex(2);		//in nächsten tab springen
+					Event.SearchDate = CreateEvent.getDateAsString(Calender.getDayChooser().getDay(), Calender.getMonthChooser().getMonth()+1, Calender.getYearChooser().getYear()); 
+				}
+			});
+			btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+			btnNext2.setBounds(451, 248, 97, 26);
+			Datum.add(btnNext2);
 		
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
@@ -200,20 +205,27 @@ public class SearchEvent extends JFrame {
 		btnBack3.setBounds(6, 245, 97, 26);
 		Ort.add(btnBack3);
 		
-		JButton btnNext3 = new JButton("Weiter");
-		btnNext3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
-			}
-		});
-		btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		btnNext3.setBounds(451, 245, 97, 26);
-		Ort.add(btnNext3);
+
 		
 		txtEnterCity = new JTextField();
 		txtEnterCity.setBounds(6, 61, 252, 26);
 		Ort.add(txtEnterCity);
 		txtEnterCity.setColumns(10);
+		
+		JButton btnNext3 = new JButton("Weiter");
+		btnNext3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!txtEnterCity.getText().equals("")) {
+					Event.Searchcity = txtEnterCity.getText();
+					tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
+				}else {
+					JOptionPane.showMessageDialog(null, "Fülle trage eine Stadt ein!", "Eingabe Error",JOptionPane.WARNING_MESSAGE);
+
+				}}
+		});
+		btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		btnNext3.setBounds(451, 245, 97, 26);
+		Ort.add(btnNext3);
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);
@@ -238,9 +250,11 @@ public class SearchEvent extends JFrame {
 		slider.setEnabled(false); //slider standardgemäß deaktivieren
 		slider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-			int val = ((JSlider)e.getSource()).getValue();
-			String val2 = Integer.toString(val);
-			ShowSliderValue.setText(val2);			//wert des Sliders in textfeld eintragen bei veränderung
+					int val = ((JSlider)e.getSource()).getValue();
+					String val2 = Integer.toString(val);
+					Event.SearchKosten = (double) val;
+					ShowSliderValue.setText(val2);			//wert des Sliders in textfeld eintragen bei veränderung
+						//wert des Sliders in textfeld eintragen bei veränderung
 			
 			}
 		});
@@ -292,8 +306,19 @@ public class SearchEvent extends JFrame {
 		JButton btnNext4 = new JButton("Fertig");
 		btnNext4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNein.isSelected()) {
+				Event.Kosten=0.00;	
+				}
+				
 				dispose();
 				SearchEventResultList.main(null);
+				System.out.println(Event.SearchSport);
+				System.out.println(Event.SearchDate);
+				System.out.println(Event.Searchcity);
+				System.out.println(Event.SearchKosten);
+	
+				
+				
 			}
 		});
 		btnNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
