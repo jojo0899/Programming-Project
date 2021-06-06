@@ -59,7 +59,7 @@ public class SearchEventResultList extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchEventResultList() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
 		contentPane = new JPanel();
@@ -84,11 +84,11 @@ public class SearchEventResultList extends JFrame {
 				},
 				
 				new String[] {
-					"sportart", "Datum", "Uhrzeit", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+					"Sportart", "Datum", "Uhrzeit","PLZ", "Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "Kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
-					false, false, false, false, false, false, false, false
+					false, false, false, false, false, false, false, false,false
 				};
 				
 				public boolean isCellEditable(int row, int column) {
@@ -101,19 +101,20 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
+		String query = "SELECT sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String sportart = rs.getString("sportart");
 			String Datum = rs.getString("Datum");
 			String Uhrzeit = rs.getString("Uhrzeit");
 			String Stadt = rs.getString("Stadt");
+			String Plz = rs.getString("Postleitzahl");
 			String Straﬂe = rs.getString("Straﬂe");
 			String Hausnummer = rs.getString("Hausnummer");
 			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
 			String kosten = String.valueOf(rs.getDouble("kosten"));
 			
-			String data[] = {sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+			String data[] = {sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 			tblModel.addRow(data);
 
@@ -172,6 +173,21 @@ public class SearchEventResultList extends JFrame {
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) { //wenn ausw‰hlen dgedr¸ckt und eine zeile asugew‰hlt wurde
+					Event.Sport =(String) table.getValueAt(table.getSelectedRow(),0);
+					Event.Date =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.Time =(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.zip=(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.city =(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.street =(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.hnr =(String) table.getValueAt(table.getSelectedRow(),6);
+					
+					Event.Kosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),7));
+					
+					System.out.println(Event.Sport);
+					System.out.println(Event.Date);
+					System.out.println(Event.Time);
+					System.out.println(Event.zip);
+										
 				dispose(); //fnester schlieﬂen
 				SearchEventConfirm.main(null); //Bestˆtigungsfenster ˆffnen
 				}else { //wenn keine zeiele asugew‰hlt wurde
