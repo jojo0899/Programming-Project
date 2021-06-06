@@ -1,6 +1,7 @@
 package GUI;
 import java.sql.*;//////////////////////////////////////////////////
 
+import Functionalities.Event;
 import Functionalities.Map;
 import Functionalities.User;
 
@@ -100,7 +101,7 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event";
+		String query = "SELECT sportart, Datum, Uhrzeit, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String sportart = rs.getString("sportart");
@@ -160,7 +161,7 @@ public class SearchEventResultList extends JFrame {
 				return columnEditables[column];
 			}
 		});*/
-		scrollPane.setViewportView(table);
+		///scrollPane.setViewportView(table);
 		//////////////////////////////////////////////////////////
 		/*}catch(SQLException ex) {
 			System.err.println(ex.getMessage());
