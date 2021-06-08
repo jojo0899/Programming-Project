@@ -1,6 +1,9 @@
 package DB;
 import java.sql.*;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 import Functionalities.Map;
 import Functionalities.User;
 
@@ -157,6 +160,39 @@ public class DB {
 		System.out.println(bool);
 		return bool;
 	}
+	
+	public static void resultSetToTableModel(JTable table, String tableName, String whereCondition, int columnCount) throws SQLException{
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+	    	
+			Statement st = connection.createStatement();
+	    	ResultSet rs =  st.executeQuery("SELECT * FROM user;");
+	        DefaultTableModel tableModel = new DefaultTableModel();
+	        ResultSetMetaData metaData = rs.getMetaData();
+	        
+	        for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++){
+	            tableModel.addColumn(metaData.getColumnLabel(columnIndex));
+        }
+	        
+	        Object[] row = new Object[columnCount];
+	
+	        while (rs.next()){
+	            for (int i = 0; i < columnCount; i++){
+	                row[i] = rs.getObject(i+1);
+	            }
+	            tableModel.addRow(row);
+	        }
+	
+	        table.setModel(tableModel);    
+		} catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+
+        
+    }
 	
 }
 
