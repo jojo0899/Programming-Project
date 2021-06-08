@@ -474,8 +474,12 @@ public class CreateEvent extends JFrame {
 		txtTeilnehmerAnz.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-		        if(!Character.isDigit(e.getKeyChar())){			//nur zahlen als input in txt feld erlauben
-		            e.consume();
+				char c = e.getKeyChar();
+				if(!((c>='0')&&(c<='9')))
+		        if(!Character.isDigit(c)){			//nur zahlen als input in txt feld erlauben
+
+		            getToolkit().beep();
+		        	e.consume();
 		            }
 			}
 		});
