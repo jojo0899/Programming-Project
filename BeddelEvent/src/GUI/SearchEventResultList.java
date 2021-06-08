@@ -101,7 +101,7 @@ public class SearchEventResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten = '" + Event.SearchKosten +"'";
+		String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten <= '" + Event.SearchKosten +"'";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String ID = String.valueOf(rs.getInt("id"));
