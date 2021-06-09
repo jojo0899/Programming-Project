@@ -59,7 +59,7 @@ public class SearchEventResultList extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchEventResultList() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
 		contentPane = new JPanel();
@@ -96,6 +96,7 @@ public class SearchEventResultList extends JFrame {
 				}
 			});
 			scrollPane.setViewportView(table);
+			table.setAutoCreateRowSorter(true);
 			
 			
 		

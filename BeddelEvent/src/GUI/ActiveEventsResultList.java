@@ -111,7 +111,8 @@ public class ActiveEventsResultList extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(table);
-
+		table.setAutoCreateRowSorter(true);
+		
 		btnNewButton = new JButton("Absagen");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
