@@ -48,6 +48,7 @@ import javax.swing.ButtonGroup;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeListener;
@@ -100,7 +101,7 @@ public class CreateEvent extends JFrame {
 	 * @throws SQLException 
 	 */
 	public CreateEvent() throws PropertyVetoException, ParseException, SQLException {
-	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
@@ -255,15 +256,15 @@ public class CreateEvent extends JFrame {
 					DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 					Event.Time = dateFormat.format(timeSpinner.getValue());
 					tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
+					
 				}
 			});
 			btnTimeNext4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 			Time.add(btnTimeNext4);
-			
-			
-			
+
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
+	
 		Ort.setLayout(null);
 		
 		JButton btnOrtBack3 = new JButton("Zur\u00FCck");
@@ -325,12 +326,17 @@ public class CreateEvent extends JFrame {
 		
 		
 
-		JLabel ShowSliderValue = new JLabel("50"); //slider erstellen mit default value 50€ 
+		JLabel ShowSliderValue = new JLabel("25"); //slider erstellen mit default value 50€ 
 		ShowSliderValue.setHorizontalAlignment(SwingConstants.RIGHT);
 		ShowSliderValue.setBounds(242, 99, 52, 16);
 		Kosten.add(ShowSliderValue);
 		
 		JSlider Kostenslider = new JSlider();
+		Kostenslider.setMinorTickSpacing(5);
+		Kostenslider.setSnapToTicks(true);
+		Kostenslider.setPaintTicks(true);
+		Kostenslider.setValue(25);
+		Kostenslider.setMaximum(50);
 
 		Kostenslider.setEnabled(false); //slider standardgemäß deaktivieren
 		Kostenslider.addChangeListener(new ChangeListener() {
@@ -494,6 +500,8 @@ public class CreateEvent extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Teilnehmer");
 		lblNewLabel_1.setBounds(152, 68, 79, 16);
 		Teilnehmer.add(lblNewLabel_1);
+		
+
 		
 	
 	

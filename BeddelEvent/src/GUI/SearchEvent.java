@@ -240,12 +240,16 @@ public class SearchEvent extends JFrame {
 		
 		
 
-		JLabel ShowSliderValue = new JLabel("50"); //slider erstellen mit default value 50Ä 
+		JLabel ShowSliderValue = new JLabel("25"); //slider erstellen mit default value 50Ä 
 		ShowSliderValue.setHorizontalAlignment(SwingConstants.RIGHT);
 		ShowSliderValue.setBounds(242, 99, 52, 16);
 		Kosten.add(ShowSliderValue);
 		
 		JSlider slider = new JSlider();
+		slider.setMinorTickSpacing(5);
+		slider.setPaintTicks(true);
+		slider.setValue(25);
+		slider.setMaximum(50);
 
 		slider.setEnabled(false); //slider standardgem‰ﬂ deaktivieren
 		slider.addChangeListener(new ChangeListener() {
