@@ -194,5 +194,32 @@ public class DB {
         
     }
 	
+	public static Boolean checkIfUsernameExistsInDB(String username) {
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			Statement st = connection.createStatement();
+            ResultSet result =  st.executeQuery("SELECT username FROM user WHERE username ='" + username + "'");
+            return result.next();
+		} catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+			return false;
+		}
+	}
+	
+	public static void deleteUserFromDB(String username){
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		try (Connection connection = DriverManager.getConnection(url, user , password)) {
+			Statement st = connection.createStatement();
+			st.execute("DELETE FROM user WHERE username='"+username+"'");
+		} catch (SQLException ex) {
+			System.err.println(ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
+	
 }
 

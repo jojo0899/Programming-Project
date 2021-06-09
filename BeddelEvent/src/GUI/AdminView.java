@@ -83,18 +83,26 @@ public class AdminView extends JFrame {
 		});
 		viewUsersButton.setBounds(34, 454, 169, 23);
 		contentPane.add(viewUsersButton);
-		
-		
+
+		JTextField userSelectionTextField = new JTextField();
+		userSelectionTextField.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		userSelectionTextField.setBounds(723, 498, 221, 26);
+		contentPane.add(userSelectionTextField);
+		userSelectionTextField.setColumns(10);
 		
 		JButton editUserButton = new JButton("Edit this User\r\n");
 		/**
 		 * action to edit selected user
 		 */
-		/*editUserButton.addActionListener(new ActionListener() {
+		editUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(userTable.checkIfUsernameExistsInDB(userSelectionTextField.getText())) {
-					EditUserWindow edtu = new EditUserWindow();
-					edtu.createEditUserWindow(userSelectionTextField.getText());
+				if(DB.checkIfUsernameExistsInDB(userSelectionTextField.getText())) {
+					EditUser.main(null);
+					// username noch als parameter and edituser fenster übergeben
+					/*
+					*
+					*
+					*/
 				}
 				else {
 					showMessageDialog(null, "User not found", "Message",WARNING_MESSAGE);
@@ -104,7 +112,7 @@ public class AdminView extends JFrame {
 			}
 		});
 		editUserButton.setBounds(954, 501, 173, 23);
-		contentPane.add(editUserButton);*/
+		contentPane.add(editUserButton);
 		
 		JButton deleteButton = new JButton("Delete this User");
 		deleteButton.setForeground(Color.RED);
@@ -113,23 +121,23 @@ public class AdminView extends JFrame {
 		 */
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
 				String userToDelete = userSelectionTextField.getText();
 				
-				if(userTable.checkIfUsernameExistsInDB(userToDelete)) {
+				if(DB.checkIfUsernameExistsInDB(userToDelete)) {
 					int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this User?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
 					if (confirm == 0) {
-							userTable.deleteUserFromDB(userToDelete);
+							DB.deleteUserFromDB(userToDelete);
 							String message = "User " + userToDelete + " succesfully deleted";
 							showMessageDialog(null, message, "Message",WARNING_MESSAGE);
 							userSelectionTextField.setText("");
+							refreshTable(table);
 					}
 					else return;
 				}
 				else {
 					showMessageDialog(null, "User not found", "Message",WARNING_MESSAGE);
 					userSelectionTextField.setText("");
-				}*/
+				}
 			}
 		});
 		deleteButton.setBounds(1138, 501, 169, 23);
@@ -139,13 +147,7 @@ public class AdminView extends JFrame {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblNewLabel.setBounds(149, 488, 564, 42);
 		contentPane.add(lblNewLabel);
-		/*
-		userSelectionTextField = new JTextField();
-		userSelectionTextField.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		userSelectionTextField.setBounds(723, 498, 221, 26);
-		contentPane.add(userSelectionTextField);
-		userSelectionTextField.setColumns(10);
-		*/
+		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 477, 1307, 12);
 		contentPane.add(separator);
