@@ -70,6 +70,10 @@ public class Testsuche2 {
 		Event.street = street;
 		Event.city = city;
 		Event.zip = zip;
+		System.out.println(hnr);
+		System.out.println(street);
+		System.out.println(city);
+		System.out.println(zip);
 		
 	}
 	public static String checkAddress(String address) {

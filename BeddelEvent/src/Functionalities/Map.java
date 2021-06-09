@@ -46,12 +46,12 @@ import org.openstreetmap.gui.jmapviewer.tilesources.OsmTileSource;
  *
  */
 public class Map extends JPanel implements JMapViewerEventListener {
-
+	private int counter =0;
     private static final long serialVersionUID = 1L;
     public static double xtemp;
     public static double ytemp;
     private final JMapViewerTree treeMap;
-   
+    MapMarkerDot controlDot = null;
     public static ArrayList<String>  xMark = new ArrayList<>();
 	public static ArrayList<String>  yMark = new ArrayList<>();
 	public static ArrayList<String>  nMark = new ArrayList<>();
@@ -179,26 +179,11 @@ public class Map extends JPanel implements JMapViewerEventListener {
             
       
         int j=0;
-       
-//        for(int i=0;i<size;i+=3) {
-//        	label = Map.nMark.get(i);
-//        	System.out.println(label);
-//        		for(int i2=1;i2<size;i2+=3) {
-//        	    	x = Map.nMark.get(i2);
-//        	    	System.out.println(x);
-//        	    	for(int i3=2;i3<size;i3+=3) {
-//        	    		y=Map.nMark.get(i3);
-//        	    		
-//        	    	}
-//        }  
-//       
       	
         for(int i=0;i<size;i++) {
         	if(i%3==0) {
         		label = Map.nMark.get(i);
-        		
-    			x =Map.nMark.get(i+1);
-                 
+        		x =Map.nMark.get(i+1);
                 y = Map.nMark.get(i+2);
             
             	double xd = Double.parseDouble(x);
@@ -230,16 +215,33 @@ public class Map extends JPanel implements JMapViewerEventListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON1) {
+            
                     map().getAttribution().handleAttribution(e.getPoint(), true);
+                    
+                    if(controlDot==null) {
+                    	System.out.println("noch kein punkt vorhanden");
                     xtemp= map().getPosition(getMousePosition()).getLat();
                     ytemp =map().getPosition(getMousePosition()).getLon();
                     MapMarkerDot MyEvent= new MapMarkerDot(germanyWestLayer, "Meine Veranstaltung",xtemp,ytemp);
-                    map().addMapMarker(MyEvent);                
+                    controlDot = MyEvent;
+                    map().addMapMarker(controlDot);
+                    }else {
+                    	System.out.println("punkt ovrhanden");
+                    	map().removeMapMarker(controlDot);
+                    	 xtemp= map().getPosition(getMousePosition()).getLat();
+                         ytemp =map().getPosition(getMousePosition()).getLon();
+                         MapMarkerDot MyEvent= new MapMarkerDot(germanyWestLayer, "Meine Veranstaltung",xtemp,ytemp);
+                         controlDot = MyEvent;
+                         map().addMapMarker(controlDot);
+                    }
+                    
+                    
+                             
                                        
                     
                     System.out.println(xtemp);
                     System.out.println(ytemp);
-                    
+                    counter++;
                    }
                 
             }
