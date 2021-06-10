@@ -61,7 +61,7 @@ public class SearchEventResultList extends JFrame {
 	 * Create the frame.
 	 * @throws ParseException 
 	 */
-	public SearchEventResultList() throws ParseException {
+	public SearchEventResultList() {
 	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
