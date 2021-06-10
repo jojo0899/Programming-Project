@@ -225,16 +225,25 @@ public class DB {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
-		try (Connection connection = DriverManager.getConnection(url, user , password)) {
+		
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+			
 			Statement st = connection.createStatement();
-			st.execute("SELECT " + column + " FROM user WHERE username='" + username + "'");
-			return null;
-		} catch (SQLException ex) {
+			String query = "SELECT " + column + " FROM user WHERE username='" + username + "'";
+			ResultSet rs = st.executeQuery(query);
+			
+			while(rs.next()) {
+				String columnResult = rs.getString(column);
+				System.out.println(columnResult);
+				return columnResult;
+			}
+		}
+		catch(SQLException ex) {
 			System.err.println(ex.getMessage());
-			ex.printStackTrace();
 		}
 		return null;
-	}
 	
+}
 }
 
