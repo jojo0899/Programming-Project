@@ -55,13 +55,13 @@ public class AdminView extends JFrame {
 
 	public AdminView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1333, 570);
+		setBounds(100, 100, 1333, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Admin Account Management");
+		JLabel lblNewLabel_1 = new JLabel("Admin Account Verwaltung");
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 28));
 		lblNewLabel_1.setBounds(6, 6, 424, 42);
 		contentPane.add(lblNewLabel_1);
@@ -71,6 +71,10 @@ public class AdminView extends JFrame {
 		contentPane.add(scrollPane);
 
 		JTable table = new JTable();
+		table.setRowSelectionAllowed(true);
+		table.setShowHorizontalLines(true);
+		
+		
 		scrollPane.setViewportView(table);
 		
 		refreshTable(table);
@@ -83,82 +87,49 @@ public class AdminView extends JFrame {
 		});
 		viewUsersButton.setBounds(34, 454, 169, 23);
 		contentPane.add(viewUsersButton);
-
-		JTextField userSelectionTextField = new JTextField();
-		userSelectionTextField.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		userSelectionTextField.setBounds(723, 498, 221, 26);
-		contentPane.add(userSelectionTextField);
-		userSelectionTextField.setColumns(10);
 		
-		JButton editUserButton = new JButton("Edit this User\r\n");
+		JButton editUserButton = new JButton("User bearbeiten");
 		/**
 		 * action to edit selected user
 		 */
 		editUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(DB.checkIfUsernameExistsInDB(userSelectionTextField.getText())) {
-					EditUser.main(null);
-					// username noch als parameter and edituser fenster übergeben
-					/*
-					*
-					*
-					*/
-				}
-				else {
-					showMessageDialog(null, "User not found", "Message",WARNING_MESSAGE);
-					userSelectionTextField.setText("");
-				}
+				String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+				EditUser.main(selectedUser);
 				
 			}
 		});
-		editUserButton.setBounds(954, 501, 173, 23);
+		editUserButton.setBounds(956, 454, 173, 23);
 		contentPane.add(editUserButton);
 		
-		JButton deleteButton = new JButton("Delete this User");
+		JButton deleteButton = new JButton("User l\u00F6schen");
 		deleteButton.setForeground(Color.RED);
 		/**
 		 * action to delete selected user
 		 */
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String userToDelete = userSelectionTextField.getText();
-				
-				if(DB.checkIfUsernameExistsInDB(userToDelete)) {
-					int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this User?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
-					if (confirm == 0) {
-							DB.deleteUserFromDB(userToDelete);
-							String message = "User " + userToDelete + " succesfully deleted";
-							showMessageDialog(null, message, "Message",WARNING_MESSAGE);
-							userSelectionTextField.setText("");
-							refreshTable(table);
-					}
-					else return;
+				int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie diesen User löschen möchten?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+				if (confirm == 0) {
+					String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+					DB.deleteUserFromDB(selectedUser);
+					refreshTable(table);
+					String message = "Der User wurde erfolgreich gelöscht!";
+					showMessageDialog(null, message, "Message",WARNING_MESSAGE);
 				}
-				else {
-					showMessageDialog(null, "User not found", "Message",WARNING_MESSAGE);
-					userSelectionTextField.setText("");
-				}
+				else return;
 			}
 		});
-		deleteButton.setBounds(1138, 501, 169, 23);
+		deleteButton.setBounds(1138, 454, 169, 23);
 		contentPane.add(deleteButton);
 		
-		JLabel lblNewLabel = new JLabel("Please enter the username of the user you like to edit or delete:");
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel.setBounds(149, 488, 564, 42);
-		contentPane.add(lblNewLabel);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 477, 1307, 12);
-		contentPane.add(separator);
-		
-		JButton btnNewButton = new JButton("Leave Admin View");
+		JButton btnNewButton = new JButton("Admin View verlassen");
 		/**
 		 * action to leave admin view and go back to the login dialog
 		 */
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to leave Admin view?\nAny unsaved Changes won't be saved!", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+				int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie Sicher, dass Sie die Admin Ansicht verlassen wollen?\nAlle ungespeicherten Änderungen gehen verloren!", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
 				if (confirm == 0) {
 					dispose();
 					Login.main(null);

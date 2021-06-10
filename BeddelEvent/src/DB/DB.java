@@ -214,11 +214,26 @@ public class DB {
 		String password = "sabba2021";
 		try (Connection connection = DriverManager.getConnection(url, user , password)) {
 			Statement st = connection.createStatement();
-			st.execute("DELETE FROM user WHERE username='"+username+"'");
+			st.execute("DELETE FROM user WHERE username='" + username + "'");
 		} catch (SQLException ex) {
 			System.err.println(ex.getMessage());
 			ex.printStackTrace();
 		}
+	}
+	
+	public static String getUserDataFromDB(String username, String column){
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		try (Connection connection = DriverManager.getConnection(url, user , password)) {
+			Statement st = connection.createStatement();
+			st.execute("SELECT " + column + " FROM user WHERE username='" + username + "'");
+			return null;
+		} catch (SQLException ex) {
+			System.err.println(ex.getMessage());
+			ex.printStackTrace();
+		}
+		return null;
 	}
 	
 }

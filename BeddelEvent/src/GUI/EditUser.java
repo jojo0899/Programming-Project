@@ -146,18 +146,21 @@ public class EditUser extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String _selectedUser) {
 		try {
 			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //set look and feel
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+		String selectedUser = _selectedUser;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					EditUser frame = new EditUser();
 					frame.setLocationRelativeTo(null); //fenster in mitte plazieren
 					frame.setVisible(true);
+					frame.txtUserName.setText(selectedUser);
+					frame.txtEmail.setText(DB.getUserDataFromDB(selectedUser, "email"));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -171,7 +174,7 @@ public class EditUser extends JFrame {
 	public EditUser() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 609, 384);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -210,6 +213,7 @@ public class EditUser extends JFrame {
 		contentPane.add(lblPasswordConfirmation);
 		
 		txtUserName = new JTextField();
+		txtUserName.setEditable(false);
 		txtUserName.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
