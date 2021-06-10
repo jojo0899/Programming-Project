@@ -17,11 +17,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
+import Functionalities.DateCompare;
 import Functionalities.Event;
 import Functionalities.User;
 
@@ -61,8 +63,9 @@ public class ActiveEventsResultList extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public ActiveEventsResultList() {
+	public ActiveEventsResultList() throws ParseException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
@@ -76,42 +79,64 @@ public class ActiveEventsResultList extends JFrame {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
+	
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(					//tabelle ohne Inhalte
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"     //ComunName
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {					//Spalten d¸rfen nicht editiert werden
-				false, false, false, false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {		//Zellen d¸rfen nicht editiert werden
-				return columnEditables[column];
-			}
-		});
-		scrollPane.setViewportView(table);
-		table.setAutoCreateRowSorter(true);
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+				table = new JTable(); //leere tabelle ohne werte erstellen
+			table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				
+				new String[] {
+					"ID", "sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+				}
+			) {
+				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
+						false, false, false, false, false, false, false, false,false,false
+				};
+				
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			});
+			scrollPane.setViewportView(table);
+			table.setAutoCreateRowSorter(true);
+			
+			
+		
+		
+		Statement st = connection.createStatement();
+		String query = "SELECT e.id, e.sportart, e.Datum, e.Uhrzeit, e.Postleitzahl, e.Stadt, e.Straﬂe, e.Hausnummer, e.Anzahlpl‰tze, e.kosten FROM event e join participate_on p on(e.id = p.eventid) WHERE username = '" + User.username +"'";
+		ResultSet rs = st.executeQuery(query);
+		while(rs.next()) {
+			String ID = String.valueOf(rs.getInt("id"));
+			String sportart = rs.getString("sportart");
+			String Datum = rs.getString("Datum");
+			String Uhrzeit = rs.getString("Uhrzeit");
+			String Plz= rs.getString("Postleitzahl");
+			String Stadt = rs.getString("Stadt");
+			String Straﬂe = rs.getString("Straﬂe");
+			String Hausnummer = rs.getString("Hausnummer");
+			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
+			String kosten = String.valueOf(rs.getDouble("kosten"));
+			
+			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+			System.out.println(Datum);
+			
+			if (!DateCompare.Datecheck(Datum)) {
+				tblModel.addRow(data);
+				}
+			
+		}
+		}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+		//////////////////////////////////
 		
 		btnNewButton = new JButton("Absagen");
 		btnNewButton.addActionListener(new ActionListener() {
