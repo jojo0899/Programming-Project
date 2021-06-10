@@ -79,42 +79,7 @@ public class ActiveEventsResultList extends JFrame {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
-		/*
-		table = new JTable();
-		table.setModel(new DefaultTableModel(					//tabelle ohne Inhalte
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"     //ComunName
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {					//Spalten dürfen nicht editiert werden
-				false, false, false, false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {		//Zellen dürfen nicht editiert werden
-				return columnEditables[column];
-			}
-		});
-		scrollPane.setViewportView(table);
-		table.setAutoCreateRowSorter(true);*/
+	
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
@@ -145,7 +110,7 @@ public class ActiveEventsResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%' and kosten <= '" + Event.SearchKosten +"'";
+		String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event ";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String ID = String.valueOf(rs.getInt("id"));
@@ -161,13 +126,12 @@ public class ActiveEventsResultList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straße, Hausnummer, Anzahlplätze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			System.out.println(DateCompare.Datecheck(Datum));
-
-			if (DateCompare.Datecheck(Datum)) {
+			System.out.println(Datum);
+			
+			if (!DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);
-				System.out.println("zeile hinzugefuegt");
-			}
-			System.out.println("error");
+				}
+			
 		}
 		}catch(SQLException ex) {
 			System.err.println(ex.getMessage());
