@@ -1,6 +1,7 @@
 package GUI;
 import java.sql.*;//////////////////////////////////////////////////
 
+import Functionalities.DateCompare;
 import Functionalities.Event;
 import Functionalities.Map;
 import Functionalities.User;
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
@@ -57,8 +59,9 @@ public class SearchEventResultList extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public SearchEventResultList() {
+	public SearchEventResultList() throws ParseException {
 	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
@@ -120,57 +123,13 @@ public class SearchEventResultList extends JFrame {
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 			tblModel.addRow(data);
 
-			
 		}
 		}catch(SQLException ex) {
 			System.err.println(ex.getMessage());
 		}
 		
 		
-	/////////////////////////////////////////////////////////////
-		
-	/*	table = new JTable(); //leere tabelle ohne werte erstellen
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-			},
-			
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column" //Spaltenname
-			}
-		) {
-			boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
-				false, false, false, false, false, false, false, false
-			};
-			
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});*/
-		///scrollPane.setViewportView(table);
-		//////////////////////////////////////////////////////////
-		/*}catch(SQLException ex) {
-			System.err.println(ex.getMessage());
-		}*/
-		
-		////////////////////////////////////////////////////////////////
+
 		JButton btnSelect = new JButton("Ausw\u00E4hlen");
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
