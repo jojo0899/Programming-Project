@@ -16,11 +16,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
+import Functionalities.DateCompare;
 import Functionalities.User;
 
 import javax.swing.JScrollPane;
@@ -56,8 +58,9 @@ public class HistoryList extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public HistoryList() {
+	public HistoryList() throws ParseException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 421);
@@ -71,6 +74,7 @@ public class HistoryList extends JFrame {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 709, 331);
 		contentPane.add(scrollPane);
+		
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
@@ -95,6 +99,7 @@ public class HistoryList extends JFrame {
 				}
 			});
 			scrollPane.setViewportView(table);
+			table.setAutoCreateRowSorter(true);
 			
 			
 		
@@ -116,8 +121,11 @@ public class HistoryList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			tblModel.addRow(data);
-
+			System.out.println(Datum);
+			
+			if (DateCompare.Datecheck(Datum)) {
+				tblModel.addRow(data);
+				}
 			
 		}
 		}catch(SQLException ex) {
