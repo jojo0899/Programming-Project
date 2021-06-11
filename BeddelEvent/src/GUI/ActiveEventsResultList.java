@@ -157,13 +157,13 @@ public class ActiveEventsResultList extends JFrame {
 						String query = "DELETE from participate_on WHERE eventid = '" + Event.id + "'";
 						Statement s1 = connection.createStatement();
 						s1.executeLargeUpdate(query);
-						System.out.println("wurde gelöscht");
+						System.out.println("wurde aus participate_on gelöscht");
 						s1.close();
 						
 						String query2 = "UPDATE event SET Anzahlplätze = Anzahlplätze + 1 WHERE id = '" + Event.id + "'";
 						Statement s2 = connection.createStatement();
 						s2.executeLargeUpdate(query2);
-						System.out.println("wurde geändert");
+						System.out.println("Anzahlplätze in Event geändert");
 						s2.close();
 						
 						DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
