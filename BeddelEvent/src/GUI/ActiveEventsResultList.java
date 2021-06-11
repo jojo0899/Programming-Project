@@ -163,7 +163,7 @@ public class ActiveEventsResultList extends JFrame {
 						String query2 = "UPDATE event SET Anzahlplätze = Anzahlplätze + 1 WHERE id = '" + Event.id + "'";
 						Statement s2 = connection.createStatement();
 						s2.executeLargeUpdate(query2);
-						System.out.println("Anzahlplätze in Event geändert");
+						System.out.println("Anzahlplätze in Event geändert(+)");
 						s2.close();
 						
 						DefaultTableModel tblModel = (DefaultTableModel)table.getModel();

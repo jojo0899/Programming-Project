@@ -20,6 +20,7 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.security.GeneralSecurityException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 public class SearchEventConfirm extends JFrame {
@@ -97,6 +98,7 @@ public class SearchEventConfirm extends JFrame {
 		btnBest√§tigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on best‰tigen
 				DB.DB.InsertDataIntoParticipate_on(User.username, Event.id);
+				DB.DB.DecrementAnzahlplaetze();
 				try {
 					SendMail.participateEventMail(User.email, User.username, Event.Date, Event.Time, Event.Sport, Event.zip,Event.city,Event.street,Event.hnr,Event.Kosten,Event.Anz);
 				} catch (GeneralSecurityException e1) {

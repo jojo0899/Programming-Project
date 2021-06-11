@@ -4,6 +4,7 @@ import java.sql.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Functionalities.Event;
 import Functionalities.Map;
 import Functionalities.User;
 
@@ -245,5 +246,24 @@ public class DB {
 		return null;
 	
 }
+	
+	
+	public static void DecrementAnzahlplaetze() {
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+			String query = "UPDATE event SET Anzahlplätze = Anzahlplätze - 1 WHERE id = '" + Event.id + "'";
+			Statement st = connection.createStatement();
+			st.executeLargeUpdate(query);
+			System.out.println("Anzahlplätze in Event geändert(-)");
+			st.close();
+		}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+
 }
 
