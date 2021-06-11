@@ -161,6 +161,10 @@ public class EditUser extends JFrame {
 					frame.setVisible(true);
 					frame.txtUserName.setText(selectedUser);
 					frame.txtEmail.setText(DB.getUserDataFromDB(selectedUser, "email"));
+					frame.txtemailconfirm.setText(DB.getUserDataFromDB(selectedUser, "email"));
+					frame.txtFirstName.setText(DB.getUserDataFromDB(selectedUser, "vorname"));
+					frame.txtLastName.setText(DB.getUserDataFromDB(selectedUser, "nachname"));
+					// geschlecht und passwort muss noch gefüllt werden
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
