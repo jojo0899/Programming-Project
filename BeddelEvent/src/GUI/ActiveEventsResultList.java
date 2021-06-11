@@ -142,7 +142,38 @@ public class ActiveEventsResultList extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) {		//wenn der button absagen gedrüclt wurde und eine reihe ausgewählt wurde, führe sql delete statement aus 
-				//SQL DELETE
+					String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+					String user = "freedbtech_sabbaprogex";
+					String password = "sabba2021";
+					
+					try (Connection connection = DriverManager.getConnection(url, user , password)){
+						System.out.println("Verbindung steht");
+						
+
+						int row = table.getSelectedRow();
+						String cell = table.getModel().getValueAt(row, 0).toString();
+						Event.id = Integer.parseInt(cell);
+						
+						String query = "DELETE from participate_on WHERE eventid = '" + Event.id + "'";
+						Statement s1 = connection.createStatement();
+						s1.executeLargeUpdate(query);
+						System.out.println("wurde gelöscht");
+						s1.close();
+						
+						String query2 = "UPDATE event SET Anzahlplätze = Anzahlplätze + 1 WHERE id = '" + Event.id + "'";
+						Statement s2 = connection.createStatement();
+						s2.executeLargeUpdate(query2);
+						System.out.println("wurde geändert");
+						s2.close();
+						
+						DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+						tblModel.removeRow(row);
+
+						
+					}
+					catch(SQLException ex) {
+						System.err.println(ex.getMessage());
+					}
 				} else {
 					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //button gedrückt aber nichts ausgewählt
 				}
