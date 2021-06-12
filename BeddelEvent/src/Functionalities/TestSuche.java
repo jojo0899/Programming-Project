@@ -126,7 +126,31 @@ public class TestSuche {
             	
             	
              	Event.zip =	Testsuche2.checkAddress(req.get("postcode").toString());
-            	Event.hnr =	Testsuche2.checkAddress(req.get("house_number").toString());
+             	
+             	if(req.get("house_number")!=null) {
+                	Event.hnr =	Testsuche2.checkAddress(req.get("house_number").toString());	
+             	}else if(req.get("building")!=null) {
+
+                	Event.hnr =	Testsuche2.checkAddress(req.get("building").toString());
+             		            		
+             	}else if(req.get("leisure")!=null){
+             		Event.hnr =	Testsuche2.checkAddress(req.get("leisure").toString());
+             		
+             		
+             	}else if(req.get("amenity")!=null) {
+             		Event.hnr =	Testsuche2.checkAddress(req.get("amenity").toString());
+             		
+             	}           			else if(req.get("highway")!=null){
+
+             		Event.hnr =	Testsuche2.checkAddress(req.get("highway").toString());
+             		
+             	}else if(req.get("historic")!=null){
+             		Event.hnr =	Testsuche2.checkAddress(req.get("historic").toString());
+                 		
+             	}
+             	else	{
+             	         		Event.hnr ="";
+             	}
              
               
             
