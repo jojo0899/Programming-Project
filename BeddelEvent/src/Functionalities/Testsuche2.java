@@ -26,58 +26,55 @@ public class Testsuche2 {
 		String fin = checkAddress(result);
 
 
-		String[] splitted = fin.split(",");
-		if(splitted.length==8) {
-		if(isNumeric(splitted[0])) {
-			hnr =splitted[0].trim();
-			street=splitted[1].trim();
-			city =splitted[4].trim();
-			zip =splitted[6].trim();
-	
-		}else if(isNumeric(splitted[1])){
-			hnr =splitted[1].trim();
-			street=splitted[2].trim();
-			city =splitted[4].trim();
-			zip =splitted[splitted.length-2].trim();
-		}else {
-			hnr =splitted[0].trim();
-			street=splitted[1].trim();
-			city =splitted[splitted.length-4].trim();
-			zip =splitted[splitted.length-2].trim();
-			
-		}
-		}else	if(splitted.length==7&&!isNumeric(splitted[0])) {
-			hnr ="";
-			street=splitted[0].trim();
-			city =splitted[splitted.length-5].trim();
-			zip =splitted[splitted.length-2].trim();
-			
-		}else if(splitted.length==9 &&!isNumeric(splitted[0])) {
-			
-		}else if(splitted.length==9&&isNumeric(splitted[1])) {
-			hnr =splitted[1];
-			street=splitted[2].trim();
-			city =splitted[splitted.length-5].trim();
-			zip =splitted[splitted.length-2].trim();
-		}
+//		String[] splitted = fin.split(",");
+//		if(splitted.length==8) {
+//		if(isNumeric(splitted[0])) {
+//			hnr =splitted[0].trim();
+//			street=splitted[1].trim();
+//			city =splitted[4].trim();
+//			zip =splitted[6].trim();
+//	
+//		}else if(isNumeric(splitted[1])){
+//			hnr =splitted[1].trim();
+//			street=splitted[2].trim();
+//			city =splitted[4].trim();
+//			zip =splitted[splitted.length-2].trim();
+//		}else {
+//			hnr =splitted[0].trim();
+//			street=splitted[1].trim();
+//			city =splitted[splitted.length-4].trim();
+//			zip =splitted[splitted.length-2].trim();
+//			
+//		}
+//		}else	if(splitted.length==7&&!isNumeric(splitted[0])) {
+//			hnr ="";
+//			street=splitted[0].trim();
+//			city =splitted[splitted.length-5].trim();
+//			zip =splitted[splitted.length-2].trim();
+//			
+//		}else if(splitted.length==9 &&!isNumeric(splitted[0])) {
+//			
+//		}else if(splitted.length==9&&isNumeric(splitted[1])) {
+//			hnr =splitted[1];
+//			street=splitted[2].trim();
+//			city =splitted[splitted.length-5].trim();
+//			zip =splitted[splitted.length-2].trim();
+//		}
 		
 		
 		
 		
 
 //		
-		Event.hnr = hnr;
-		Event.street = street;
-		Event.city = city;
-		Event.zip = zip;
-		System.out.println(hnr);
-		System.out.println(street);
-		System.out.println(city);
-		System.out.println(zip);
+//		Event.hnr = hnr;
+//		Event.street = street;
+//		Event.city = city;
+//		Event.zip = zip;
+
 		
 	}
 	public static String checkAddress(String address) {
-		address= address.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss").replace("Ã¶","ö").replace("Ã", "ss");
+		address= address.replace("ä", "\u00e4").replace("Ä", "\u00c4").replace("Ã¶", "\u00f6").replace("Ö", "\u00d6").replace("Ã¼", "\u00fc").replace("Ü","\u00dc").replace("ÃŸ", "\u00df");
 			return address;
 	}
 	public static boolean isNumeric(String strNum) {

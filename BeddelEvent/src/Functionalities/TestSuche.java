@@ -66,7 +66,7 @@ public class TestSuche {
      if (split.length == 0) //Bei fehlender Eingabe
          return null;
      
-     query.append("https://nominatim.openstreetmap.org/search.php?format=jsonv2&zoom=18&q=");
+     query.append("https://nominatim.openstreetmap.org/search.php?format=jsonv2&addressdetails=1&zoom=18&q=");
      for (int i = 0; i < split.length; i++) //fügt adresse mit + statt leerzeichen ein
      {
          query.append(split[i]);
@@ -78,7 +78,7 @@ public class TestSuche {
 
      try {
          queryResult = getRequest(query.toString());
-            } catch (Exception e) {
+                   } catch (Exception e) {
         System.out.println("Error when trying to get data with the following query " + query);
      }
 
@@ -86,16 +86,54 @@ public class TestSuche {
      if (queryResult == null) {
          return null;
      }
+     
+
 
      Object obj = JSONValue.parse(queryResult);
-
+  
+     
+     
      if (obj instanceof JSONArray) {
-         JSONArray array = (JSONArray) obj;
+         JSONArray array = (JSONArray) obj;  
+                 
          if (array.size() > 0) {
              JSONObject jsonObject = (JSONObject) array.get(0);
-
-             String fullname = (String) jsonObject.get("display_name");
-             res.put("Fullname", fullname);
+          
+                      
+           
+             
+            JSONObject req = new JSONObject();
+            
+            req= (JSONObject) jsonObject.get("address");
+            
+            if(req.get("road")!=null) {
+            	Event.street  =Testsuche2.checkAddress(req.get("road").toString());
+            }else if(req.get("road")==null){
+            	Event.street =	"";
+                }
+            
+            if(req.get("city")!=null) {
+            	Event.city =	Testsuche2.checkAddress(req.get("city").toString());
+            }else if(req.get("city")==null) {
+            	if(req.get("town")!=null) {
+            		Event.city = Testsuche2.checkAddress(req.get("town").toString());
+            	}else if(req.get("suburb")!=null) {
+            		Event.city = Testsuche2.checkAddress(req.get("suburb").toString());
+            	}else {
+            		Event.city="";
+            	}
+            }
+            	
+            	
+             	Event.zip =	Testsuche2.checkAddress(req.get("postcode").toString());
+            	Event.hnr =	Testsuche2.checkAddress(req.get("house_number").toString());
+             
+              
+            
+             
+            String fullname = (String) jsonObject.get("display_name");
+             
+            res.put("Fullname", fullname);
          
 
          }
