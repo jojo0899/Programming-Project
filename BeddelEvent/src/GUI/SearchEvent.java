@@ -249,6 +249,7 @@ public class SearchEvent extends JFrame {
 		slider.setMinorTickSpacing(5);
 		slider.setPaintTicks(true);
 		slider.setValue(25);
+		
 		slider.setMaximum(50);
 
 		slider.setEnabled(false); //slider standardgem‰ﬂ deaktivieren
@@ -259,7 +260,7 @@ public class SearchEvent extends JFrame {
 					Event.SearchKosten = (double) val;
 					ShowSliderValue.setText(val2);			//wert des Sliders in textfeld eintragen bei ver‰nderung
 						//wert des Sliders in textfeld eintragen bei ver‰nderung
-			
+				
 			}
 		});
 		slider.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -279,11 +280,13 @@ public class SearchEvent extends JFrame {
 		buttonGroup.add(rdbtnNein);
 		rdbtnNein.setBounds(6, 34, 116, 20);
 		Kosten.add(rdbtnNein);
+
 		
 		JRadioButton rdbtnJa = new JRadioButton("ja");
 		rdbtnJa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				slider.setEnabled(true);			//wenn ja ausgew‰hlt wird slider aktivieren
+				Event.SearchKosten = 25;
 			}
 		});
 		rdbtnJa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

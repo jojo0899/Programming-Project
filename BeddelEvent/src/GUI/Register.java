@@ -1,9 +1,6 @@
 package GUI;
 
 
-import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

@@ -1,9 +1,6 @@
 // test
 package GUI;
 
-import static javax.swing.JOptionPane.WARNING_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -149,8 +146,8 @@ public class Login extends JFrame {
 		
 		JLabel lblHeadline = new JLabel("BeddelEvent");
 		lblHeadline.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 20));
-		lblHeadline.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeadline.setBounds(163, 6, 126, 37);
+		lblHeadline.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHeadline.setBounds(175, 6, 177, 37);
 		contentPane.add(lblHeadline);
 		
 		

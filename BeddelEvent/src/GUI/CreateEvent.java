@@ -17,7 +17,7 @@ import com.toedter.calendar.JCalendar;
 import Functionalities.Map;
 import Functionalities.Testsuche2;
 import Functionalities.Event;
-import Functionalities.User;
+
 
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
