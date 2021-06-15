@@ -63,7 +63,7 @@ public class HistoryList extends JFrame {
 	public HistoryList() throws ParseException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 731, 421);
+		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,7 +72,7 @@ public class HistoryList extends JFrame {
 
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 709, 331);
+		scrollPane.setBounds(0, 0, 931, 331);
 		contentPane.add(scrollPane);
 		
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";

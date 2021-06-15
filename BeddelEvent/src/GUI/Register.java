@@ -72,8 +72,9 @@ public class Register extends JFrame {
         if(User.firstName.trim().equals("") || User.lastName.trim().equals("") || User.email.trim().equals("") || mailconfirm.trim().equals("") 
                 || pwd.trim().equals("") || pwdconfirm.trim().equals(""))   
         { //wenn feld leer ist fehlermeldung ausgeben
-            JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
-            return false;
+           // JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
+           JOptionPane.showMessageDialog(null, "Bitte fülle alle Felder aus!","Eingabe Fehler",JOptionPane.WARNING_MESSAGE);
+        	return false;
         }
              
         else if(!isValidEmailAddress(User.email)) { //check if its a valid email adress wenn nicht true error ausgeben
@@ -346,7 +347,7 @@ public class Register extends JFrame {
 		JButton RegisterButton = new JButton("Registrieren");
 		RegisterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		        FieldsOKtest(); //Test Function
+		       
 		        	        
 		    	if(FieldsOKtest()) {
 		    		

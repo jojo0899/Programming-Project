@@ -64,7 +64,7 @@ public class SearchEventResultList extends JFrame {
 	public SearchEventResultList() {
 	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 731, 421);
+		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,7 +72,7 @@ public class SearchEventResultList extends JFrame {
 		
 	
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 709, 331);
+		scrollPane.setBounds(0, 0, 931, 331);
 		contentPane.add(scrollPane);
 		////////////////////////////////////////
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
@@ -87,7 +87,7 @@ public class SearchEventResultList extends JFrame {
 				},
 				
 				new String[] {
-					"ID", "sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "Kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
@@ -158,7 +158,7 @@ public class SearchEventResultList extends JFrame {
 			}
 		});
 		
-		btnSelect.setBounds(612, 339, 97, 26);
+		btnSelect.setBounds(834, 339, 97, 26);
 		contentPane.add(btnSelect);
 		
 		
@@ -173,11 +173,18 @@ public class SearchEventResultList extends JFrame {
 		btnBack.setBounds(6, 339, 97, 26);
 		contentPane.add(btnBack);
 		
+		JButton btnHauptmen = new JButton("Hauptmen\u00FC");
+		btnHauptmen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MainWindow.main(null);
+			}
+		});
+		btnHauptmen.setBounds(435, 339, 115, 26);
+		contentPane.add(btnHauptmen);
+		
 		
 		
 		}
-	
-	
-	
 	}
 

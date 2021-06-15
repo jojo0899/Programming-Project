@@ -66,9 +66,9 @@ public class ActiveEventsResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public ActiveEventsResultList() throws ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 731, 421);
+		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -77,7 +77,7 @@ public class ActiveEventsResultList extends JFrame {
 
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 709, 331);
+		scrollPane.setBounds(0, 0, 931, 331);
 		contentPane.add(scrollPane);
 	
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
@@ -141,7 +141,9 @@ public class ActiveEventsResultList extends JFrame {
 		btnNewButton = new JButton("Absagen");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!table.getSelectionModel().isSelectionEmpty()) {		//wenn der button absagen gedrüclt wurde und eine reihe ausgewählt wurde, führe sql delete statement aus 
+				if(!table.getSelectionModel().isSelectionEmpty()) {		//wenn der button absagen gedrüclt wurde und eine reihe ausgewählt wurde, führe sql delete statement aus
+					int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie dieses Event Absagen möchten?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+					if(confirm==0) {
 					String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 					String user = "freedbtech_sabbaprogex";
 					String password = "sabba2021";
@@ -173,14 +175,14 @@ public class ActiveEventsResultList extends JFrame {
 					}
 					catch(SQLException ex) {
 						System.err.println(ex.getMessage());
-					}
+					}}
 				} else {
 					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //button gedrückt aber nichts ausgewählt
 				}
 							
 			}
 		});
-		btnNewButton.setBounds(503, 339, 97, 26);
+		btnNewButton.setBounds(421, 339, 97, 26);
 		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
 		
@@ -196,7 +198,7 @@ public class ActiveEventsResultList extends JFrame {
 							
 			}
 		});
-		btnSelect.setBounds(612, 339, 97, 26);
+		btnSelect.setBounds(834, 339, 97, 26);
 		contentPane.add(btnSelect);
 		
 		JButton btnBack = new JButton("Zurück");
