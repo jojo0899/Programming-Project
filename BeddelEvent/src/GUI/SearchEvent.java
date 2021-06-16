@@ -51,7 +51,8 @@ public class SearchEvent extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField txtEnterCity;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-
+	public static String SearchBefore;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -186,6 +187,19 @@ public class SearchEvent extends JFrame {
 			btnNext2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 			btnNext2.setBounds(451, 248, 97, 26);
 			Datum.add(btnNext2);
+			
+			JButton btnSuchen = new JButton("Suchen");
+			btnSuchen.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+						SearchEvent.SearchBefore="Datum";
+						Event.SearchDate = CreateEvent.getDateAsString(Calender.getDayChooser().getDay(), Calender.getMonthChooser().getMonth()+1, Calender.getYearChooser().getYear()); 
+						dispose();
+						SearchEventResultList.main(null);
+					
+				}
+			});
+			btnSuchen.setBounds(226, 248, 97, 26);
+			Datum.add(btnSuchen);
 		
 		JPanel Ort = new JPanel();
 		tabbedPane.addTab("Ort", null, Ort, null);
@@ -226,6 +240,22 @@ public class SearchEvent extends JFrame {
 		btnNext3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnNext3.setBounds(451, 245, 97, 26);
 		Ort.add(btnNext3);
+		
+		JButton btnSuchen_1 = new JButton("Suchen");
+		btnSuchen_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!txtEnterCity.getText().equals("")) {
+				SearchEvent.SearchBefore = "Ort";
+				Event.Searchcity = txtEnterCity.getText();
+				dispose();
+				SearchEventResultList.main(null);
+				}else {
+					JOptionPane.showMessageDialog(null, "Fülle trage eine Stadt ein!", "Eingabe Error",JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
+		btnSuchen_1.setBounds(225, 245, 97, 26);
+		Ort.add(btnSuchen_1);
 		
 		JPanel Kosten = new JPanel();
 		tabbedPane.addTab("Kosten", null, Kosten, null);
