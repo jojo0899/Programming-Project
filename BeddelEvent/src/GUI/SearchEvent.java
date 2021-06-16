@@ -131,6 +131,18 @@ public class SearchEvent extends JFrame {
 		btnNext.setBounds(451, 246, 97, 26);
 		Sportart.add(btnNext);
 		
+		JButton btnSuchen_2 = new JButton("Suchen");
+		btnSuchen_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SearchEvent.SearchBefore = "Sport";
+				dispose();
+				SearchEventResultList.main(null);
+				
+			}
+		});
+		btnSuchen_2.setBounds(234, 246, 97, 26);
+		Sportart.add(btnSuchen_2);
+		
 		JPanel Datum = new JPanel();
 		tabbedPane.addTab("Datum", null, Datum, null);
 		Datum.setLayout(null);

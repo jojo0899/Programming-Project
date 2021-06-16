@@ -144,7 +144,27 @@ public class SearchEventResultList extends JFrame {
 				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 				tblModel.addRow(data);	
 			
-		}}
+		}}else if(SearchEvent.SearchBefore.equals("Sport")) {
+			Statement st = connection.createStatement();
+			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"'";
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				String ID = String.valueOf(rs.getInt("id"));
+				String sportart = rs.getString("sportart");
+				String Datum = rs.getString("Datum");
+				String Uhrzeit = rs.getString("Uhrzeit");
+				String Plz= rs.getString("Postleitzahl");
+				String Stadt = rs.getString("Stadt");
+				String Straﬂe = rs.getString("Straﬂe");
+				String Hausnummer = rs.getString("Hausnummer");
+				String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
+				String kosten = String.valueOf(rs.getDouble("kosten"));
+				
+				String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
+				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+				tblModel.addRow(data);	
+			
+		}} 
 		else {
 		
 		Statement st = connection.createStatement();
