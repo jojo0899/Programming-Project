@@ -103,6 +103,7 @@ public class SearchEventResultList extends JFrame {
 			
 		System.out.println(SearchEvent.SearchBefore);	
 		if(SearchEvent.SearchBefore.equals("Ort")) {
+			System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%'";
 			ResultSet rs = st.executeQuery(query);
@@ -125,6 +126,7 @@ public class SearchEventResultList extends JFrame {
 			
 			
 		}}else if(SearchEvent.SearchBefore.equals("Datum")) {
+			System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"'";
 			ResultSet rs = st.executeQuery(query);
@@ -145,6 +147,7 @@ public class SearchEventResultList extends JFrame {
 				tblModel.addRow(data);	
 			
 		}}else if(SearchEvent.SearchBefore.equals("Sport")) {
+			System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"'";
 			ResultSet rs = st.executeQuery(query);
