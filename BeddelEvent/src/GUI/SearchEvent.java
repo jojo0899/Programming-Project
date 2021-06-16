@@ -135,6 +135,7 @@ public class SearchEvent extends JFrame {
 		btnSuchen_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SearchEvent.SearchBefore = "Sport";
+				Event.SearchSport =String.valueOf(SelectSports.getSelectedItem());
 				dispose();
 				SearchEventResultList.main(null);
 				
@@ -361,10 +362,7 @@ public class SearchEvent extends JFrame {
 				
 				dispose();
 				SearchEventResultList.main(null);
-				System.out.println(Event.SearchSport);
-				System.out.println(Event.SearchDate);
-				System.out.println(Event.Searchcity);
-				System.out.println(Event.SearchKosten);
+		
 	
 				
 				
