@@ -141,7 +141,7 @@ public class Login extends JFrame {
 		contentPane.add(lblNew);
 		
 		JLabel lblRegisterYourself = new JLabel("Register yourself");
-		lblRegisterYourself.setBounds(277, 134, 95, 16);
+		lblRegisterYourself.setBounds(277, 134, 112, 16);
 		contentPane.add(lblRegisterYourself);
 		
 		JLabel lblHeadline = new JLabel("BeddelEvent");

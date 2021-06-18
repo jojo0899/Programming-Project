@@ -83,7 +83,7 @@ public class MainWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Starte dein Beddel-Erlebnis");
-		lblNewLabel.setBounds(157, 6, 231, 30);
+		lblNewLabel.setBounds(157, 6, 262, 30);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		contentPane.add(lblNewLabel);
 		

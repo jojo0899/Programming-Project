@@ -279,7 +279,7 @@ public class EditUser extends JFrame {
 		
 		JLabel lblGender = new JLabel("Geschlecht:");
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGender.setBounds(187, 236, 52, 16);
+		lblGender.setBounds(132, 236, 107, 16);
 		contentPane.add(lblGender);
 		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
@@ -291,7 +291,7 @@ public class EditUser extends JFrame {
 			}
 		});
 		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
-		ButtonMale.setBounds(251, 234, 79, 20);
+		ButtonMale.setBounds(251, 234, 107, 20);
 		contentPane.add(ButtonMale);
 		
 		JRadioButton ButtonFemale = new JRadioButton("Weiblich");
@@ -302,7 +302,7 @@ public class EditUser extends JFrame {
 				User.gender = "W";
 			}
 		});
-		ButtonFemale.setBounds(342, 234, 70, 20);
+		ButtonFemale.setBounds(342, 234, 106, 20);
 		contentPane.add(ButtonFemale);
 		
 		JRadioButton ButtonDiverse = new JRadioButton("Divers");
@@ -367,22 +367,17 @@ public class EditUser extends JFrame {
 						e2.printStackTrace();
 					}
 
-	    			DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
+	    			//DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
+		    		// Update Methode hier aufrufen!
+		    		
 		    		
 		    		//						if(!DoubleEmail()) {
 //						CreateConnection();
 		    		
 		    		//DB.DB.InsertDataIntoUser(username, firstName,lastName, gender,email );
-						JOptionPane.showMessageDialog(null, "Vielen Dank für deine Registrierung!", "Registrierung erfolgreich",JOptionPane.PLAIN_MESSAGE);
-				            
-							dispose();
-				            Login.main(null);
-				            try {
-								SendMail.registrationMail(User.email, User.firstName); //SENDET EMAIL!
-							} catch (GeneralSecurityException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
+						JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
+				        dispose();
+				        
 //						}else 
 //					 JOptionPane.showMessageDialog(null, "Email already registered", "Registration failed",JOptionPane.WARNING_MESSAGE);
 							
