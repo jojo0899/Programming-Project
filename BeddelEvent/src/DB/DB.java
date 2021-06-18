@@ -264,6 +264,32 @@ public class DB {
 			System.err.println(ex.getMessage());
 		}
 	}
+	
+	public static int getEventID(String Sport, String Date,String Time, String zip, String city, String street, String hnr, int Anz,  double Kosten, String username, double xval, double yval) {
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+			
+			String query = "SELECT id FROM event WHERE sportart = '" + Sport + "' and Datum = '" + Date + "' and Uhrzeit = '" + Time + "' and Postleitzahl = '" + zip +"' and Straﬂe = '" + street +"' and Hausnummer = '" + hnr + "' and Anzahlpl‰tze = " + Anz +" and kosten = " + Kosten + " and veranstalter = '"  + username + "' and xCoordinate = " + xval + " and yCoordinate =" + yval+ "";
+			Statement s = connection.createStatement();
+			ResultSet rs = s.executeQuery(query);
+			 
+			while(rs.next()) {
+				for (int i = 1; i <= rs.getMetaData().getColumnCount();i++) {
+					Event.id = rs.getInt(i);
+				}	
+				System.out.println(Event.id);
+				return Event.id;
+			}
+			
+		}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+		return 0;
+	}
 
 }
 

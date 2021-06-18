@@ -96,6 +96,8 @@ public class CreateEventConfirm extends JFrame {
 		btnBestÃ¤tigen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { //click on bestätigen
 				DB.DB.InsertDataIntoEvent(Event.Sport, Event.Date, Event.Time, Event.zip,Event.city,Event.street,Event.hnr, Event.Anz, Event.Kosten, User.username,Event.xval,Event.yval);
+				DB.DB.getEventID(Event.Sport, Event.Date, Event.Time, Event.zip,Event.city,Event.street,Event.hnr, Event.Anz, Event.Kosten, User.username,Event.xval,Event.yval);
+				DB.DB.InsertDataIntoParticipate_on(User.username, Event.id);
 				dispose(); //fenster schließen 
 				MainWindow.main(null); //main fenster öffnen
 				try {
