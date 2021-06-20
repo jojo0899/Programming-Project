@@ -1,7 +1,7 @@
 package Functionalities;
 
 	import java.security.GeneralSecurityException;
-import java.util.Properties;
+	import java.util.Properties;
 
 	import javax.mail.Message;
 	import javax.mail.MessagingException;
@@ -12,12 +12,12 @@ import java.util.Properties;
 	import javax.mail.internet.MimeMessage;
 	import com.sun.mail.util.MailSSLSocketFactory;
 
-	public class SendMail {
+public class SendMail {
 		static String recievermail;
 		static String subject;
 		static String msg;
 		
-		public static void registrationMail(String mail, String name) throws GeneralSecurityException {
+public static void registrationMail(String mail, String name) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
 			SendMail.subject = "BeddelEvent Registrierung";
 			msg = "Hi "+name+",\n \nWillkommen im Beddel-Team. Deine Registrierung war erfolgreich!"+
@@ -28,6 +28,7 @@ import java.util.Properties;
 			
 			
 		}
+
 		public static void createEventMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten, int anz) throws GeneralSecurityException {
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Erstellung";
@@ -145,9 +146,9 @@ import java.util.Properties;
 	            System.out.println("Sent message successfully....");
 	        } catch (MessagingException mex) {
 	            mex.printStackTrace();
-	        }
+	        }}}
 
-	    }
+	    
 
-	}
+
 
