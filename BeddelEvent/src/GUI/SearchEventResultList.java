@@ -61,8 +61,8 @@ public class SearchEventResultList extends JFrame {
 	 * Create the frame.
 	 * @throws ParseException 
 	 */
-	public SearchEventResultList() {
-	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	public SearchEventResultList() throws ParseException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
@@ -87,7 +87,7 @@ public class SearchEventResultList extends JFrame {
 				},
 				
 				new String[] {
-					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "Kosten" //Spaltenname
+					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Freie Pl‰tze", "Kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
@@ -121,7 +121,10 @@ public class SearchEventResultList extends JFrame {
 				
 				String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-				tblModel.addRow(data);	
+				
+				if (!DateCompare.Datecheck(Datum)) {
+					tblModel.addRow(data);
+					}	
 			
 			
 			
@@ -165,7 +168,10 @@ public class SearchEventResultList extends JFrame {
 				
 				String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-				tblModel.addRow(data);	
+				if (!DateCompare.Datecheck(Datum)) {
+					tblModel.addRow(data);
+					}	
+			
 			
 		}} 
 		else {
@@ -187,7 +193,10 @@ public class SearchEventResultList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			tblModel.addRow(data);
+			if (!DateCompare.Datecheck(Datum)) {
+				tblModel.addRow(data);
+				}	
+		
 
 		}}
 		
