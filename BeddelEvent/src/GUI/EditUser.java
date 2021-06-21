@@ -218,6 +218,7 @@ public class EditUser extends JFrame {
 		
 		txtUserName = new JTextField();
 		txtUserName.setEditable(false);
+		txtUserName.setEnabled(false);
 		txtUserName.addKeyListener(new KeyAdapter() { //wenn etwas getippt wurde
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -344,8 +345,6 @@ public class EditUser extends JFrame {
 		JButton BackButton = new JButton("Zurück");
 		BackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//when back is pressed return to main window and close the current one
-				Login.main(null);
 				dispose();
 			}
 		});
@@ -369,14 +368,15 @@ public class EditUser extends JFrame {
 
 	    			//DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
 		    		// Update Methode hier aufrufen!
+		    		DB.UpdateUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
 		    		
 		    		
 		    		//						if(!DoubleEmail()) {
 //						CreateConnection();
 		    		
 		    		//DB.DB.InsertDataIntoUser(username, firstName,lastName, gender,email );
-						JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
-				        dispose();
+					JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
+				    dispose();
 				        
 //						}else 
 //					 JOptionPane.showMessageDialog(null, "Email already registered", "Registration failed",JOptionPane.WARNING_MESSAGE);
