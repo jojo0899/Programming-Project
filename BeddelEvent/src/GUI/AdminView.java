@@ -55,6 +55,7 @@ public class AdminView extends JFrame {
 
 
 	public AdminView() {
+		setTitle("Admin View");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1333, 519);

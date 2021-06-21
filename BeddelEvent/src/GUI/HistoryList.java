@@ -62,6 +62,7 @@ public class HistoryList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public HistoryList() throws ParseException {
+		setTitle("Event Hitsorie");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
@@ -81,7 +82,7 @@ public class HistoryList extends JFrame {
 		String password = "sabba2021";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
-			System.out.println("Verbindung steht");
+			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
 			table.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -122,7 +123,7 @@ public class HistoryList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			System.out.println(Datum);
+			//System.out.println(Datum);
 			
 			if (DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);

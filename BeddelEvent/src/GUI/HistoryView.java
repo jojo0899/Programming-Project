@@ -53,6 +53,7 @@ public class HistoryView extends JFrame {
 	 * Create the frame.
 	 */
 	public HistoryView() {
+		setTitle("Event informationen");
 				setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setBounds(100, 100, 450, 300);

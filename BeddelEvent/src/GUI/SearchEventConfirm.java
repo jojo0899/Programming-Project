@@ -57,6 +57,7 @@ public class SearchEventConfirm extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchEventConfirm() {
+		setTitle("Auswahl bestätigen");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
