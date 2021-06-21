@@ -106,7 +106,7 @@ public class SearchEventResultList extends JFrame {
 		if(SearchEvent.SearchBefore.equals("Ort")) {
 			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
-			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%'";
+			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%'and Anzahlplätze > 0";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()) {
 				String ID = String.valueOf(rs.getInt("id"));
@@ -132,7 +132,7 @@ public class SearchEventResultList extends JFrame {
 		}}else if(SearchEvent.SearchBefore.equals("Datum")) {
 			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
-			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"'";
+			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"'and Anzahlplätze > 0";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()) {
 				String ID = String.valueOf(rs.getInt("id"));
@@ -153,7 +153,7 @@ public class SearchEventResultList extends JFrame {
 		}}else if(SearchEvent.SearchBefore.equals("Sport")) {
 			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
-			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"'";
+			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straße, Hausnummer, Anzahlplätze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Anzahlplätze > 0";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()) {
 				String ID = String.valueOf(rs.getInt("id"));
