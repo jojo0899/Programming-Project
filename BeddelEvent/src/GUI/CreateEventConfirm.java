@@ -53,7 +53,7 @@ public class CreateEventConfirm extends JFrame {
 	 */
 	public CreateEventConfirm() {
 	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
-	setTitle("Event bestätigen");
+		setTitle("Event bestätigen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
