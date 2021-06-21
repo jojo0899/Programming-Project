@@ -66,7 +66,7 @@ public class ActiveEventsResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public ActiveEventsResultList() throws ParseException {
-		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
@@ -190,8 +190,22 @@ public class ActiveEventsResultList extends JFrame {
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) {	//button auswählen gedrückt, schließe das aktuelle fenster und öffne die übersicht ActiveEventsView
-				dispose();
+					Event.ActiveSport =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.ActiveDate=(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.ActiveTime=(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.ActiveZip=(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.ActiveCity=(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.ActiveStreet=(String) table.getValueAt(table.getSelectedRow(),6);
+					Event.ActiveHnr=(String) table.getValueAt(table.getSelectedRow(),7);
+					
+					Event.ActiveKosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),9));
+					
+					
+					
+					
+					dispose();
 				ActiveEventsView.main(null);
+				
 				} else {
 					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //falls der button gedrückt wurde aber nichts ausgewählt wurde
 				}
