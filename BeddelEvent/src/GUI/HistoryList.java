@@ -23,6 +23,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import Functionalities.DateCompare;
+import Functionalities.Event;
 import Functionalities.User;
 
 import javax.swing.JScrollPane;
@@ -61,6 +62,7 @@ public class HistoryList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public HistoryList() throws ParseException {
+		setTitle("Event Hitsorie");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
@@ -80,7 +82,7 @@ public class HistoryList extends JFrame {
 		String password = "sabba2021";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
-			System.out.println("Verbindung steht");
+			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
 			table.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -121,7 +123,7 @@ public class HistoryList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straße, Hausnummer, Anzahlplätze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			System.out.println(Datum);
+			//System.out.println(Datum);
 			
 			if (DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);
@@ -170,14 +172,32 @@ public class HistoryList extends JFrame {
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) {	//wenn button Auswählen gedrüfckt wurde und eine Zeile ausgewählt
+					Event.HistorySport =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.HistoryDate=(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.HistoryTime=(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.HistoryZip=(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.HistoryCity=(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.HistoryStreet=(String) table.getValueAt(table.getSelectedRow(),6);
+					Event.HistoryHnr=(String) table.getValueAt(table.getSelectedRow(),7);
+					
+					Event.HistoryKosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),9));
+					
+					
+					
+					
 					dispose();			//schließe aktuelles fenester
 					HistoryView.main(null);	//öffne die übersicht History
+					
+					
+					
+					
+					
 					} else {
 						 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);	//fehlermeldung wenn nciths ausgewählt wurde
 					}							
 			}
 		});
-		btnSelect.setBounds(612, 339, 97, 26);
+		btnSelect.setBounds(834, 343, 97, 26);
 		btnSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hovern
 		contentPane.add(btnSelect);
 		

@@ -168,6 +168,7 @@ public class Register extends JFrame {
 	 * Create the frame.
 	 */
 	public Register() {
+		setTitle("Registrierung");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

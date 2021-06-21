@@ -62,6 +62,7 @@ public class SearchEventResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public SearchEventResultList() throws ParseException {
+		setTitle("Events suchen");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
@@ -80,7 +81,7 @@ public class SearchEventResultList extends JFrame {
 		String password = "sabba2021";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
-			System.out.println("Verbindung steht");
+			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
 			table.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -101,9 +102,9 @@ public class SearchEventResultList extends JFrame {
 			scrollPane.setViewportView(table);
 			table.setAutoCreateRowSorter(true);
 			
-		System.out.println(SearchEvent.SearchBefore);	
+		//System.out.println(SearchEvent.SearchBefore);	
 		if(SearchEvent.SearchBefore.equals("Ort")) {
-			System.out.println(SearchEvent.SearchBefore);
+			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"' and Stadt Like '%" + Event.Searchcity + "%'";
 			ResultSet rs = st.executeQuery(query);
@@ -129,7 +130,7 @@ public class SearchEventResultList extends JFrame {
 			
 			
 		}}else if(SearchEvent.SearchBefore.equals("Datum")) {
-			System.out.println(SearchEvent.SearchBefore);
+			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"' and Datum = '" + Event.SearchDate +"'";
 			ResultSet rs = st.executeQuery(query);
@@ -150,7 +151,7 @@ public class SearchEventResultList extends JFrame {
 				tblModel.addRow(data);	
 			
 		}}else if(SearchEvent.SearchBefore.equals("Sport")) {
-			System.out.println(SearchEvent.SearchBefore);
+			//System.out.println(SearchEvent.SearchBefore);
 			Statement st = connection.createStatement();
 			String query = "SELECT id, sportart, Datum, Uhrzeit, Postleitzahl, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten FROM event WHERE sportart = '" + Event.SearchSport+"'";
 			ResultSet rs = st.executeQuery(query);
@@ -228,13 +229,13 @@ public class SearchEventResultList extends JFrame {
 					Event.id = Integer.parseInt(cell);
 					
 					
-					Event.Sport =(String) table.getValueAt(table.getSelectedRow(),1);
-					Event.Date =(String) table.getValueAt(table.getSelectedRow(),2);
-					Event.Time =(String) table.getValueAt(table.getSelectedRow(),3);
-					Event.zip=(String) table.getValueAt(table.getSelectedRow(),4);
-					Event.city =(String) table.getValueAt(table.getSelectedRow(),5);
-					Event.street =(String) table.getValueAt(table.getSelectedRow(),6);
-					Event.hnr =(String) table.getValueAt(table.getSelectedRow(),7);
+					Event.SearchSport =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.SearchDate=(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.SearchTime=(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.Searchzip=(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.Searchcity=(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.Searchstreet=(String) table.getValueAt(table.getSelectedRow(),6);
+					Event.Searchhnr=(String) table.getValueAt(table.getSelectedRow(),7);
 					
 					Event.Kosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),9));
 					

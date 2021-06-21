@@ -66,7 +66,8 @@ public class ActiveEventsResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public ActiveEventsResultList() throws ParseException {
-		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setTitle("Aktive Events");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
@@ -85,7 +86,7 @@ public class ActiveEventsResultList extends JFrame {
 		String password = "sabba2021";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
-			System.out.println("Verbindung steht");
+			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
 			table.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -126,7 +127,7 @@ public class ActiveEventsResultList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straße, Hausnummer, Anzahlplätze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			System.out.println(Datum);
+			//System.out.println(Datum);
 			
 			if (!DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);
@@ -149,7 +150,7 @@ public class ActiveEventsResultList extends JFrame {
 					String password = "sabba2021";
 					
 					try (Connection connection = DriverManager.getConnection(url, user , password)){
-						System.out.println("Verbindung steht");
+						//System.out.println("Verbindung steht");
 						
 
 						int row = table.getSelectedRow();
@@ -159,13 +160,13 @@ public class ActiveEventsResultList extends JFrame {
 						String query = "DELETE from participate_on WHERE eventid = '" + Event.id + "'";
 						Statement s1 = connection.createStatement();
 						s1.executeLargeUpdate(query);
-						System.out.println("wurde aus participate_on gelöscht");
+						//System.out.println("wurde aus participate_on gelöscht");
 						s1.close();
 						
 						String query2 = "UPDATE event SET Anzahlplätze = Anzahlplätze + 1 WHERE id = '" + Event.id + "'";
 						Statement s2 = connection.createStatement();
 						s2.executeLargeUpdate(query2);
-						System.out.println("Anzahlplätze in Event geändert(+)");
+						//System.out.println("Anzahlplätze in Event geändert(+)");
 						s2.close();
 						
 						DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -190,8 +191,22 @@ public class ActiveEventsResultList extends JFrame {
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!table.getSelectionModel().isSelectionEmpty()) {	//button auswählen gedrückt, schließe das aktuelle fenster und öffne die übersicht ActiveEventsView
-				dispose();
+					Event.ActiveSport =(String) table.getValueAt(table.getSelectedRow(),1);
+					Event.ActiveDate=(String) table.getValueAt(table.getSelectedRow(),2);
+					Event.ActiveTime=(String) table.getValueAt(table.getSelectedRow(),3);
+					Event.ActiveZip=(String) table.getValueAt(table.getSelectedRow(),4);
+					Event.ActiveCity=(String) table.getValueAt(table.getSelectedRow(),5);
+					Event.ActiveStreet=(String) table.getValueAt(table.getSelectedRow(),6);
+					Event.ActiveHnr=(String) table.getValueAt(table.getSelectedRow(),7);
+					
+					Event.ActiveKosten = Double.parseDouble( (String) table.getValueAt(table.getSelectedRow(),9));
+					
+					
+					
+					
+					dispose();
 				ActiveEventsView.main(null);
+				
 				} else {
 					 JOptionPane.showMessageDialog(null, "Bitte wähle ein Event aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE); //falls der button gedrückt wurde aber nichts ausgewählt wurde
 				}

@@ -23,6 +23,9 @@ import java.security.GeneralSecurityException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
 public class SearchEventConfirm extends JFrame {
 
 	private JPanel contentPane;
@@ -54,6 +57,7 @@ public class SearchEventConfirm extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchEventConfirm() {
+		setTitle("Auswahl bestätigen");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -81,7 +85,7 @@ public class SearchEventConfirm extends JFrame {
 		contentPane.add(lblDatum);
 		
 		JLabel lblKOstne = new JLabel("Kosten:");
-		lblKOstne.setBounds(24, 154, 78, 16);
+		lblKOstne.setBounds(24, 187, 52, 16);
 		contentPane.add(lblKOstne);
 		
 		JButton btnZurueck= new JButton("Zurück");
@@ -113,21 +117,34 @@ public class SearchEventConfirm extends JFrame {
 		btnBestÃ¤tigen.setBounds(331, 215, 97, 26);
 		contentPane.add(btnBestÃ¤tigen);
 		
-		JLabel lblSports2 = new JLabel(Event.Sport);
+		JLabel lblSports2 = new JLabel(Event.SearchSport);
 		lblSports2.setBounds(114, 48, 314, 16);
 		contentPane.add(lblSports2);
 		
 
-		JLabel lblDatum2 = new JLabel(Event.Date);
+		JLabel lblDatum2 = new JLabel(Event.SearchDate);
 		lblDatum2.setBounds(114, 126, 314, 16);
 		contentPane.add(lblDatum2);
 		
-		JLabel lblKosten2 = new JLabel(Double.toString(Event.Kosten));
-		lblKosten2.setBounds(114, 154, 87, 16);
+		JLabel lblKosten2 = new JLabel(Double.toString(Event.SearchKosten));
+		lblKosten2.setBounds(114, 187, 52, 16);
 		contentPane.add(lblKosten2);
 		
-		JTextArea textArea = new JTextArea(Event.zip +" "+Event.city+"\n"+Event.street+ " "+Event.hnr);
+		JTextArea textArea = new JTextArea(Event.Searchzip+" "+Event.Searchcity+"\n"+Event.Searchstreet+ " "+Event.Searchhnr);
 		textArea.setBounds(114, 74, 314, 40);
 		contentPane.add(textArea);
+		
+		JLabel lblNewLabel = new JLabel("\u20AC");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setBounds(77, 187, 18, 16);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Uhrzeit:");
+		lblNewLabel_1.setBounds(24, 154, 52, 16);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel(Event.SearchTime);
+		lblNewLabel_2.setBounds(114, 154, 52, 16);
+		contentPane.add(lblNewLabel_2);
 	}
 }

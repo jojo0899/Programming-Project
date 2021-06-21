@@ -165,9 +165,9 @@ public class Login extends JFrame {
 	    String encryptedPassword = "";
 	    try {
 			encryptedPassword = Password.createhash(password, user);
-		  //  System.out.println(user);
-		  //  System.out.println(password);
-		   // System.out.println(encryptedPassword);
+		  //  //System.out.println(user);
+		  //  //System.out.println(password);
+		   // //System.out.println(encryptedPassword);
 		} catch (UnsupportedEncodingException e1) {
 		
 		}
@@ -181,17 +181,17 @@ public class Login extends JFrame {
 	    else {
 
 //	   jona26.05 
-	   // System.out.println(user);
-	   // System.out.println(password);
+	   // //System.out.println(user);
+	   // //System.out.println(password);
 	    String s = new String(password);
-	  //  System.out.println(s);
+	  //  //System.out.println(s);
 	    if (DB.LoginCheck(user, s) == true ) {
-	    	System.out.println("login und neues fenster öffnet sich");
+	    	//System.out.println("login und neues fenster öffnet sich");
 	    	
 	    }
 	    else {
 	    	JOptionPane.showMessageDialog(null, "Fehler in den Anmeldedaten", "Login Error",JOptionPane.WARNING_MESSAGE);
-	    	System.out.println("Fail");
+	    	//System.out.println("Fail");
 	    }
 	   
 

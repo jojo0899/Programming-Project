@@ -86,6 +86,27 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 			
 		}
 		
+		public static void ActiveEventsMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten,int anz) throws GeneralSecurityException {
+			SendMail.recievermail = mail;
+			SendMail.subject = "Event Übersicht";
+			SendMail.msg ="Hi"+ name+ ", \n"+
+					"anbei die Übersicht über das ausgewählte Event. \n\n\n"+ 
+					"Zusammenfassung: "+"\n"+
+					"Sportart: "+sport+"\n"+
+					"Datum: "+date+"\n"+
+					"Uhrzeit: "+time+"\n"+
+					"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
+					"Teilneherzahl insg: "+anz+"\n"+
+					"Kosten: "+kosten+"€\n\n\n"+					
+					"Wir wünschen dir viel spaß! \n\n"+
+					"dein Beddel-Team";;
+			
+			SendMail.main(null);
+			
+			
+		}
+		
+		
 		
 		
 	    public static void main(String[] args) throws GeneralSecurityException {

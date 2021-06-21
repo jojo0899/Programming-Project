@@ -25,6 +25,30 @@ public class Event {
 	public static String Searchcity;
 	public static String Searchzip;
 	
+	//ActiveEvents
+	public static String ActiveSport;
+	public static String ActiveDate;
+	public static String ActiveTime;
+	public static int ActiveAnz;
+	public static double ActiveKosten;
+	public static String ActiveHnr; //wegen 14a 
+	public static String ActiveStreet;
+	public static String ActiveCity;
+	public static String ActiveZip;
+	
+
+	public static String HistorySport;
+	public static String HistoryDate;
+	public static String HistoryTime;
+	public static int HistoryAnz;
+	public static double HistoryKosten;
+	public static String HistoryHnr; //wegen 14a 
+	public static String HistoryStreet;
+	public static String HistoryCity;
+	public static String HistoryZip;
+	
+	
+	
 	public static int id;
 	
 	
