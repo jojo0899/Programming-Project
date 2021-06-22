@@ -135,7 +135,7 @@ public class CreateEventConfirm extends JFrame {
 		contentPane.add(lblAnzteil);
 		
 		String TeilnAsString;
-		if(Event.Anz==0) {
+		if(Event.Anz==999) {
 			TeilnAsString = "keine Beschärnkung";
 		}else {
 			TeilnAsString = Integer.toString(Event.Anz);

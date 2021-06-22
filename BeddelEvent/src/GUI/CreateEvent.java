@@ -455,7 +455,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 				
 			
 				if(rdbtnTeilnehmerNein.isSelected()) {
-					//Event.Anz=-1;
+					Event.Anz=999;
 				}else {
 					Event.Anz= Integer.valueOf(txtTeilnehmerAnz.getText());
 				}

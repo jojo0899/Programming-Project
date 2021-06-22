@@ -119,6 +119,9 @@ public class HistoryList extends JFrame {
 			String Straﬂe = rs.getString("Straﬂe");
 			String Hausnummer = rs.getString("Hausnummer");
 			String Anzahlpl‰tze = String.valueOf(rs.getInt("Anzahlpl‰tze"));
+			if(Anzahlpl‰tze.equals("999")) {
+				Anzahlpl‰tze ="keine Beschr‰nkung";
+			}
 			String kosten = String.valueOf(rs.getDouble("kosten"));
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
