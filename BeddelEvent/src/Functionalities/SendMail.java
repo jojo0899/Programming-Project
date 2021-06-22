@@ -30,6 +30,10 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 		}
 
 		public static void createEventMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten, int anz) throws GeneralSecurityException {
+			String anzneu = null;
+			if(anz==999) {
+				anzneu = "keine Beschränkung";
+			}
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Erstellung";
 			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
@@ -39,8 +43,8 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 						"Datum: "+date+"\n"+
 						"Uhrzeit: "+time+"\n"+
 						"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
-						"Kosten: "+kosten+"€\n"+
-						"Teilnehmerzahl: "+anz+"\n\n\n"+
+						"Kosten: "+kosten+"\n"+
+						"Teilnehmerzahl: "+anzneu+"\n\n\n"+
 						"Wir wünschen dir viel spaß! \n\n"+
 						"dein Beddel-Team";
 			
@@ -67,6 +71,10 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 			
 		}
 		public static void participateEventMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten,int anz) throws GeneralSecurityException {
+			String anzneu = null;
+			if(anz==999) {
+				anzneu = "keine Beschränkung";
+			}
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Teilnahme";
 			SendMail.msg ="Glückwunsch "+ name+ ", \n"+
@@ -76,8 +84,8 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 					"Datum: "+date+"\n"+
 					"Uhrzeit: "+time+"\n"+
 					"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
-					"Teilneherzahl insg: "+anz+"\n"+
-					"Kosten: "+kosten+"€\n\n\n"+					
+					"Teilneherzahl insg: "+anzneu+"\n"+
+					"Kosten: "+kosten+"\n\n\n"+					
 					"Wir wünschen dir viel spaß! \n\n"+
 					"dein Beddel-Team";;
 			
@@ -87,6 +95,10 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 		}
 		
 		public static void ActiveEventsMail(String mail, String name, String date,String time, String sport, String zip,String city, String street, String hnr, double kosten,int anz) throws GeneralSecurityException {
+			String anzneu = null;
+			if(anz==999) {
+				anzneu = "keine Beschränkung";
+			}
 			SendMail.recievermail = mail;
 			SendMail.subject = "Event Übersicht";
 			SendMail.msg ="Hi"+ name+ ", \n"+
@@ -96,7 +108,7 @@ public static void registrationMail(String mail, String name) throws GeneralSecu
 					"Datum: "+date+"\n"+
 					"Uhrzeit: "+time+"\n"+
 					"Ort: "+zip+" "+city+", "+street+" "+hnr+"\n"+
-					"Teilneherzahl insg: "+anz+"\n"+
+					"Teilneherzahl insg: "+anzneu+"\n"+
 					"Kosten: "+kosten+"€\n\n\n"+					
 					"Wir wünschen dir viel spaß! \n\n"+
 					"dein Beddel-Team";;
