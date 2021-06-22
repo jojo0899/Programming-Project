@@ -117,11 +117,15 @@ public class TestSuche {
             }else if(req.get("city")==null) {
             	if(req.get("town")!=null) {
             		Event.city = Testsuche2.checkAddress(req.get("town").toString());
-            	}else if(req.get("suburb")!=null) {
+            	}else  if(req.get("village")!=null){
+            		Event.city = Testsuche2.checkAddress(req.get("village").toString());
+    			}else  if(req.get("hamlet")!=null){
+            		Event.city = Testsuche2.checkAddress(req.get("hamlet").toString());
+    			}else if(req.get("suburb")!=null) {
             		Event.city = Testsuche2.checkAddress(req.get("suburb").toString());
             	}else {
-            		Event.city="";
-            	}
+            				Event.city="";
+            	            	}
             }
             	
             	
