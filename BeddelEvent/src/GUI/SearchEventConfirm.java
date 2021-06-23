@@ -69,7 +69,7 @@ public class SearchEventConfirm extends JFrame {
 		JLabel lblHeadline = new JLabel("Zusammenfassung");
 		lblHeadline.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		lblHeadline.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeadline.setBounds(114, 6, 168, 25);
+		lblHeadline.setBounds(125, 6, 200, 25);
 		contentPane.add(lblHeadline);
 		
 		JLabel lblSports = new JLabel("Sportart:");

@@ -64,7 +64,7 @@ public class CreateEventConfirm extends JFrame {
 		JLabel lblHeadline = new JLabel("Zusammenfassung");
 		lblHeadline.setFont(new Font("Segoe UI", Font.BOLD | Font.ITALIC, 18));
 		lblHeadline.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeadline.setBounds(114, 6, 168, 25);
+		lblHeadline.setBounds(124, 6, 201, 25);
 		contentPane.add(lblHeadline);
 		
 		JLabel lblSports = new JLabel("Sportart");
@@ -142,7 +142,7 @@ public class CreateEventConfirm extends JFrame {
 		}
 		JLabel lblAnzteil2 = new JLabel(TeilnAsString);
 		lblAnzteil2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblAnzteil2.setBounds(342, 187, 86, 16);
+		lblAnzteil2.setBounds(342, 187, 102, 16);
 		contentPane.add(lblAnzteil2);
 		
 		JLabel lblUhrzeit = new JLabel("Uhrzeit");

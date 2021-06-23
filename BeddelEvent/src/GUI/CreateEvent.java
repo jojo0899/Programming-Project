@@ -120,7 +120,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		JLabel lblSelectSports = new JLabel("Bitte w\u00E4hle deine Sportart aus:");
 		lblSelectSports.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSelectSports.setBounds(6, 6, 162, 16);
+		lblSelectSports.setBounds(6, 6, 187, 16);
 		Sportart.add(lblSelectSports);
 		
 		JComboBox SelectSports = new JComboBox(); //Sportarten in JcomboBox eintragen
@@ -159,7 +159,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		JLabel lblSelectDatum = new JLabel("W\u00E4hle das Datum aus:");
 		lblSelectDatum.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSelectDatum.setBounds(6, 6, 117, 16);
+		lblSelectDatum.setBounds(6, 6, 150, 16);
 		Datum.add(lblSelectDatum);
 		
 
@@ -226,7 +226,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 			Time.setLayout(null);
 			
 			JLabel lblEnterTime = new JLabel("Wähle eine Uhrzeit aus: ");
-			lblEnterTime.setBounds(6, 6, 126, 16);
+			lblEnterTime.setBounds(6, 6, 159, 16);
 			Time.add(lblEnterTime);	
 			
 			JButton btnTimeBack4 = new JButton("Zur\u00FCck");
@@ -319,7 +319,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		
 		JLabel lblKosten = new JLabel("Fallen f\u00FCr das Event kosten an?");
 		lblKosten.setHorizontalAlignment(SwingConstants.LEFT);
-		lblKosten.setBounds(6, 6, 172, 16);
+		lblKosten.setBounds(6, 6, 207, 16);
 		Kosten.add(lblKosten);
 		
 		

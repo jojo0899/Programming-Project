@@ -271,7 +271,7 @@ public class Register extends JFrame {
 		
 		JLabel lblGender = new JLabel("Geschlecht:");
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGender.setBounds(187, 236, 52, 16);
+		lblGender.setBounds(144, 236, 95, 16);
 		contentPane.add(lblGender);
 		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
