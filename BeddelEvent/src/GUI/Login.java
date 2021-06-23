@@ -68,7 +68,7 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Login");
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -135,12 +135,12 @@ public class Login extends JFrame {
 		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnLogin);
 		
-		JLabel lblNew = new JLabel("New?");
+		JLabel lblNew = new JLabel("Neu?");
 		lblNew.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNew.setBounds(277, 106, 95, 16);
 		contentPane.add(lblNew);
 		
-		JLabel lblRegisterYourself = new JLabel("Register yourself");
+		JLabel lblRegisterYourself = new JLabel("Registrier dich hier ");
 		lblRegisterYourself.setBounds(277, 134, 112, 16);
 		contentPane.add(lblRegisterYourself);
 		
