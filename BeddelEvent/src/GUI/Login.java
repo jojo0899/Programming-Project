@@ -95,7 +95,7 @@ public class Login extends JFrame {
 		contentPane.add(txtUserName);
 		txtUserName.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Register");
+		JButton btnNewButton = new JButton("Registrieren");
 		btnNewButton.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {		//wenn registrieren gedrückt wurde
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(277, 166, 95, 37);
+		btnNewButton.setBounds(277, 166, 109, 37);
 		btnNewButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnNewButton);
 		
@@ -140,8 +140,8 @@ public class Login extends JFrame {
 		lblNew.setBounds(277, 106, 95, 16);
 		contentPane.add(lblNew);
 		
-		JLabel lblRegisterYourself = new JLabel("Registrier dich hier ");
-		lblRegisterYourself.setBounds(277, 134, 112, 16);
+		JLabel lblRegisterYourself = new JLabel("Registriere dich hier ");
+		lblRegisterYourself.setBounds(277, 134, 126, 16);
 		contentPane.add(lblRegisterYourself);
 		
 		JLabel lblHeadline = new JLabel("BeddelEvent");
