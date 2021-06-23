@@ -68,7 +68,7 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Login");
 		
-		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
