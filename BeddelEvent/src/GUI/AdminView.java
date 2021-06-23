@@ -98,6 +98,7 @@ public class AdminView extends JFrame {
 		editUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+				dispose();
 				EditUser.main(selectedUser);
 				
 			}
@@ -144,6 +145,17 @@ public class AdminView extends JFrame {
 		btnNewButton.setFont(new Font("Lucida Grande", Font.ITALIC, 13));
 		btnNewButton.setBounds(1109, 6, 198, 29);
 		contentPane.add(btnNewButton);
+		
+		JButton psswdUserButton_1 = new JButton("User Passwort \u00E4ndern");
+		psswdUserButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+				dispose();
+				ChangePassword.main(selectedUser);
+			}
+		});
+		psswdUserButton_1.setBounds(771, 454, 173, 23);
+		contentPane.add(psswdUserButton_1);
 	}
 	
 	public void refreshTable(JTable table) {
@@ -153,5 +165,4 @@ public class AdminView extends JFrame {
 			e1.printStackTrace();
 		}
 	}
-
 }

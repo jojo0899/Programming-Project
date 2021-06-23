@@ -294,7 +294,7 @@ public class Register extends JFrame {
 				User.gender = "W";
 			}
 		});
-		ButtonFemale.setBounds(342, 234, 70, 20);
+		ButtonFemale.setBounds(342, 234, 87, 20);
 		contentPane.add(ButtonFemale);
 		
 		JRadioButton ButtonDiverse = new JRadioButton("Divers");
@@ -306,7 +306,7 @@ public class Register extends JFrame {
 		
 			}
 		});
-		ButtonDiverse.setBounds(424, 234, 116, 20);
+		ButtonDiverse.setBounds(441, 234, 116, 20);
 		contentPane.add(ButtonDiverse);
 		
 		txtFirstName = new JTextField();
@@ -390,7 +390,7 @@ public class Register extends JFrame {
 			}});
 		
 		RegisterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		RegisterButton.setBounds(474, 296, 97, 26);
+		RegisterButton.setBounds(468, 296, 103, 26);
 		contentPane.add(RegisterButton);
 	}
 }

@@ -290,14 +290,30 @@ public class DB {
 		}
 		return 0;
 	}
-	public static void UpdateUser(String Username, String Email, String Passwd, String Vorname, String Nachname, String Gender) {
+	public static void UpdateUser(String Username, String Email, String Vorname, String Nachname, String Gender) {
 		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
 		String user = "freedbtech_sabbaprogex";
 		String password = "sabba2021";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
-			String query = "UPDATE User SET email = '" + Email + "',  passwort = '" + Passwd + "', vorname = '" + Vorname + "', nachname = '" + Nachname + "', geschlecht = '" + Gender + "' WHERE username = '" + Username + "'";
+			String query = "UPDATE user SET email = '" + Email + "', vorname = '" + Vorname + "', nachname = '" + Nachname + "', geschlecht = '" + Gender + "' WHERE username = '" + Username + "'";
+			Statement st = connection.createStatement();
+			st.executeLargeUpdate(query);
+			st.close();
+		}catch(SQLException ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+	
+	public static void UpdateUserPassword(String Username, String Password) {
+		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
+		String user = "freedbtech_sabbaprogex";
+		String password = "sabba2021";
+		
+		try (Connection connection = DriverManager.getConnection(url, user , password)){
+			System.out.println("Verbindung steht");
+			String query = "UPDATE user SET passwort = '" + Password + "' WHERE username = '" + Username + "'";
 			Statement st = connection.createStatement();
 			st.executeLargeUpdate(query);
 			st.close();

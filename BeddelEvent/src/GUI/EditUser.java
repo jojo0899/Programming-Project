@@ -64,21 +64,21 @@ public class EditUser extends JFrame {
         User.email =       txtEmail.getText();
         
         String mailconfirm =  txtemailconfirm.getText();
-        String pwd =        String.valueOf(txtpw.getPassword());
-        password = txtpw.getPassword();
-        String pwdconfirm = String.valueOf(txtpwconfirm.getPassword());
+        //String pwd =        String.valueOf(txtpw.getPassword());
+        //password = txtpw.getPassword();
+        //String pwdconfirm = String.valueOf(txtpwconfirm.getPassword());
 
   
-
+        /*
         //leerzeichen nicht möglich und prüft ob felder leer sind
         if(User.firstName.trim().equals("") || User.lastName.trim().equals("") || User.email.trim().equals("") || mailconfirm.trim().equals("") 
                 || pwd.trim().equals("") || pwdconfirm.trim().equals(""))   
         { //wenn feld leer ist fehlermeldung ausgeben
             JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
             return false;
-        }
+        }*/
              
-        else if(!isValidEmailAddress(User.email)) { //check if its a valid email adress wenn nicht true error ausgeben
+        if(!isValidEmailAddress(User.email)) { //check if its a valid email adress wenn nicht true error ausgeben
             JOptionPane.showMessageDialog(null, "Keine gültige Email-Adresse!", "Email Error",JOptionPane.WARNING_MESSAGE);
             return false;
         	
@@ -89,12 +89,13 @@ public class EditUser extends JFrame {
             return false;
             
         }
+        /*
         else if (!pwd.equals(pwdconfirm)) //wenn passwörter nicht übereinstimmen fehlermeldung
         {
             JOptionPane.showMessageDialog(null, "Passwörter stimmen nicht überein!", "Password Error",JOptionPane.WARNING_MESSAGE);
             return false;
             
-        }
+        }*/
 
         else 
         {
@@ -137,8 +138,6 @@ public class EditUser extends JFrame {
 	private JTextField txtUserName;
 	private JTextField txtEmail;
 	private JTextField txtemailconfirm;
-	private JPasswordField txtpw;
-	private JPasswordField txtpwconfirm;
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -165,6 +164,9 @@ public class EditUser extends JFrame {
 					frame.txtFirstName.setText(DB.getUserDataFromDB(selectedUser, "vorname"));
 					frame.txtLastName.setText(DB.getUserDataFromDB(selectedUser, "nachname"));
 					// geschlecht und passwort muss noch gefüllt werden
+					/*if (DB.getUserDataFromDB(selectedUser, "geschlecht") == "M") {
+						frame.buttonMale;
+					}*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -180,7 +182,7 @@ public class EditUser extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 609, 384);
+		setBounds(100, 100, 609, 312);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -206,16 +208,6 @@ public class EditUser extends JFrame {
 		lblEmailConfirmation.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEmailConfirmation.setBounds(94, 93, 145, 16);
 		contentPane.add(lblEmailConfirmation);
-		
-		JLabel lblPassword = new JLabel("Passwort:");
-		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPassword.setBounds(94, 124, 145, 16);
-		contentPane.add(lblPassword);
-		
-		JLabel lblPasswordConfirmation = new JLabel("Passwort bestätigen:");
-		lblPasswordConfirmation.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPasswordConfirmation.setBounds(94, 152, 145, 16);
-		contentPane.add(lblPasswordConfirmation);
 		
 		txtUserName = new JTextField();
 		txtUserName.setEditable(false);
@@ -259,29 +251,19 @@ public class EditUser extends JFrame {
 		contentPane.add(txtemailconfirm);
 		txtemailconfirm.setColumns(10);
 		
-		txtpw = new JPasswordField();
-		txtpw.setBounds(251, 119, 128, 26);
-		contentPane.add(txtpw);
-		txtpw.setColumns(10);
-		
-		txtpwconfirm = new JPasswordField();
-		txtpwconfirm.setBounds(251, 147, 128, 26);
-		contentPane.add(txtpwconfirm);
-		txtpwconfirm.setColumns(10);
-		
 		JLabel lblFirstName = new JLabel("Vorname: ");
 		lblFirstName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFirstName.setBounds(157, 180, 82, 16);
+		lblFirstName.setBounds(158, 126, 82, 16);
 		contentPane.add(lblFirstName);
 		
 		JLabel lblLastName = new JLabel("Nachname:");
 		lblLastName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblLastName.setBounds(144, 208, 95, 16);
+		lblLastName.setBounds(145, 154, 95, 16);
 		contentPane.add(lblLastName);
 		
 		JLabel lblGender = new JLabel("Geschlecht:");
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGender.setBounds(132, 236, 107, 16);
+		lblGender.setBounds(133, 182, 107, 16);
 		contentPane.add(lblGender);
 		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
@@ -293,7 +275,7 @@ public class EditUser extends JFrame {
 			}
 		});
 		ButtonMale.setSelected(true); //standardgemä´t male aktivieren
-		ButtonMale.setBounds(251, 234, 107, 20);
+		ButtonMale.setBounds(252, 180, 107, 20);
 		contentPane.add(ButtonMale);
 		
 		JRadioButton ButtonFemale = new JRadioButton("Weiblich");
@@ -304,7 +286,7 @@ public class EditUser extends JFrame {
 				User.gender = "W";
 			}
 		});
-		ButtonFemale.setBounds(342, 234, 106, 20);
+		ButtonFemale.setBounds(343, 180, 106, 20);
 		contentPane.add(ButtonFemale);
 		
 		JRadioButton ButtonDiverse = new JRadioButton("Divers");
@@ -316,7 +298,7 @@ public class EditUser extends JFrame {
 		
 			}
 		});
-		ButtonDiverse.setBounds(424, 234, 116, 20);
+		ButtonDiverse.setBounds(440, 180, 116, 20);
 		contentPane.add(ButtonDiverse);
 		
 		txtFirstName = new JTextField();
@@ -327,7 +309,7 @@ public class EditUser extends JFrame {
 			            e.consume();
 			}}
 		});
-		txtFirstName.setBounds(251, 175, 128, 26);
+		txtFirstName.setBounds(252, 121, 128, 26);
 		contentPane.add(txtFirstName);
 		txtFirstName.setColumns(10);
 		
@@ -339,7 +321,7 @@ public class EditUser extends JFrame {
 			            e.consume();
 			}}
 		});
-		txtLastName.setBounds(251, 203, 128, 26);
+		txtLastName.setBounds(252, 149, 128, 26);
 		contentPane.add(txtLastName);
 		txtLastName.setColumns(10);
 		
@@ -347,10 +329,11 @@ public class EditUser extends JFrame {
 		BackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				AdminView.main(null);
 			}
 		});
 		BackButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		BackButton.setBounds(19, 296, 97, 26);
+		BackButton.setBounds(20, 242, 97, 26);
 		contentPane.add(BackButton);
 		
 		JButton SpeichernButton = new JButton("Speichern");
@@ -366,10 +349,10 @@ public class EditUser extends JFrame {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
 					}
-
+		    		System.out.println(User.gender);
 	    			//DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
 		    		// Update Methode hier aufrufen!
-		    		DB.UpdateUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
+		    		DB.UpdateUser(User.username, User.email, User.firstName, User.lastName, User.gender);
 		    		
 		    		
 		    		//						if(!DoubleEmail()) {
@@ -378,6 +361,7 @@ public class EditUser extends JFrame {
 		    		//DB.DB.InsertDataIntoUser(username, firstName,lastName, gender,email );
 					JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
 				    dispose();
+				    AdminView.main(null);
 				        
 //						}else 
 //					 JOptionPane.showMessageDialog(null, "Email already registered", "Registration failed",JOptionPane.WARNING_MESSAGE);
@@ -394,7 +378,7 @@ public class EditUser extends JFrame {
 			}});
 		
 		SpeichernButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		SpeichernButton.setBounds(455, 296, 116, 26);
+		SpeichernButton.setBounds(456, 242, 116, 26);
 		contentPane.add(SpeichernButton);
 	}
 }
