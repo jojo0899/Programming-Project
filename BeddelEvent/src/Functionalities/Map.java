@@ -105,8 +105,8 @@ public class Map extends JPanel implements JMapViewerEventListener {
         add(helpPanel, BorderLayout.SOUTH);
         panel.add(panelTop, BorderLayout.NORTH);
         panel.add(panelBottom, BorderLayout.SOUTH);
-        JLabel helpLabel = new JLabel("Use right mouse button to move,\n "
-                + "and the mouse wheel to zoom.");
+        JLabel helpLabel = new JLabel("Rechte Maustaste zum Bewegen\n "
+                + "und Mausrad zum Zoomen.");
         helpPanel.add(helpLabel);
         JButton button = new JButton("setDisplayToFitMapMarkers");
         button.addActionListener(e -> map().setDisplayToFitMapMarkers());

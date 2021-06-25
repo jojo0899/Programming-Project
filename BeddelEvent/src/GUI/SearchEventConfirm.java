@@ -134,7 +134,7 @@ public class SearchEventConfirm extends JFrame {
 		textArea.setBounds(114, 74, 314, 40);
 		contentPane.add(textArea);
 		
-		JLabel lblNewLabel = new JLabel("\u20AC");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel.setBounds(77, 187, 18, 16);
 		contentPane.add(lblNewLabel);

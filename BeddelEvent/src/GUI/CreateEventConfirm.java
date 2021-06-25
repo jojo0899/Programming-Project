@@ -52,7 +52,7 @@ public class CreateEventConfirm extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateEventConfirm() {
-	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setTitle("Event bestätigen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -127,11 +127,11 @@ public class CreateEventConfirm extends JFrame {
 			KstAsString = Double.toString(Event.Kosten);
 			}
 		JLabel lblKosten2 = new JLabel(KstAsString);
-		lblKosten2.setBounds(114, 187, 232, 16);
+		lblKosten2.setBounds(114, 187, 97, 16);
 		contentPane.add(lblKosten2);
 		
 		JLabel lblAnzteil = new JLabel("Teilnehmer: ");
-		lblAnzteil.setBounds(268, 187, 78, 16);
+		lblAnzteil.setBounds(223, 187, 78, 16);
 		contentPane.add(lblAnzteil);
 		
 		String TeilnAsString;
@@ -142,7 +142,7 @@ public class CreateEventConfirm extends JFrame {
 		}
 		JLabel lblAnzteil2 = new JLabel(TeilnAsString);
 		lblAnzteil2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblAnzteil2.setBounds(342, 187, 102, 16);
+		lblAnzteil2.setBounds(306, 187, 122, 16);
 		contentPane.add(lblAnzteil2);
 		
 		JLabel lblUhrzeit = new JLabel("Uhrzeit");

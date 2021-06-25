@@ -118,7 +118,7 @@ public class SearchEventResultList extends JFrame {
 				String Straße = rs.getString("Straße");
 				String Hausnummer = rs.getString("Hausnummer");
 				String Anzahlplätze = String.valueOf(rs.getInt("Anzahlplätze"));
-				if(Anzahlplätze.equals("999")) {
+				if(rs.getInt("Anzahlplätze")>300) {
 					Anzahlplätze ="keine Beschränkung";
 				}
 				String kosten = String.valueOf(rs.getDouble("kosten"));
@@ -147,7 +147,7 @@ public class SearchEventResultList extends JFrame {
 				String Straße = rs.getString("Straße");
 				String Hausnummer = rs.getString("Hausnummer");
 				String Anzahlplätze = String.valueOf(rs.getInt("Anzahlplätze"));
-				if(Anzahlplätze.equals("999")) {
+				if(rs.getInt("Anzahlplätze")>300) {
 					Anzahlplätze ="keine Beschränkung";
 				}
 				String kosten = String.valueOf(rs.getDouble("kosten"));
@@ -171,7 +171,7 @@ public class SearchEventResultList extends JFrame {
 				String Straße = rs.getString("Straße");
 				String Hausnummer = rs.getString("Hausnummer");
 				String Anzahlplätze = String.valueOf(rs.getInt("Anzahlplätze"));
-				if(Anzahlplätze.equals("999")) {
+				if(rs.getInt("Anzahlplätze")>300) {
 					Anzahlplätze ="keine Beschränkung";
 				}
 				String kosten = String.valueOf(rs.getDouble("kosten"));
@@ -199,7 +199,7 @@ public class SearchEventResultList extends JFrame {
 			String Straße = rs.getString("Straße");
 			String Hausnummer = rs.getString("Hausnummer");
 			String Anzahlplätze = String.valueOf(rs.getInt("Anzahlplätze"));
-			if(Anzahlplätze.equals("999")) {
+			if(rs.getInt("Anzahlplätze")>300) {
 				Anzahlplätze ="keine Beschränkung";
 			}
 			
