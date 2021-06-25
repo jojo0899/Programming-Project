@@ -97,9 +97,14 @@ public class AdminView extends JFrame {
 		 */
 		editUserButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
-				dispose();
-				EditUser.main(selectedUser);
+				if (table.getSelectedRow() != -1) {
+					String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+					dispose();
+					EditUser.main(selectedUser);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Bitte wähle einen Benutzer aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);
+				}
 				
 			}
 		});
@@ -113,15 +118,20 @@ public class AdminView extends JFrame {
 		 */
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie diesen User löschen möchten?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
-				if (confirm == 0) {
-					String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
-					DB.deleteUserFromDB(selectedUser);
-					refreshTable(table);
-					String message = "Der User wurde erfolgreich gelöscht!";
-					showMessageDialog(null, message, "Message",WARNING_MESSAGE);
+				if (table.getSelectedRow() != -1) {
+					int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie diesen User löschen möchten?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+					if (confirm == 0) {
+						String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+						DB.deleteUserFromDB(selectedUser);
+						refreshTable(table);
+						String message = "Der User wurde erfolgreich gelöscht!";
+						showMessageDialog(null, message, "Message",WARNING_MESSAGE);
+					}
+					else return;
 				}
-				else return;
+				else {
+					JOptionPane.showMessageDialog(null, "Bitte wähle einen Benutzer aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);
+				}
 			}
 		});
 		deleteButton.setBounds(1138, 454, 169, 23);
@@ -149,9 +159,14 @@ public class AdminView extends JFrame {
 		JButton psswdUserButton_1 = new JButton("User Passwort \u00E4ndern");
 		psswdUserButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
-				dispose();
-				ChangePassword.main(selectedUser);
+				if (table.getSelectedRow() != -1) {
+					String selectedUser = (String) table.getValueAt(table.getSelectedRow(), 0);
+					dispose();
+					ChangePassword.main(selectedUser);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Bitte wähle einen Benutzer aus!", "Keine Auswahl",JOptionPane.WARNING_MESSAGE);
+				}
 			}
 		});
 		psswdUserButton_1.setBounds(771, 454, 173, 23);

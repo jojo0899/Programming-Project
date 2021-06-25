@@ -8,10 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import DB.DB;
 import Functionalities.Password;
 import Functionalities.User;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -105,14 +107,31 @@ public class ChangePassword extends JFrame {
 		JButton btnNewButton = new JButton("Speichern");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-// add implementatiotion 
-				/*
-				try {
-	    			User.passwort = Password.createhash(password, User.username);
-				} catch (UnsupportedEncodingException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}*/
+				String pwd = String.valueOf(passwordField.getPassword());
+		        String pwdconfirm = String.valueOf(passwordField_1.getPassword());
+		        String passwort = "";
+		        if (!pwd.equals(pwdconfirm)) {
+		            JOptionPane.showMessageDialog(null, "Passwörter stimmen nicht überein!", "Password Error",JOptionPane.WARNING_MESSAGE);
+		            return;
+		           }
+		        else if (pwd == null | pwdconfirm == null) {
+		        	JOptionPane.showMessageDialog(null, "Bitte füllen Sie alle Felder aus!", "Password Error",JOptionPane.WARNING_MESSAGE);
+		            return;
+		        }
+				else {
+					//implement here
+					
+					try {
+		    			passwort = Password.createhash(passwordField.getPassword(), txtUsername.getText());
+					} catch (UnsupportedEncodingException e2) {
+						e2.printStackTrace();}
+					// add database method
+					DB.UpdateUserPassword(txtUsername.getText(), passwort);
+					JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
+				    dispose();
+				    AdminView.main(null);
+				}
+				
 			}
 		});
 		btnNewButton.setBounds(275, 222, 101, 27);
