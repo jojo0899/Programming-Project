@@ -89,7 +89,7 @@ public class HistoryList extends JFrame {
 				},
 				
 				new String[] {
-					"ID", "sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "kosten" //Spaltenname
+					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Anzahlpl‰tze", "Kosten" //Spaltenname
 				}
 			) {
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren

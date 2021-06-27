@@ -73,7 +73,7 @@ public class Register extends JFrame {
                 || pwd.trim().equals("") || pwdconfirm.trim().equals(""))   
         { //wenn feld leer ist fehlermeldung ausgeben
            // JOptionPane.showMessageDialog(null, "Fülle bitte alle Felder aus!", "Eingabe Error",JOptionPane.WARNING_MESSAGE); //warning message wenn feld leer ist
-           JOptionPane.showMessageDialog(null, "Bitte fülle alle Felder aus!","Eingabe Fehler",JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(null, "Bitte fülle alle Felder aus!","Eingabe Fehler",JOptionPane.WARNING_MESSAGE);
         	return false;
         }
              

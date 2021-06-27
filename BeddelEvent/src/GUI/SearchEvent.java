@@ -247,7 +247,7 @@ public class SearchEvent extends JFrame {
 					Event.Searchcity = txtEnterCity.getText();
 					tabbedPane.setSelectedIndex(3); //nächsten tab öffnen 
 				}else {
-					JOptionPane.showMessageDialog(null, "Fülle trage eine Stadt ein!", "Eingabe Error",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Trage eine Stadt ein!", "Eingabe Error",JOptionPane.WARNING_MESSAGE);
 
 				}}
 		});
