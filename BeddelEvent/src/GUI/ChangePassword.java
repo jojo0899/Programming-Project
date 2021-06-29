@@ -114,18 +114,15 @@ public class ChangePassword extends JFrame {
 		            JOptionPane.showMessageDialog(null, "Passwörter stimmen nicht überein!", "Password Error",JOptionPane.WARNING_MESSAGE);
 		            return;
 		           }
-		        else if (pwd == null | pwdconfirm == null) {
+		        else if (pwd.trim().equals("") | pwdconfirm.trim().equals("")) {
 		        	JOptionPane.showMessageDialog(null, "Bitte füllen Sie alle Felder aus!", "Password Error",JOptionPane.WARNING_MESSAGE);
 		            return;
 		        }
-				else {
-					//implement here
-					
+				else {		
 					try {
 		    			passwort = Password.createhash(passwordField.getPassword(), txtUsername.getText());
 					} catch (UnsupportedEncodingException e2) {
 						e2.printStackTrace();}
-					// add database method
 					DB.UpdateUserPassword(txtUsername.getText(), passwort);
 					JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
 				    dispose();

@@ -89,49 +89,16 @@ public class EditUser extends JFrame {
             return false;
             
         }
-        /*
-        else if (!pwd.equals(pwdconfirm)) //wenn passwörter nicht übereinstimmen fehlermeldung
-        {
-            JOptionPane.showMessageDialog(null, "Passwörter stimmen nicht überein!", "Password Error",JOptionPane.WARNING_MESSAGE);
-            return false;
-            
-        }*/
 
         else 
         {
-          
-//            user.setPassword(pwd); //if passwort is equal set the value inside of the db 
-//            user.setFristName(firstName);
-//            user.setLastName(lastName);
-//            user.setEmail(mail);
-//                    
-            
+ 
            
             return true; //gibt true zurück wenn alles passt
         }
         
     }
 	
-	
-	//email double check muss hier noch rein
-//		public static boolean DoubleEmail() throws SQLException{
-//		Connection con=DriverManager.getConnection(  
-//				"jdbc:mysql://localhost:3306/user","root","LuiJav");
-//		String emailcheck = user.getEmail();
-//		
-//		Statement stmt=con.createStatement(); 
-//		ResultSet rs=stmt.executeQuery("select email FROM users WHERE email ='"+emailcheck+"'"); //ergebnis statement vorbereiten mit sql string  
-//
-//		if(rs.next()) {
-//		con.close();
-//			return true;
-//		}
-//		else{
-//			con.close();
-//			return false;}
-//		
-//		
-	//}
 	
 
 	private JPanel contentPane;
@@ -163,10 +130,7 @@ public class EditUser extends JFrame {
 					frame.txtemailconfirm.setText(DB.getUserDataFromDB(selectedUser, "email"));
 					frame.txtFirstName.setText(DB.getUserDataFromDB(selectedUser, "vorname"));
 					frame.txtLastName.setText(DB.getUserDataFromDB(selectedUser, "nachname"));
-					// geschlecht und passwort muss noch gefüllt werden
-					/*if (DB.getUserDataFromDB(selectedUser, "geschlecht") == "M") {
-						frame.buttonMale;
-					}*/
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -350,31 +314,19 @@ public class EditUser extends JFrame {
 						e2.printStackTrace();
 					}
 		    		System.out.println(User.gender);
-	    			//DB.InsertDataIntoUser(User.username, User.firstName, User.lastName, User.gender, User.email, User.passwort);
+
 		    		// Update Methode hier aufrufen!
 		    		DB.UpdateUser(User.username, User.email, User.firstName, User.lastName, User.gender);
-		    		
-		    		
-		    		//						if(!DoubleEmail()) {
-//						CreateConnection();
-		    		
-		    		//DB.DB.InsertDataIntoUser(username, firstName,lastName, gender,email );
+
 					JOptionPane.showMessageDialog(null, "Die Änderungen wurden erfolgreich übernommen!", "Speichern erfolgreich",JOptionPane.PLAIN_MESSAGE);
 				    dispose();
 				    AdminView.main(null);
-				        
-//						}else 
-//					 JOptionPane.showMessageDialog(null, "Email already registered", "Registration failed",JOptionPane.WARNING_MESSAGE);
-							
-//						
-						}
-//				} catch (SQLException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
+
 				
 				
 				
+		    	}
+		    	
 			}});
 		
 		SpeichernButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
