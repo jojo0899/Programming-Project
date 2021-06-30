@@ -3,7 +3,7 @@ package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-
+import javax.swing.ListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,10 +29,7 @@ import javax.swing.JScrollPane;
 
 public class ActiveEventsResultList extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6414286084539419540L;
+
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
 	private JTable table;
@@ -87,7 +84,6 @@ public class ActiveEventsResultList extends JFrame {
 		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
 		String user = "5Nc7hrEXoh";
 		String password = "5LK7MO7stL";
-		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
@@ -99,10 +95,7 @@ public class ActiveEventsResultList extends JFrame {
 					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Freie Pl‰tze", "Kosten" //Spaltenname
 				}
 			) {
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 1L;
+
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
 						false, false, false, false, false, false, false, false,false,false
 				};
@@ -137,8 +130,10 @@ public class ActiveEventsResultList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straﬂe, Hausnummer, Anzahlpl‰tze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+			
 			//System.out.println(Datum);
 			
+			System.out.println("call DateCompare");
 			if (!DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);
 				}

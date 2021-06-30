@@ -26,13 +26,17 @@ public class DateCompare {
 		//System.out.println(datum);
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy"); // format erstellen 
 		String today = format.format(datum); //aktuelles datum formatieren und in String speichern 
-		//System.out.println(today);
-		 
+		//System.out.println("Today"+today);
+		//System.out.println("DBDate: "+DBdate); 
 		  
 		 if(((java.util.Date) format.parseObject(DBdate)).before(format.parse(today)) == true) {
+
+			// System.out.println("true");
 			 return true;
 		 }
-		 else {return false;}
+		 else {
+			// System.out.println("false");
+			 return false;}
 		 
 		 
 		  
