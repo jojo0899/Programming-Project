@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+
 import DB.DB;
 import Functionalities.Password;
 import Functionalities.User;
@@ -15,12 +16,15 @@ import Functionalities.User;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+
 import java.awt.Toolkit;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -43,13 +47,27 @@ public class Login extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+	public static String getLookAndFeelClassName(String nameSnippet) {
+	    LookAndFeelInfo[] plafs = UIManager.getInstalledLookAndFeels();
+	    for (LookAndFeelInfo info : plafs) {
+	        if (info.getName().contains(nameSnippet)) {
+	            return info.getClassName();
+	        }
+	    }
+	    return null;
+	}
 	public static void main(String[] args) {
+				
 		try {
 			UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatGradiantoDeepOceanIJTheme"); //look and feel ändern
+		
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+		System.out.println(getLookAndFeelClassName(""));
 		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -19,6 +19,8 @@ public class DateCompare {
 		String datum = format.format(today);
 		System.out.println(datum);
 	}
+	
+	
 	public static boolean Datecheck(String DBdate) throws ParseException {
 		java.util.Date datum = java.util.Calendar.getInstance().getTime(); //aktuelles datum aber mit uhrzeit 
 		//System.out.println(datum);
