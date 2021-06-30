@@ -1,6 +1,6 @@
 package GUI;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -19,18 +18,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
-import javax.swing.ListSelectionModel;
+
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import Functionalities.DateCompare;
 import Functionalities.Event;
 import Functionalities.User;
-
 import javax.swing.JScrollPane;
 
 public class ActiveEventsResultList extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6414286084539419540L;
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
 	private JTable table;
@@ -66,8 +68,9 @@ public class ActiveEventsResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public ActiveEventsResultList() throws ParseException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ActiveEventsResultList.class.getResource("/images/32.png")));
 		setTitle("Aktive Events");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
@@ -96,6 +99,10 @@ public class ActiveEventsResultList extends JFrame {
 					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straﬂe", "Hausnummer", "Freie Pl‰tze", "Kosten" //Spaltenname
 				}
 			) {
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
 						false, false, false, false, false, false, false, false,false,false
 				};

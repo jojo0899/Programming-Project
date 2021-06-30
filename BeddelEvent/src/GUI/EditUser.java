@@ -143,7 +143,9 @@ public class EditUser extends JFrame {
 	 */
 	public EditUser() {
 		setTitle("User editieren");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+	//	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EditUser.class.getResource("/images/32.png")));
+		
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 609, 312);

@@ -63,7 +63,7 @@ public class SearchEventResultList extends JFrame {
 	 */
 	public SearchEventResultList() throws ParseException {
 		setTitle("Events suchen");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchEventResultList.class.getResource("/images/32.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();

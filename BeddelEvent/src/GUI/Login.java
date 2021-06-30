@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
@@ -29,6 +30,7 @@ import java.awt.Point;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 
 import javax.swing.JPasswordField;
 
@@ -47,13 +49,22 @@ public class Login extends JFrame {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+
+										
 					Login frame = new Login();
+					
+					
 					frame.setLocationRelativeTo(null); //Fenster in mitte plazieren
 					frame.setVisible(true);
 					frame.setResizable(false); //größe nicht anpassbar
+
+				
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -66,9 +77,11 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/32.png")));
 		setTitle("Login");
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./icons/32.png"));
 		setLocationByPlatform(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -152,9 +165,9 @@ public class Login extends JFrame {
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("./pic/48.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("/images/48.png")));
 		//lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("C:\\Users\\Fizzle\\Desktop\\Java Bilder\\72.png")));
-		lblNewLabel_2.setBounds(109, -11, 55, 74);
+		lblNewLabel_2.setBounds(123, -12, 55, 74);
 		contentPane.add(lblNewLabel_2);
 	}
 	

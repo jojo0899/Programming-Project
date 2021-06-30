@@ -56,7 +56,8 @@ public class MainWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public MainWindow() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/images/32.png")));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 566, 368);
 		
@@ -96,7 +97,7 @@ public class MainWindow extends JFrame {
 				ActiveEventsResultList.main(null); //activeEvents öffnen
 			}
 		});
-		BtnActiveEvents.setIcon(new ImageIcon("./pic/ActiveEvents.png"));
+		BtnActiveEvents.setIcon(new ImageIcon(MainWindow.class.getResource("/images/ActiveEvents.png")));
 		BtnActiveEvents.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hoover c ursor hinzufgen
 		contentPane.add(BtnActiveEvents);
 		
@@ -110,7 +111,7 @@ public class MainWindow extends JFrame {
 				
 			}
 		});
-		BtnCreateEvent.setIcon(new ImageIcon("./pic/NeuesEvent.png"));
+		BtnCreateEvent.setIcon(new ImageIcon(MainWindow.class.getResource("/images/NeuesEvent.png")));
 		BtnCreateEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor beim hoovern
 		contentPane.add(BtnCreateEvent);
 		
@@ -123,7 +124,7 @@ public class MainWindow extends JFrame {
 				HistoryList.main(null); // History list öffnen
 			}
 		});
-		BtnHistory.setIcon(new ImageIcon("./pic/Historie.png"));
+		BtnHistory.setIcon(new ImageIcon(MainWindow.class.getResource("/images/Historie.png")));
 		BtnHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //hand cursor setten
 		contentPane.add(BtnHistory);
 		
@@ -136,7 +137,7 @@ public class MainWindow extends JFrame {
 				dispose(); //aktuelles fenster schließen
 			}
 		});
-		BtnSearchEvent.setIcon(new ImageIcon("./pic/Suchen.png"));
+		BtnSearchEvent.setIcon(new ImageIcon(MainWindow.class.getResource("/images/Suchen.png")));
 		BtnSearchEvent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //cursor für hoovern
 		contentPane.add(BtnSearchEvent);
 		

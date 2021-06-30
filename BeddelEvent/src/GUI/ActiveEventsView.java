@@ -23,6 +23,10 @@ import java.awt.event.ActionEvent;
 
 public class ActiveEventsView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3027687178541816558L;
 	private JPanel contentPane;
 
 	/**
@@ -53,7 +57,10 @@ public class ActiveEventsView extends JFrame {
 	 */
 	public ActiveEventsView() {
 		setTitle("Event Informationen");
-	setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ActiveEventsView.class.getResource("/images/32.png")));
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

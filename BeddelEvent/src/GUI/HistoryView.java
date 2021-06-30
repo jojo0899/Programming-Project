@@ -54,8 +54,8 @@ public class HistoryView extends JFrame {
 	 */
 	public HistoryView() {
 		setTitle("Event informationen");
-				setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
-				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoryView.class.getResource("/images/32.png")));
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setBounds(100, 100, 450, 300);
 				contentPane = new JPanel();
 				contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
