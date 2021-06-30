@@ -13,9 +13,9 @@ public class DB {
 	
 //	
 	public static void DBconnection() {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -27,9 +27,9 @@ public class DB {
 	public static int counter=0;
 	public static void getMakers() throws SQLException {
 
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 		
@@ -52,9 +52,9 @@ public class DB {
 	}
 	
 	public static void InsertDataIntoUser(String username, String vorname, String nachname, String geschlecht, String email, String passworthash) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -71,9 +71,9 @@ public class DB {
 	//hallo
 	
 	public static void InsertDataIntoEvent(String sportart, String datum,String uhrzeit, String zip,String stadt,String straﬂe, String hausnummer, int anz, double kosten, String veranstalter, double xval, double yval) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -89,9 +89,9 @@ public class DB {
 	}
 	
 	public static void InsertDataIntoParticipate_on(String a, int b) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -107,9 +107,9 @@ public class DB {
 	}
 	
 	public static boolean LoginCheck(String UserName, String PassWort) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -163,9 +163,9 @@ public class DB {
 	}
 	
 	public static void resultSetToTableModel(JTable table, String tableName, String whereCondition, int columnCount) throws SQLException{
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
 	    	
@@ -196,9 +196,9 @@ public class DB {
     }
 	
 	public static Boolean checkIfUsernameExistsInDB(String username) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			Statement st = connection.createStatement();
             ResultSet result =  st.executeQuery("SELECT username FROM user WHERE username ='" + username + "'");
@@ -210,9 +210,9 @@ public class DB {
 	}
 	
 	public static void deleteUserFromDB(String username){
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		try (Connection connection = DriverManager.getConnection(url, user , password)) {
 			Statement st = connection.createStatement();
 			st.execute("DELETE FROM user WHERE username='" + username + "'");
@@ -223,9 +223,9 @@ public class DB {
 	}
 	
 	public static String getUserDataFromDB(String username, String column){
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -249,9 +249,9 @@ public class DB {
 	
 	
 	public static void DecrementAnzahlplaetze() {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -266,9 +266,9 @@ public class DB {
 	}
 	
 	public static int getEventID(String Sport, String Date,String Time, String zip, String city, String street, String hnr, int Anz,  double Kosten, String username, double xval, double yval) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -291,9 +291,9 @@ public class DB {
 		return 0;
 	}
 	public static void UpdateUser(String Username, String Email, String Vorname, String Nachname, String Gender) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
@@ -307,9 +307,9 @@ public class DB {
 	}
 	
 	public static void UpdateUserPassword(String Username, String Password) {
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			System.out.println("Verbindung steht");
