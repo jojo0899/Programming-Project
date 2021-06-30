@@ -15,7 +15,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import com.toedter.calendar.JCalendar;
 
 import Functionalities.Map;
-import Functionalities.Testsuche2;
+import Functionalities.CheckAddress;
 import Functionalities.Event;
 
 
@@ -446,7 +446,7 @@ public class CreateEvent extends JFrame {
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 String holeadresse = Double.toString(Map.xtemp)+" "+Double.toString(Map.ytemp);
-				 Testsuche2.convert(holeadresse);
+				 CheckAddress.convert(holeadresse);
 				
 			
 				if(rdbtnTeilnehmerNein.isSelected()) {
