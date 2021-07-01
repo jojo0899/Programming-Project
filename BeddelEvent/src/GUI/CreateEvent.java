@@ -1,9 +1,9 @@
 package GUI;
 //jona fix dein drecks onedrive
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
-import java.awt.Frame;
+
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
@@ -15,7 +15,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import com.toedter.calendar.JCalendar;
 
 import Functionalities.Map;
-import Functionalities.Testsuche2;
+import Functionalities.CheckAddress;
 import Functionalities.Event;
 
 
@@ -28,7 +28,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
-import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -48,12 +47,8 @@ import javax.swing.ButtonGroup;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
+@SuppressWarnings("serial")
 public class CreateEvent extends JFrame {
 
 
@@ -101,8 +96,8 @@ public class CreateEvent extends JFrame {
 	 * @throws SQLException 
 	 */
 	public CreateEvent() throws PropertyVetoException, ParseException, SQLException {
-setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
-		setTitle("Event erstellen");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CreateEvent.class.getResource("/images/32.png")));
+				setTitle("Event erstellen");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
 		contentPane = new JPanel();
@@ -451,7 +446,7 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		btnTeilnehmerNext5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 String holeadresse = Double.toString(Map.xtemp)+" "+Double.toString(Map.ytemp);
-				 Testsuche2.convert(holeadresse);
+				 CheckAddress.convert(holeadresse);
 				
 			
 				if(rdbtnTeilnehmerNein.isSelected()) {

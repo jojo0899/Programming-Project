@@ -1,15 +1,14 @@
 package GUI;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-
+import javax.swing.ListSelectionModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -19,17 +18,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
-import javax.swing.ListSelectionModel;
+
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import Functionalities.DateCompare;
 import Functionalities.Event;
 import Functionalities.User;
-
 import javax.swing.JScrollPane;
 
 public class ActiveEventsResultList extends JFrame {
+
 
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
@@ -66,8 +65,9 @@ public class ActiveEventsResultList extends JFrame {
 	 * @throws ParseException 
 	 */
 	public ActiveEventsResultList() throws ParseException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ActiveEventsResultList.class.getResource("/images/32.png")));
 		setTitle("Aktive Events");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
@@ -81,10 +81,9 @@ public class ActiveEventsResultList extends JFrame {
 		scrollPane.setBounds(0, 0, 931, 331);
 		contentPane.add(scrollPane);
 	
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
-		
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			//System.out.println("Verbindung steht");
 				table = new JTable(); //leere tabelle ohne werte erstellen
@@ -96,6 +95,7 @@ public class ActiveEventsResultList extends JFrame {
 					"ID", "Sportart", "Datum", "Uhrzeit", "Plz","Stadt", "Straße", "Hausnummer", "Freie Plätze", "Kosten" //Spaltenname
 				}
 			) {
+
 				boolean[] columnEditables = new boolean[] { //Zeilen nicht editieren
 						false, false, false, false, false, false, false, false,false,false
 				};
@@ -130,8 +130,10 @@ public class ActiveEventsResultList extends JFrame {
 			
 			String data[] = {ID, sportart, Datum, Uhrzeit,Plz, Stadt, Straße, Hausnummer, Anzahlplätze, kosten};
 			DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+			
 			//System.out.println(Datum);
 			
+			System.out.println("call DateCompare");
 			if (!DateCompare.Datecheck(Datum)) {
 				tblModel.addRow(data);
 				}
@@ -148,9 +150,9 @@ public class ActiveEventsResultList extends JFrame {
 				if(!table.getSelectionModel().isSelectionEmpty()) {		//wenn der button absagen gedrüclt wurde und eine reihe ausgewählt wurde, führe sql delete statement aus
 					int confirm = JOptionPane.showConfirmDialog(null, "Sind Sie sicher, dass Sie dieses Event Absagen möchten?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
 					if(confirm==0) {
-					String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-					String user = "freedbtech_sabbaprogex";
-					String password = "sabba2021";
+						String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+						String user = "5Nc7hrEXoh";
+						String password = "5LK7MO7stL";
 					
 					try (Connection connection = DriverManager.getConnection(url, user , password)){
 						//System.out.println("Verbindung steht");

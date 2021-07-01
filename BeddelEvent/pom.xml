@@ -11,6 +11,23 @@
 		  <artifactId>flatlaf-swingx</artifactId>
 		  <version>1.1.2</version>
 		</dependency> 
+
+
+<dependency>
+  <groupId>com.formdev</groupId>
+  <artifactId>flatlaf</artifactId>
+  <version>1.1.2</version>
+</dependency>
+
+<dependency>
+	<groupId>com.formdev</groupId>
+	<artifactId>flatlaf-intellij-themes</artifactId>
+	<version>1.2</version>
+</dependency>
+<!-- Thanks for using https://jar-download.com -->
+
+		
+		
 	  	<!-- https://mvnrepository.com/artifact/com.toedter/jcalendar --> 
 	<dependency>
 	    <groupId>commons-codec</groupId>

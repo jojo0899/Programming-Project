@@ -13,9 +13,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-public class TestSuche {
+public class MapSearch {
 	
-	public TestSuche() {
+	public MapSearch() {
  		BasicConfigurator.configure(); //NEU
  }
 
@@ -107,49 +107,49 @@ public class TestSuche {
             req= (JSONObject) jsonObject.get("address");
             
             if(req.get("road")!=null) {
-            	Event.street  =Testsuche2.checkAddress(req.get("road").toString());
+            	Event.street  =CheckAddress.checkAddress(req.get("road").toString());
             }else if(req.get("road")==null){
             	Event.street =	"";
                 }
             
             if(req.get("city")!=null) {
-            	Event.city =	Testsuche2.checkAddress(req.get("city").toString());
+            	Event.city =	CheckAddress.checkAddress(req.get("city").toString());
             }else if(req.get("city")==null) {
             	if(req.get("town")!=null) {
-            		Event.city = Testsuche2.checkAddress(req.get("town").toString());
+            		Event.city = CheckAddress.checkAddress(req.get("town").toString());
             	}else  if(req.get("village")!=null){
-            		Event.city = Testsuche2.checkAddress(req.get("village").toString());
+            		Event.city = CheckAddress.checkAddress(req.get("village").toString());
     			}else  if(req.get("hamlet")!=null){
-            		Event.city = Testsuche2.checkAddress(req.get("hamlet").toString());
+            		Event.city = CheckAddress.checkAddress(req.get("hamlet").toString());
     			}else if(req.get("suburb")!=null) {
-            		Event.city = Testsuche2.checkAddress(req.get("suburb").toString());
+            		Event.city = CheckAddress.checkAddress(req.get("suburb").toString());
             	}else {
             				Event.city="";
             	            	}
             }
             	
             	
-             	Event.zip =	Testsuche2.checkAddress(req.get("postcode").toString());
+             	Event.zip =	CheckAddress.checkAddress(req.get("postcode").toString());
              	
              	if(req.get("house_number")!=null) {
-                	Event.hnr =	Testsuche2.checkAddress(req.get("house_number").toString());	
+                	Event.hnr =	CheckAddress.checkAddress(req.get("house_number").toString());	
              	}else if(req.get("building")!=null) {
 
-                	Event.hnr =	Testsuche2.checkAddress(req.get("building").toString());
+                	Event.hnr =	CheckAddress.checkAddress(req.get("building").toString());
              		            		
              	}else if(req.get("leisure")!=null){
-             		Event.hnr =	Testsuche2.checkAddress(req.get("leisure").toString());
+             		Event.hnr =	CheckAddress.checkAddress(req.get("leisure").toString());
              		
              		
              	}else if(req.get("amenity")!=null) {
-             		Event.hnr =	Testsuche2.checkAddress(req.get("amenity").toString());
+             		Event.hnr =	CheckAddress.checkAddress(req.get("amenity").toString());
              		
              	}           			else if(req.get("highway")!=null){
 
-             		Event.hnr =	Testsuche2.checkAddress(req.get("highway").toString());
+             		Event.hnr =	CheckAddress.checkAddress(req.get("highway").toString());
              		
              	}else if(req.get("historic")!=null){
-             		Event.hnr =	Testsuche2.checkAddress(req.get("historic").toString());
+             		Event.hnr =	CheckAddress.checkAddress(req.get("historic").toString());
                  		
              	}
              	else	{

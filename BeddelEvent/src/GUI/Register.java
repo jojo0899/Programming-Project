@@ -169,8 +169,8 @@ public class Register extends JFrame {
 	 */
 	public Register() {
 		setTitle("Registrierung");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
-		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Register.class.getResource("/images/32.png")));
+			setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 609, 384);
 		contentPane = new JPanel();
@@ -273,6 +273,7 @@ public class Register extends JFrame {
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblGender.setBounds(144, 236, 95, 16);
 		contentPane.add(lblGender);
+		User.gender = "M";
 		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
 		buttonGroup.add(ButtonMale);

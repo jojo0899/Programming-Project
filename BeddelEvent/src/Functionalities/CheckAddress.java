@@ -2,7 +2,7 @@ package Functionalities;
 //test
 import java.util.Map;
 
-public class Testsuche2 {
+public class CheckAddress {
 
 	public static void convert(String adresse) {
 //	public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Testsuche2 {
 		String street= null;
 		String city= null ;
 		String zip = null;
-		TestSuche test = new TestSuche();
+		MapSearch test = new MapSearch();
 
 		Map<String, String> coords;
 		

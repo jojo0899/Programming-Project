@@ -63,8 +63,8 @@ public class HistoryList extends JFrame {
 	 */
 	public HistoryList() throws ParseException {
 		setTitle("Event Hitsorie");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoryList.class.getResource("/images/32.png")));
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 421);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -77,9 +77,9 @@ public class HistoryList extends JFrame {
 		scrollPane.setBounds(0, 0, 931, 331);
 		contentPane.add(scrollPane);
 		
-		String url = "jdbc:mysql://freedb.tech:3306/freedbtech_progExDatabase?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Berlin";
-		String user = "freedbtech_sabbaprogex";
-		String password = "sabba2021";
+		String url = "jdbc:mysql://remotemysql.com:3306/5Nc7hrEXoh";
+		String user = "5Nc7hrEXoh";
+		String password = "5LK7MO7stL";
 		
 		try (Connection connection = DriverManager.getConnection(url, user , password)){
 			//System.out.println("Verbindung steht");

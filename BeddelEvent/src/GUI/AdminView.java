@@ -3,7 +3,6 @@ package GUI;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -18,9 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
+
 import javax.swing.JTable;
-import javax.swing.JTextField;
+
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
@@ -28,6 +27,10 @@ import DB.DB;
 
 public class AdminView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 333419040668761426L;
 	private JPanel contentPane;
 
 	/**
@@ -56,7 +59,9 @@ public class AdminView extends JFrame {
 
 	public AdminView() {
 		setTitle("Admin View");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		//setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AdminView.class.getResource("/images/32.png")));
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1333, 519);
 		contentPane = new JPanel();

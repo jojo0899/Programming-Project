@@ -83,7 +83,7 @@ public class SearchEvent extends JFrame {
 	 */
 	public SearchEvent() throws PropertyVetoException, ParseException {
 		setTitle("Event suchen");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("./pic/32.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SearchEvent.class.getResource("/images/32.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 582, 375);
 		contentPane = new JPanel();
