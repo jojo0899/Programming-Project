@@ -111,7 +111,7 @@ public class ActiveEventsResultList extends JFrame {
 		
 		
 		Statement st = connection.createStatement();
-		String query = "SELECT e.id, e.sportart, e.Datum, e.Uhrzeit, e.Postleitzahl, e.Stadt, e.Straﬂe, e.Hausnummer, e.Anzahlpl‰tze, e.kosten FROM event e join participate_on p on(e.id = p.eventid) WHERE username = '" + User.username +"' OR (username = veranstalter)";
+		String query = "SELECT e.id, e.sportart, e.Datum, e.Uhrzeit, e.Postleitzahl, e.Stadt, e.Straﬂe, e.Hausnummer, e.Anzahlpl‰tze, e.kosten FROM event e join participate_on p on(e.id = p.eventid) WHERE username = '" + User.username +"' ";
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()) {
 			String ID = String.valueOf(rs.getInt("id"));

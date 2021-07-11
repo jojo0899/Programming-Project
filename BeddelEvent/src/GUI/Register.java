@@ -275,6 +275,9 @@ public class Register extends JFrame {
 		contentPane.add(lblGender);
 		User.gender = "M";
 		
+		
+		
+		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
 		buttonGroup.add(ButtonMale);
 		ButtonMale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)); //Handcursor beim hoovern

@@ -231,6 +231,7 @@ public class EditUser extends JFrame {
 		lblGender.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblGender.setBounds(133, 182, 107, 16);
 		contentPane.add(lblGender);
+		User.gender = "M";
 		
 		JRadioButton ButtonMale = new JRadioButton("Männlich");
 		buttonGroup.add(ButtonMale);

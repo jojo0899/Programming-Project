@@ -11,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+
+import Functionalities.User;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -45,6 +48,7 @@ public class MainWindow extends JFrame {
 					frame.setLocationRelativeTo(null);		//fenster in mitte plazieren
 					frame.setResizable(false); //größe nicht anpassbar
 					frame.setVisible(true);
+					System.out.println(User.username);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
